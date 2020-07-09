@@ -47,7 +47,18 @@ if(isset($check_for_update) && $check_for_update) {
 if(($PARAMETERS['mode']['user_bbcode'] == 'ON' && $PARAMETERS['settings']['user_bbcode']['type'] == 'bbd') || $PARAMETERS['settings']['forum_bbcode']['type'] == 'bbd') {
     include('plugins/bbdecoder/bbdecoder.php');
 }
-
+	//include il preprocessore dei css
+	require_once 'plugins/csscrush/CssCrush.php';
+	
+	$object_name = 'options';
+	//opzioni per il processore dei css
+	$settings= array(
+		'minify' => false,
+		'output_dir' =>  'themes/' . $PARAMETERS['themes']['current_theme'] . '/css',
+		'versioning' => true,
+	);	
+	//imposta le opzioni per il processore dei css		
+	csscrush_set($object_name,$settings);	
 ?>
 <!--Force IE6 into quirks mode with this comment tag-->
 <!DOCTYPE html>
@@ -57,13 +68,7 @@ if(($PARAMETERS['mode']['user_bbcode'] == 'ON' && $PARAMETERS['settings']['user_
     <!-- IE9: mi stai ampiamente rompendo i maroni. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="favicon.png" type="image/png" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/homepage.css" type="text/css" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/main.css" type="text/css" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/chat.css" type="text/css" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/presenti.css" type="text/css" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/scheda.css" type="text/css" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/messaggi.css" type="text/css" />
-    <link rel="stylesheet" href="themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/forum.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo csscrush_file('themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <?php
     /** * Il controllo individua se l'header non è impiegato per il main */

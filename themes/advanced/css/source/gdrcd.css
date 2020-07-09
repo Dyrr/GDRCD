@@ -1,0 +1,21 @@
+/* IMPORTA LE VARIABILI */
+@import '_variabili.css';
+
+/* IMPORTA GLI STILI COMUNI */
+@import 'common.css';
+
+/* IMPORTA I CSS DELLA HOME */
+@import 'homepage.css';
+
+/* importa i css principali */
+@import 'main.css';
+
+@import 'chat.css';
+
+@import 'presenti.css';
+
+@import 'scheda.css';
+
+@import 'messaggi.css';
+
+@import 'forum.css';
