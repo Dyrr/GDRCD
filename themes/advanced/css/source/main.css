@@ -27,16 +27,7 @@ div, ul, li {
     clear: both;
 }
 
-a, a:visited {
-    color: #333;
-    text-decoration: none;
-}
 
-a:hover {
-    color: #222;
-    font-weight: bolder;
-    text-decoration: underline;
-}
 
 div.form_field table {
     margin: 5px auto;

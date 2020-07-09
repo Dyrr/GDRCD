@@ -1,24 +1,22 @@
-/** * Skin Advanced
-	* Il presente files regola gli stili CSS della homepage
-	* @author Blancks
-*/
-
-/** * STILI DEI CONTENUTI DEL SITO */
-
-/** * Titolo del sito
-*/
-h1 {
+/*  INIZIO CSS DELLA HOME */
+h1
+{
     margin: 0;
     padding: 30px 0 0 76px;
     font-size: 38px;
     font-family: Myriad Pro, Myriad Web Pro Regular, Lucida Grande, Geneva, Trebuchet MS, sans-serif;
+	
+	a,
+	a:visited, 
+	a:hover
+	{
+		color: #222;
+		text-decoration: none;		
+	}
+	
 }
 
-/** * Stile del link sul titolo */
-h1 a, h1 a:visited, h1 a:hover {
-    color: #222;
-    text-decoration: none;
-}
+
 
 /** * Sottotitolo
 */
@@ -40,8 +38,28 @@ div.login_form {
 
 /** * stile che ingloba i gruppi label/input
 */
-div.login_form div {
-    margin-bottom: 4px;
+div.login_form 
+{
+	
+	div 
+	{
+		margin-bottom: 4px;
+	}
+
+	input
+	{
+		width: 145px;
+		margin: 0;
+	
+		&[type='submit']
+		{
+			display: block;
+			float: right;
+			margin-right: 52px;
+			width: 65px;
+		}
+		
+	}
 }
 
 /** * Stile per le label dei form
@@ -51,79 +69,73 @@ span.form_label {
     font-weight: bolder;
 }
 
-div.login_form input {
-    width: 145px;
-    margin: 0;
-}
 
-/** * Stile per il bottone del login
-*/
-div.login_form input[type='submit'] {
-    display: block;
-    float: right;
-    margin-right: 52px;
-    width: 65px;
-}
 
-/** * Contenuti principali della pagina
-*/
-
-/** * Titolo della sezione */
-h2 {
-    font-size: 25px;
-    font-weight: normal;
-    margin: 0;
-    padding-bottom: 4px;
-    border-bottom: solid 1px #d9d9d9;
-}
 
 /** * Contenuti testuali */
-div.content_body p {
-    font-size: 13px;
-    padding: 0 10px;
+div.content_body 
+{
+    width: 620px;
+    padding: 10px;
+    float: left;	
+	
+	p
+	{
+		font-size: 13px;
+		padding: 0 10px;
+	}
+	
+	a
+	{
+		color: #999;
+		text-decoration: underline;
+	}	
 }
 
-div.content_body a {
-    color: #999;
-    text-decoration: underline;
-}
+
 
 /** * Men� di navigazione
 */
-div.sidecontent ul {
-    margin: 20px 0 0 10px;
-    padding: 20px 10px 20px 10px;
-    background-color: #a1a1a1;
-    list-style-type: none;
-    -moz-border-radius: 5px; /* Bordi arrotondati */
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
+div.sidecontent 
+{	
+    width: 200px;
+    float: left;	
+	
+	ul
+	{
+		margin: 20px 0 0 10px;
+		padding: 20px 10px 20px 10px;
+		background-color: #a1a1a1;
+		list-style-type: none;
+		border-radius: 5px;
+	
+		li
+		{
+			margin-bottom: 5px;
+		
+			a,
+			a:visited
+			{
+				color: #f1f1f1;
+				text-decoration: none;
+				display: block;
+				font-size: 17px;
+				padding: 2px;
+				background-color: none;				
+			}
+		
+			a:hover
+			{
+				background-color: #b2b2b2;
+				color: #444;
+			}		
+		
+		}	
+	
+	}
+
 }
 
-/** * Contenitore delle voci nel men� 
-*/
-div.sidecontent ul li {
-    margin-bottom: 5px;
-}
-
-/** * Link voce men� 
-*/
-div.sidecontent ul li a, div.sidecontent ul li a:visited {
-    color: #f1f1f1;
-    text-decoration: none;
-    display: block;
-    font-size: 17px;
-    padding: 2px;
-    background-color: none;
-}
-
-/** * Link voce men� al passaggio del mouse
-*/
-div.sidecontent ul li a:hover {
-    background-color: #b2b2b2;
-    color: #444;
-}
 
 /** Stile generico contenitore per altri contenuti nella sidebar
 */
@@ -133,16 +145,16 @@ div.side_modules {
     font-color: #333;
     padding: 10px;
     text-align: center;
-    -moz-border-radius: 5px; /* Bordi arrotondati */
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
     border-radius: 5px;
+	
+	.form_label
+	{
+		font-size: 10px;
+		margin-right: 2px;
+	}	
 }
 
-div.side_modules .form_label {
-    font-size: 10px;
-    margin-right: 2px;
-}
+
 
 /** * Tabella statistiche */
 table.statistics {
@@ -177,28 +189,43 @@ table.statistics {
 /** * Recupero password */
 div.pass_rec {
     margin-top: 10px;
+	
+	input[type='submit']
+	{
+		margin-top: 3px;
+	}
+	
 }
 
 input#passrecovery {
     width: 126px;
 }
 
-div.pass_rec input[type='submit'] {
-    margin-top: 3px;
-}
+
 
 /** * Footer info */
-div#footer div {
-    background-color: #d9d9d9;
-    padding: 5px 0 3px 0;
+div#footer
+{ 
+    height: 68px;
+    padding: 8px 59px 0 59px;
+    background: url("../../imgs/footer.png") no-repeat top left;
+	
+	div
+	{
+		background-color: #d9d9d9;
+		padding: 5px 0 3px 0;
+	}
+	
+	p
+	{
+		font-size: 10px;
+		margin: 0;
+		padding: 0 15px 2px 15px;
+		text-align: center;
+	}	
 }
 
-div#footer p {
-    font-size: 10px;
-    margin: 0;
-    padding: 0 15px 2px 15px;
-    text-align: center;
-}
+
 
 /** * LAYOUT SITO */
 
@@ -231,28 +258,4 @@ div#content {
     padding: 0 60px 10px 60px;
     background: url("../../imgs/body.png") repeat-y left top;
 }
-
-/** * Struttura colonna di lato
-*/
-div.sidecontent {
-    width: 200px;
-    float: left;
-}
-
-/** * Struttura corpo contenuti pagina 
-*/
-div.content_body {
-    width: 620px;
-    padding: 10px;
-    float: left;
-}
-
-/** * pie di pagina
-*/
-div#footer {
-    height: 68px;
-    padding: 8px 59px 0 59px;
-    background: url("../../imgs/footer.png") no-repeat top left;
-}
-
-/** *** Fine stili regolatori del layout *** */
+/*  FINE CSS DELLA HOME */
