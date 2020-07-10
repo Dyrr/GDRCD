@@ -1,12 +1,8 @@
 <?php
-/**    * Fix Require al posto di include
- * Require blocca l'esecuzione dello script se il file è assente
- * dal momento che il file in questione è fondamentale è buona norma applicarlo
- * @author Blancks
- */
-require('header.inc.php'); /*Header comune*/
+	define('ROOT', __DIR__);
 
-gdrcd_controllo_sessione(); /*Se si è tentato di accedere senza un'autenticazione blocca l'esecuzione*/
+	//Includo i parametri, la configurazione, la lingua e le funzioni
+	require_once ROOT . '/includes/required.php';
 
 $strInnerPage = "";
 
@@ -43,7 +39,13 @@ if(isset($_REQUEST['page'])) {
 if(gdrcd_controllo_esilio($_SESSION['login']) === true) {
     session_destroy();
 } else {
-    require('layouts/'.$PARAMETERS['themes']['kind_of_layout'].'_frames.php');
+    template\start('content');
+	require('layouts/'.$PARAMETERS['themes']['kind_of_layout'].'_frames.php');
+	template\end('content');
 }
 
-require('footer.inc.php');  /*Footer comune*/
+	echo $OUT['header'];	
+	
+	echo $OUT['content'];	
+  
+	echo $OUT['footer'];

@@ -1,3 +1,30 @@
+<?php
+	template\start('header');
+?>
+<!DOCTYPE html>
+	<html lang="it">
+		<head>
+			<meta charset="utf-8" />
+			<link rel="shortcut icon" href="favicon.png" type="image/png" />
+			<link rel="stylesheet" href="<?php echo csscrush_file('themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+<?php
+    /** * Il controllo individua se l'header non è impiegato per il main */
+    if(isset($_SESSION['login'])) {
+        ?>
+        <link rel="stylesheet" href="layouts/<?php echo $PARAMETERS['themes']['kind_of_layout'], '_frames.php?css=true'; ?>" type="text/css" />
+        <?php
+    }
+    ?>
+    <title>
+        <?php echo $PARAMETERS['info']['site_name']; ?>
+    </title>
+</head>
+<body class="main_body">
+<?php
+	template\end('header');	
+	template\start('footer');
+?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/includes/corefunctions.js"></script>
@@ -51,18 +78,8 @@ if($PARAMETERS['mode']['popup_choise'] == 'ON') {
         $('#dialog-' + name).dialog({width: width, height: height});
     }
 </script>
-<!--<script type="text/javascript">
-    setTimeout("self.location.href.reload();",<?php //echo (int) $_GET['ref'] * 1000; ?>);
-</script-->
+
 </body>
 </html>
 <?php
-/*Chiudo la connessione al database*/
-gdrcd_close_connection($handleDBConnection);
-
-/**    * Per ottimizzare le risorse impiegate le liberiamo dopo che non ne abbiamo pi� bisogno
- * @author Blancks
- */
-unset($MESSAGE);
-unset($PARAMETERS);
-?>
+	template\end('footer');

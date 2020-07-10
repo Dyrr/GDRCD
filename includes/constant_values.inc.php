@@ -1,4 +1,5 @@
 <?php
+define('GDRCD', 'GDRCD');
 
 /*Livelli di accesso utente*/
 define('DELETED', -1);

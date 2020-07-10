@@ -625,3 +625,6 @@ function gdrcd_list($str) {
 
     return $list;
 }
+
+require 'template.inc.php';
+require 'modulo.inc.php';

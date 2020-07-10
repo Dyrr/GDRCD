@@ -1,0 +1,1254 @@
+/*
+ * http://github.com/peteboere/css-crush (v3.0.1)
+ */
+/* IMPORTA LE VARIABILI */
+/* IMPORTA GLI STILI COMUNI */
+/* INIZIO STILI COMUNI */
+/* LINK */
+a,
+a:visited {
+    color: #333;
+    text-decoration: none;
+    }
+a:hover {
+    color: #222;
+    font-weight: bolder;
+    text-decoration: underline;
+    }
+
+/* HEADER */
+h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: solid 1px #d9d9d9;
+    }
+
+/* FINE STILI COMUNI */
+/* IMPORTA I CSS DELLA HOME */
+/*  INIZIO CSS DELLA HOME */
+h1 {
+    margin: 0;
+    padding: 30px 0 0 76px;
+    font-size: 38px;
+    font-family: Myriad Pro,Myriad Web Pro Regular,Lucida Grande,Geneva,Trebuchet MS,sans-serif;
+    }
+h1 a,
+h1 a:visited,
+h1 a:hover {
+    color: #222;
+    text-decoration: none;
+    }
+
+/** * Sottotitolo
+*/
+div.subtitle {
+    margin-left: 78px;
+    color: #666;
+    font-family: Verdana,Sans;
+    font-size: 12px;
+    }
+
+/** * Stili del form di login
+*/
+div.login_form {
+    float: right;
+    width: 230px;
+    padding: 10px;
+    margin-top: 60px;
+    }
+
+/** * stile che ingloba i gruppi label/input
+*/
+div.login_form div {
+    margin-bottom: 4px;
+    }
+div.login_form input {
+    width: 145px;
+    margin: 0;
+    }
+div.login_form input[type='submit'] {
+    display: block;
+    float: right;
+    margin-right: 52px;
+    width: 65px;
+    }
+
+/** * Stile per le label dei form
+*/
+span.form_label {
+    text-align: left;
+    font-weight: bolder;
+    }
+
+/** * Contenuti testuali */
+div.content_body {
+    width: 620px;
+    padding: 10px;
+    float: left;
+    }
+div.content_body p {
+    font-size: 13px;
+    padding: 0 10px;
+    }
+div.content_body a {
+    color: #999;
+    text-decoration: underline;
+    }
+
+/** * Men� di navigazione
+*/
+div.sidecontent {
+    width: 200px;
+    float: left;
+    }
+div.sidecontent ul {
+    margin: 20px 0 0 10px;
+    padding: 20px 10px 20px 10px;
+    background-color: #a1a1a1;
+    list-style-type: none;
+    border-radius: 5px;
+    }
+div.sidecontent ul li {
+    margin-bottom: 5px;
+    }
+div.sidecontent ul li a,
+div.sidecontent ul li a:visited {
+    color: #f1f1f1;
+    text-decoration: none;
+    display: block;
+    font-size: 17px;
+    padding: 2px;
+    background-color: none;
+    }
+div.sidecontent ul li a:hover {
+    background-color: #b2b2b2;
+    color: #444;
+    }
+
+/** Stile generico contenitore per altri contenuti nella sidebar
+*/
+div.side_modules {
+    margin: 10px 0 0 10px;
+    background-color: #b9b9b9;
+    font-color: #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    }
+div.side_modules .form_label {
+    font-size: 10px;
+    margin-right: 2px;
+    }
+
+/** * Tabella statistiche */
+table.statistics {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 10px;
+    }
+table.statistics tr.pair {
+    background-color: #c9c9c9;
+    }
+table.statistics td {
+    padding-right: 5px;
+    }
+table.statistics td.label {
+    font-weight: bolder;
+    text-align: left;
+    padding: 2px;
+    }
+
+/** * Recupero password */
+div.pass_rec {
+    margin-top: 10px;
+    }
+div.pass_rec input[type='submit'] {
+    margin-top: 3px;
+    }
+input#passrecovery {
+    width: 126px;
+    }
+
+/** * Footer info */
+div#footer {
+    height: 68px;
+    padding: 8px 59px 0 59px;
+    background: url(../../../../themes/advanced/imgs/footer.png) no-repeat top left;
+    }
+div#footer div {
+    background-color: #d9d9d9;
+    padding: 5px 0 3px 0;
+    }
+div#footer p {
+    font-size: 10px;
+    margin: 0;
+    padding: 0 15px 2px 15px;
+    text-align: center;
+    }
+
+/** * LAYOUT SITO */
+/** * Struttura contenitore di tutto il sito 
+*/
+div#main {
+    height: 100%;
+    width: 100%;
+    background: url(../../../../themes/advanced/imgs/bg_header.jpg) repeat-x top left;
+    text-align: center;
+    }
+
+/** * Larghezza della struttura del sito
+*/
+div#site_width {
+    margin: 0 auto;
+    width: 960px;
+    text-align: left;
+    }
+
+/** * Header
+*/
+div#header {
+    height: 180px;
+    }
+
+/** * Corpo contenuti della pagina
+*/
+div#content {
+    padding: 0 60px 10px 60px;
+    background: url(../../../../themes/advanced/imgs/body.png) repeat-y left top;
+    }
+
+/*  FINE CSS DELLA HOME */
+/* importa i css principali */
+/** * Skin advanced
+	* @author Blancks
+*/
+/** * Parametri di default nella pagina
+*/
+body {
+    padding: 0;
+    margin: 0;
+    color: #222;
+    font-family: Verdana,Sans;
+    font-size: 11px;
+    background: url(../../../../themes/advanced/imgs/bg.gif) top left repeat;
+    }
+body.transparent_body {
+    background-color: transparent;
+    background-image: none;
+    }
+div,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    }
+.blank {
+    clear: both;
+    }
+div.form_field table {
+    margin: 5px auto;
+    }
+input,
+textarea,
+select {
+    width: 80%;
+    margin-bottom: 10px;
+    }
+input[type='submit'] {
+    width: auto;
+    margin: 5px 0 15px 0;
+    }
+textarea {
+    height: 100px;
+    }
+div.form_label {
+    font-size: 13px;
+    font-weight: bolder;
+    margin-top: 5px;
+    }
+div.form_info {
+    font-size: 12px;
+    margin-bottom: 15px;
+    }
+select.day,
+select.month,
+select.year {
+    width: 60px;
+    display: inline-block;
+    }
+
+/** * Stile dei messaggi d'avviso dell'engine */
+div.warning,
+div.error {
+    background-color: #cf8888;
+    font-size: 12px;
+    text-align: center;
+    margin: 15px;
+    font-weight: bolder;
+    padding: 10px;
+    border: solid 1px #800;
+    color: #970b0b;
+    }
+div.link_back {
+    text-align: center;
+    background-color: #d1d1d1;
+    padding: 2px;
+    }
+
+/** * Logout */
+div.logout_box {
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #D9D9D9;
+    border: solid 1px #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+div.logout_box a {
+    text-decoration: underline;
+    font-style: italic;
+    }
+
+/** * Titoli delle sezioni
+*/
+div.innertube h2,
+div.output h2,
+div.page_title h2 {
+    font-size: 14px;
+    font-weight: bolder;
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 4px;
+    margin-top: 0;
+    }
+
+/** * Stile dei contenitori grigi con i bordini arrotondati
+*/
+div.pagina_info_location,
+div.msgs,
+div.menu,
+div.presenti,
+div.output {
+    margin: 5px auto;
+    padding: 10px;
+    width: 180px;
+    background-color: #b9b9b9;
+    border: solid 1px #444;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+div.output {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    overflow: auto;
+    text-align: center;
+    background: url(../../../../themes/advanced/imgs/main_bg.jpg) no-repeat top center #b9b9b9;
+    }
+
+/** * Informazioni con anteprima luogo
+*/
+div.info_image {
+    text-align: center;
+    }
+div.box_stato_luogo {
+    padding-top: 2px;
+    margin-bottom: 15px;
+    }
+div.meteo,
+div.meteo_date {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    }
+
+/** * Frame Messaggi 
+*/
+iframe.iframe_messaggi {
+    height: 33px;
+    width: 180px;
+    }
+div.pagina_messaggi {
+    text-align: center;
+    font-size: 14px;
+    }
+div.pagina_messaggi a,
+div.pagina_messaggi a:visited {
+    text-decoration: none;
+    color: #444;
+    }
+div.messaggio_forum_nuovo a,
+div.messaggio_forum_nuovo a:visited {
+    font-weight: bolder;
+    font-style: italic;
+    color: #111;
+    }
+
+/** * Men� di gioco
+*/
+select#gotomap {
+    display: block;
+    width: 160px;
+    margin: 0 auto 15px auto;
+    }
+div.link_menu {
+    padding: 0 0 0 20px;
+    font-size: 14px;
+    }
+div.link_menu a {
+    display: block;
+    padding: 5px;
+    text-align: left;
+    }
+div.link_menu a:hover {
+    background-color: #cfcfcf;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+div.link_menu a.sprite {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: no-repeat top left;
+    }
+div.link_menu a.sprite:hover {
+    background-position: 0 100%;
+    }
+
+/** * Mappa cliccabile */
+/** * Posizionamento mappa cliccabile 
+*/
+div.mappaclick_map {
+    margin: 20px auto;
+    }
+
+/** * Link testuali sulla mappa */
+div.mappaclick_map a {
+    font-size: 13px;
+    font-weight: bolder;
+    }
+
+/** * stile della tooltip di descrizione sulla mappa 
+*/
+div#descriptionLoc {
+    position: absolute;
+    width: 200px;
+    background-color: #cfcfcf;
+    padding: 20px;
+    font-size: 12px;
+    border: solid 1px #666;
+    font-family: Verdana,Sans;
+    text-align: left;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    display: none;
+    z-index: 9999;
+    }
+
+/** * Stili relativi all'elenco delle mappe in basso
+*/
+div.mappaclick_more {
+    padding-top: 10px;
+    }
+div.mappaclick_more a {
+    background-color: #cfcfcf;
+    padding: 8px;
+    margin-right: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+
+/** * Messages center
+*/
+div.elenco_record_gioco {
+    padding: 20px;
+    }
+div.elenco_record_gioco table {
+    width: 100%;
+    background-color: #d1d1d1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+div.elementi_elenco {
+    padding-top: 5px;
+    text-align: center;
+    }
+div.titoli_elenco {
+    font-size: 13px;
+    font-weight: bolder;
+    }
+img.colonna_elengo_messaggi_icon {
+    width: 30px;
+    height: 30px;
+    }
+div.controlli_elenco {
+    width: 60px;
+    }
+div.controllo_elenco {
+    width: 20px;
+    float: left;
+    }
+div.controllo_elenco input[type='image'] {
+    width: 15px;
+    }
+
+/** * Ambientazione/Regolamento */
+div.user_ambientazione div.elementi_elenco,
+div.servizi_abilita div.elementi_elenco {
+    text-align: left;
+    padding: 5px;
+    }
+div.user_ambientazione td.casella_titolo div.elementi_elenco,
+div.servizi_abilita td.casella_titolo div.elementi_elenco {
+    font-size: 14px;
+    font-weight: bolder;
+    padding: 2px 0 2px 10px;
+    }
+
+/** * Generico per elenchi, bacheche, regolamento, ambientazione etc */
+div.capitolo_elenco {
+    font-weight: bolder;
+    font-size: 13px;
+    text-align: left;
+    padding: 5px 5px 5px 20px;
+    background-color: #c9c9c9;
+    }
+div.elementi_elenco {
+    min-height: 20px;
+    }
+td.casella_elemento,
+div.elementi_elenco {
+    font-size: 12px;
+    background-color: #d9d9d9;
+    }
+div.controllo_elenco input[type='image'] {
+    height: 15px;
+    width: 15px;
+    display: block;
+    margin: 2px 5px;
+    }
+div.elementi_elenco a {
+    font-weight: bolder;
+    }
+div.elementi_elenco a:hover {
+    text-decoration: none;
+    }
+
+/** * Stile tabelle nei moduli di gestione */
+div.elenco_record_gestione table {
+    width: 95%;
+    margin: 10px auto;
+    }
+
+/** * Accorgimenti Layout */
+/** * Allineamento verticale delle colonne 
+*/
+#framecontentLeft,
+#framecontentRight {
+    display: table;
+    }
+
+/** * margine delle colonne */
+div.innertube {
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    }
+
+/****************************************************************************/
+/* STILE DELLA CHAT E DEI PANNELLI */
+/* HELP: Da qui è possibile modificare:
+- I font ed i colori della chat
+- Le dimensioni e la posizione della chat
+- Lo sfondo della chat*/
+iframe.iframe_chat {
+    border: none;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    }
+div.chat_window {
+    text-align: center;
+    }
+
+/**	* Fix per layout elastico
+	* @author Blancks
+*/
+div.chat_box {
+    position: absolute;
+    top: 50px;
+    bottom: 120px;
+    left: 10px;
+    right: 10px;
+    overflow: auto;
+    font-size: 16px;
+    text-align: left;
+    }
+div.pagina_frame_chat div.page_body div.panels_box {
+    position: absolute;
+    bottom: 9px;
+    left: 5px;
+    right: 5px;
+    }
+
+/**	* Fine fix */
+/** * Avatar di chat
+	* @author Blancks
+*/
+img.chat_avatar {
+    margin: 8px;
+    display: block;
+    float: left;
+    position: relative;
+    }
+
+/***** testo della chat *****/
+/* Tipi messaggio: (A azione, P parlato, N PNG, M Master, I Immagine, S sussurro, D dado, C skill check, O uso oggetto) */
+div.chat_row_A {
+    margin-top: 3px;
+    }
+div.chat_row_A span.color2 {
+    margin-top: 3px;
+    color: #000;
+    font-weight: bolder;
+    }
+div.chat_row_P {
+    margin-top: 3px;
+    }
+div.chat_row_P span.color2 {
+    margin-top: 3px;
+    color: #000;
+    font-weight: bolder;
+    }
+div.chat_row_M {
+    margin-top: 3px;
+    border-width: 2px;
+    border-color: green;
+    border-style: solid;
+    text-align: center;
+    color: green;
+    }
+div.chat_row_N {
+    margin-top: 3px;
+    }
+div.chat_row_N span.color2 {
+    color: #000;
+    font-weight: bolder;
+    }
+div.chat_row_I {
+    margin-top: 3px;
+    text-align: center;
+    }
+div.chat_row_S {
+    margin-top: 3px;
+    }
+div.chat_row_D {
+    margin-top: 3px;
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+    color: cyan;
+    }
+div.chat_row_C {
+    margin-top: 3px;
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+    color: cyan;
+    }
+span.chat_time {
+    font-size: 10px;
+    font-weight: bolder;
+    margin-right: 3px;
+    }
+span.chat_name {
+    font-weight: bolder;
+    font-size: 12px;
+    color: #000;
+    }
+span.chat_msg {
+    color: #333;
+    font-size: 12px;
+    }
+span.chat_me,
+span.chat_me_master {
+    text-decoration: underline;
+    }
+
+/***** form inserimento *****/
+div.form_row {
+    clear: both;
+    height: 20px;
+    }
+div.casella_chat {
+    float: left;
+    margin-bottom: 6px;
+    }
+
+/*Casella Tag*/
+input#tag {
+    width: 90px;
+    }
+
+/*Casella Messaggio*/
+input#message {
+    width: 280px;
+    }
+
+/****************************************************************************/
+/****************************************************************************/
+/* STILE DELLA FINESTRA PRESENTI */
+/* HELP: Da qui è possibile modificare:
+- I font ed i colori dei presenti
+- Le dimensioni e la posizione della finestra dei presenti
+- Lo sfondo della finestra dei presenti */
+/*Frame dei presenti*/
+div.presenti iframe.iframe_presenti {
+    width: 180px;
+    height: 520px;
+    border: none;
+    overflow: auto;
+    background-color: transparent;
+    }
+div.presenti iframe.iframe_presenti body.transparent_body {
+    background-color: none;
+    }
+div.luogo {
+    margin: 10px 0 0;
+    font-size: 13px;
+    font-weight: bolder;
+    }
+div.presente {
+    font-weight: normal;
+    font-size: 12px;
+    }
+div.link_presenti {
+    margin-top: 20px;
+    }
+
+/*Icone di stato dei presenti*/
+div.pagina_presenti img.sesso_ico,
+div.pagina_presenti img.status_ico,
+div.pagina_presenti img.disponibile,
+div.pagina_presenti_estesa img.sesso_ico,
+div.pagina_presenti_estesa img.status_ico,
+div.pagina_presenti_estesa img.disponibile {
+    margin: 0 2px 0 0;
+    }
+
+/*Link nella colonna presenti */
+div.pagina_presenti a,
+div.pagina_presenti a:visited,
+div.pagina_presenti_estesa a,
+div.pagina_presenti_estesa a:visited {
+    border: none;
+    }
+div.pagina_presenti a:hover,
+div.pagina_presenti_estesa a:hover {
+    border: none;
+    }
+
+/*Testo nella colonna presenti*/
+div.pagina_presenti ul.elenco_presenti,
+div.pagina_presenti_estesa ul.elenco_presenti {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    }
+
+/*Nomi dei luoghi*/
+div.pagina_presenti ul.elenco_presenti li.luogo,
+div.pagina_presenti_estesa ul.elenco_presenti li.luogo {
+    font-size: 11px;
+    font-weight: bold;
+    margin: 3px 0 1px 8px;
+    text-transform: uppercase;
+    }
+div.pagina_presenti_estesa ul.elenco_presenti li.mappa {
+    font-size: 11px;
+    font-weight: bold;
+    margin: 3px 0 1px 0;
+    text-transform: uppercase;
+    }
+
+/* Nomi dei personaggi */
+div.pagina_presenti ul.elenco_presenti li.presente,
+div.pagina_presenti_estesa ul.elenco_presenti li.presente {
+    font-size: 11px;
+    margin: 0 0 0 5px;
+    }
+div.pagina_presenti_estesa div.presenti_estesi {
+    margin-left: 150px;
+    }
+
+/*Icone presenti*/
+img.presenti_ico {
+    margin-left: 2px;
+    width: 10px;
+    height: 10px;
+    border: none;
+    }
+
+/****************************************************************************/
+/* STILE DELLA SCHEDA DEL PERSONAGGIO */
+/* HELP: Da qui è possibile modificare:
+- I font ed i colori della scheda del personaggio
+- Le dimensioni, l'aspetto e la posizione degli elementi della scheda
+- Lo sfondo della scheda */
+div.pagina_scheda {
+    margin-left: auto;
+    margin-right: auto;
+    width: 520px;
+    }
+div.pagina_scheda div.form_info {
+    font-style: italic;
+    }
+
+/*Titoli dei box*/
+div.pagina_scheda div.titolo_box {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 6px;
+    }
+
+/*Box nome,ritratto,iscritto da, ultimo ingresso, scrivi a*/
+div.ritratto {
+    margin: 5px 5px 20px 3px;
+    float: left;
+    font-size: 12px;
+    width: 215px;
+    height: 410px;
+    text-align: center;
+    }
+
+/*Nome PG*/
+div.ritratto div.ritratto_nome {
+    font-size: 14px;
+    font-weight: bold;
+    }
+
+/*Immagine*/
+div.ritratto div.ritratto_avatar {
+    width: 200px;
+    height: 300px;
+    margin: 0 7px 0 7px;
+    overflow: hidden;
+    }
+div.ritratto_avatar img {
+    max-width: 200px;
+    max-height: 300px;
+    }
+
+/*Link invia messaggio*/
+div.ritratto div.ritratto_invia_messaggio {
+    margin: 5px 0 0;
+    }
+
+/*Box punteggi, razza, gilda, ruolo off*/
+div.profilo {
+    margin: 5px 3px 20px 5px;
+    float: right;
+    font-size: 12px;
+    width: 260px;
+    }
+div.profilo div.profilo_voce {
+    text-align: justify;
+    clear: both;
+    height: 20px;
+    }
+
+/*Nome campo*/
+div.profilo_voce div.profilo_voce_label {
+    width: 40%;
+    float: left;
+    margin-left: 5px;
+    }
+
+/*Valore campo*/
+div.profilo_voce div.profilo_voce_valore {
+    text-align: right;
+    width: 50%;
+    float: right;
+    margin-right: 5px;
+    }
+
+/*Icone gilda*/
+img.profilo_img_gilda {
+    height: 15px;
+    width: 15px;
+    }
+
+/*Box status*/
+div.profilo_status {
+    margin: 5px 5px 5px 5px;
+    clear: both;
+    height: 100px;
+    text-align: justify;
+    }
+
+/*Casella PF nei controlli master*/
+div.form_field input.healt_input {
+    width: 28px;
+    }
+
+/*Box storia pg, box affetti*/
+div.background {
+    margin: 10px 3px 5px 3px;
+    clear: both;
+    overflow: hidden;
+    width: 510px;
+    }
+div.background img {
+    max-width: 500px;
+    }
+
+/*Menu' interno scheda*/
+div.menu_scheda {
+    margin: 0 3px 5px 5px;
+    float: right;
+    text-align: center;
+    font-size: 12px;
+    width: 500px;
+    height: 30px;
+    }
+
+/*Box abilità*/
+div.elenco_abilita {
+    margin: 10px auto 5px auto;
+    clear: both;
+    }
+div.elenco_abilita table {
+    margin: 2px auto 5px auto;
+    }
+div.elenco_abilita td {
+    vertical-align: top;
+    }
+div.abilita_scheda_nome {
+    width: 110px;
+    font-size: 12px;
+    }
+div.abilita_scheda_car {
+    width: 70px;
+    font-size: 12px;
+    }
+div.abilita_scheda_tank {
+    width: 20px;
+    font-size: 12px;
+    }
+div.abilita_scheda_sub {
+    width: 35px;
+    font-size: 12px;
+    }
+
+/****************************************************************************/
+/****************************************************************************/
+/* STILE DELLA PAGINA DI MODIFICA SCHEDA */
+div.modifica_scheda {
+    margin: 10px;
+    }
+
+/****************************************************************************/
+/****************************************************************************/
+/* STILE DELLA PAGINA DI EQUIPAGGIAMENTO */
+div.omino_bianco_box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    height: 300px;
+    text-align: center;
+    }
+img.omino_bianco_img {
+    margin-top: 40px;
+    width: 300px;
+    height: 226px;
+    }
+div.omino_bianco_armdx {
+    width: 49px;
+    height: 36px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    }
+div.omino_bianco_armdx img {
+    width: 48px;
+    height: 35px;
+    }
+div.omino_bianco_armsx {
+    width: 49px;
+    height: 36px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    margin-right: 0;
+    }
+div.omino_bianco_armsx img {
+    width: 48px;
+    height: 35px;
+    }
+div.omino_bianco_chest {
+    width: 75px;
+    height: 50px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    margin-right: 0;
+    }
+div.omino_bianco_chest img {
+    width: 74px;
+    height: 49px;
+    }
+div.omino_bianco_legs {
+    width: 75px;
+    height: 50px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    }
+div.omino_bianco_legs img {
+    width: 74px;
+    height: 49px;
+    margin-right: 0;
+    }
+div.omino_bianco_feet {
+    width: 63px;
+    height: 46px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    }
+div.omino_bianco_feet img {
+    width: 62px;
+    height: 45px;
+    }
+div.omino_bianco_head {
+    width: 63px;
+    height: 46px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    }
+div.omino_bianco_head img {
+    width: 62px;
+    height: 45px;
+    }
+div.omino_bianco_neck {
+    width: 49px;
+    height: 36px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    }
+div.omino_bianco_neck img {
+    width: 48px;
+    height: 35px;
+    }
+div.omino_bianco_ring {
+    width: 30px;
+    height: 20px;
+    border: 1px dotted white;
+    margin-top: 5px;
+    }
+div.omino_bianco_ring img {
+    width: 29px;
+    height: 19px;
+    }
+
+/*Inventario*/
+div.pagina_scheda_oggetti td.casella_elemento,
+div.pagina_scheda_equip td.casella_elemento {
+    font-size: 12px;
+    padding: 3px;
+    }
+div.pagina_scheda_oggetti div.inventario_img img,
+div.pagina_scheda_equip div.inventario_img img {
+    height: 120px;
+    width: 120px;
+    }
+div.pagina_scheda_oggetti div.inventario_img,
+div.pagina_scheda_equip div.inventario_img {
+    width: 122px;
+    }
+div.pagina_oggetti_equip div.inventario_nome,
+div.pagina_scheda_equip div.inventario_nome {
+    width: 122px;
+    }
+div.pagina_scheda_oggetti div.inventario_quantita,
+div.pagina_scheda_equip div.inventario_quantita {
+    width: 122px;
+    }
+div.pagina_scheda_oggetti div.inventario_nome,
+div.pagina_scheda_equip div.inventario_nome {
+    font-size: 12px;
+    text-transform: uppercase;
+    }
+div.pagina_scheda_oggetti div.form_label,
+div.pagina_scheda_equip div.form_label {
+    font-size: 12px;
+    margin: 0;
+    }
+div.pagina_scheda_oggetti input,
+div.pagina_scheda_equip input {
+    font-size: 12px;
+    margin: 0;
+    }
+div.inventario_riga_proprieta {
+    width: 80px;
+    }
+div.pagina_scheda_equip form,
+div.pagina_scheda_oggetti form {
+    text-align: center;
+    margin: 0 0 4px;
+    }
+.skill_incr.active,
+.skill_decr.active {
+    visibility: visible;
+    }
+.skill_incr.inactive,
+.skill_decr.inactive {
+    visibility: hidden;
+    }
+
+/****************************************************************************/
+/****************************************************************************/
+/* STILE DEI MESSAGGI PRIVATI */
+/* HELP: Da qui è possibile modificare:
+- I font ed i colori dei messaggi privati
+- Le dimensioni e la posizione delle finestre dei messaggi privati
+- Lo sfondo dei messaggi privati */
+/****************************************************************************/
+/*Testo delle colonne*/
+div.pagina_messages_center div.elementi_elenco {
+    height: 40px;
+    }
+
+/*************************/
+/*Visualizzazione del messaggio singolo*/
+div.read_message_box {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+div.read_message_box div.infos {
+    clear: both;
+    text-align: left;
+    }
+div.read_message_box div.infos span.title {
+    font-style: italic;
+    }
+div.read_message_box div.infos span.body {
+    font-weight: bold;
+    }
+div.read_message_box_text {
+    clear: both;
+    border: solid 1px #d9d9d9;
+    background-color: #999;
+    padding: 10px;
+    margin: 20px 0 5px 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+div.read_message_box_forms {
+    clear: both;
+    margin-bottom: 40px;
+    }
+div.read_message_box_form {
+    float: right;
+    }
+div.read_message_box_form input {
+    height: 20px;
+    width: 20px;
+    }
+
+/****************************************************************************/
+/* STILE DEL FORUM */
+/* HELP:  */
+/*Frame dei presenti*/
+div.pagina_forum div.panels_box {
+    border: none;
+    margin-top: 10px;
+    background-color: #D1D1D1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }
+div.pagina_forum div.panels_box table {
+    width: 100%;
+    }
+div.pagina_forum div.panels_box tr {
+    margin: 2px;
+    }
+div.forum_date_big {
+    font-size: 10px;
+    width: 200px;
+    padding-top: 5px;
+    }
+div.elementi_elenco div.forum_date_big {
+    width: auto;
+    }
+div.forum_column {
+    text-align: left;
+    margin-top: 2px;
+    padding-left: 15px;
+    }
+div.forum_date_small {
+    font-size: 10px;
+    clear: both;
+    }
+div.forum_main_post {
+    margin: 1px;
+    }
+div.forum_other_posts {
+    margin: 1px;
+    }
+td.forum_main_title {
+    text-align: center;
+    }
+div.forum_post_title {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    }
+td.forum_main_post_author,
+td.forum_other_post_author {
+    width: 100px;
+    vertical-align: top;
+    }
+td.forum_main_post_message,
+td.forum_other_post_message {
+    background-color: #D9D9D9;
+    vertical-align: text-top;
+    }
+div.forum_post_author {
+    margin-bottom: 20px;
+    }
+div.forum_post_message {
+    text-align: left;
+    padding: 10px;
+    }
+div.forum_post_modify {
+    font-size: 10px;
+    text-align: center;
+    margin: 40px 0 20px 0;
+    }
+img.img_forum_avatar {
+    height: 45px;
+    width: 30px;
+    }

@@ -1,12 +1,10 @@
 <?php
-/*Inizio la sessione */
-session_start();
+	define('ROOT', __DIR__);
 
-/*Includo i file principali */
-require_once('includes/required.php');
+	//Includo i parametri, la configurazione, la lingua e le funzioni
+	require_once ROOT . '/includes/required.php';
 
-/*Connessione al database*/
-$handleDBConnection = gdrcd_connect();
+
 
 /*Leggo i dati del form di login*/
 $login1 = gdrcd_filter('get', $_POST['login1']);

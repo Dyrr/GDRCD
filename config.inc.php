@@ -11,6 +11,8 @@
  */
 
 error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ALL);
+
 
 /* PARAMETRI DI CONNESSIONE */
 $PARAMETERS['database']['username'] = 'gdrcd';            //nome utente del database
@@ -51,7 +53,7 @@ $PARAMETERS['themes']['current_theme'] = 'advanced'; //tema in uso
 //$PARAMETERS['themes']['current_theme'] = 'medieval';
 
 /* Attiva nel frame l'avviso in caso di nuovi messaggi privati e/o bacheche */
-$PARAMETERS['mode']['check_forum'] = 'ON';
+$PARAMETERS['mode']['check_forum'] = 'OFF';
 $PARAMETERS['text']['check_forum']['new'] = '(Nuovo)';
 $PARAMETERS['mode']['check_messages'] = 'ON';
 

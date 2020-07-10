@@ -120,4 +120,5 @@ if($PARAMETERS['mode']['check_messages'] === 'ON') {
 }
 ?>
 </div>
-<?php include('../footer.inc.php');  /*Footer comune*/ ?>
+</body>
+</html>

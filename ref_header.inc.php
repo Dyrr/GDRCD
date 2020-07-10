@@ -1,12 +1,12 @@
 <?php
-session_start();
+	define('ROOT', __DIR__);
 
-header('Content-Type:text/html; charset=UTF-8');
+	//Includo i parametri, la configurazione, la lingua e le funzioni
+	require_once ROOT . '/includes/required.php';
 
 $last_message = isset($_SESSION['last_message']) ? $_SESSION['last_message'] : 0;
 
-//Includio i parametri, la configurazione, la lingua e le funzioni
-require ('includes/required.php');
+
 
 //Eseguo la connessione al database
 $handleDBConnection = gdrcd_connect();
@@ -327,9 +327,7 @@ $_SESSION['last_message'] = $last_message;
     <!--meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="refresh" content="<?php echo $i_ref_time; ?>">
-    <link rel="stylesheet" href="../themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/presenti.css" TYPE="text/css">
-    <link rel="stylesheet" href="../themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/main.css" TYPE="text/css">
-    <link rel="stylesheet" href="../themes/<?php echo $PARAMETERS['themes']['current_theme']; ?>/chat.css" TYPE="text/css">
+	<link rel="stylesheet" href="<?php echo csscrush_file(ROOT . '/themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
     <title>Chat</title>
 </head>
 <body class="transparent_body" <?php if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {
