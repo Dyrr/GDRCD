@@ -28,13 +28,12 @@
     //include la parte con la logica della pagina
     require modulo\file('home/' . $page);
 
+    //chiude la connesisone al database
     gdrcd_close_connection($handleDBConnection);
 
+    //pulizia variabili
     unset($MESSAGE);
     unset($PARAMETERS);
 
-    echo $OUT['header'];    
-    echo $OUT['layout_top'];    
-    echo $OUT['content'];   
-    echo $OUT['layout_bottom'];     
-    echo $OUT['footer'];
+    //stampa a video la pagina
+    \template\render($OUT);

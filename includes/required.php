@@ -48,7 +48,7 @@
     //include il file con la dichiaraizone delle costanti
     require_once ROOT . '/includes/constant_values.inc.php';
     //include il file di configurazione del GDRCD
-    require_once ROOT . '/config.inc.php';  
+    require_once ROOT . '/system/config/config.inc.php';  
     //include il file del vocabolario
     require_once ROOT . '/vocabulary/' . $PARAMETERS['languages']['set'] . '.vocabulary.php';
     //include il file con le funzioni del GDRCD

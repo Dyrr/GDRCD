@@ -10,7 +10,7 @@
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 <?php
     /** * Il controllo individua se l'header non è impiegato per il main */
-    if(isset($_SESSION['login'])) {
+    if( ! isset($check_for_update)) {
         ?>
         <link rel="stylesheet" href="layouts/<?php echo $PARAMETERS['themes']['kind_of_layout'], '_frames.php?css=true'; ?>" type="text/css" />
         <?php

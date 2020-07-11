@@ -1,9 +1,8 @@
-/** * Skin advanced
-	* @author Blancks
-*/
+/* IMPORTA IL LAYOUT DELL'INTERNO DELLA LAND */
+@import 'layouts/main.css';
 
-/** * Parametri di default nella pagina
-*/
+
+
 body {
     padding: 0;
     margin: 0;

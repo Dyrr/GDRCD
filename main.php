@@ -1,51 +1,117 @@
 <?php
-	define('ROOT', __DIR__);
+/**
+ *  @file       main.php
+ *  
+ *  @brief      Entry point principale dell'interno della land
+ *  
+ *  @version    5.6.0
+ *  @date       11/07/2020
+ *  
+ *  @author     Davide 'Dyrr' Grandi
+ *  
+ *  @todo       sistemare le azioni di spostamento in mappa e chat
+ *  
+ *  @see        includes/required.inc.php
+ */     
+    define('ROOT', __DIR__);
 
-	//Includo i parametri, la configurazione, la lingua e le funzioni
-	require_once ROOT . '/includes/required.php';
+    //Includo i parametri, la configurazione, la lingua e le funzioni
+    require_once ROOT . '/includes/required.php';
 
-$strInnerPage = "";
+    //definizione del modulo da caricare
+    $strInnerPage = "";
 
-/** * Bug fix del mapwise: la gestione dello spostamento della mappa va gestita da main e non da mappaclick
- * @author Blancks
- */
-if( ! empty($_GET['map_id'])) {
-    $_SESSION['mappa'] = (int) $_GET['map_id'];
-    gdrcd_query("UPDATE personaggio SET ultima_mappa=".gdrcd_filter('num', $_SESSION['mappa']).", ultimo_luogo=-1 WHERE nome = '".gdrcd_filter('in', $_SESSION['login'])."'");
-}
-
-if(isset($_REQUEST['page'])) {
-    $strInnerPage = gdrcd_filter('include', $_REQUEST['page']).'.inc.php';
-
-    //se e' impostato dir allora cambio stanza.
-} elseif(isset($_REQUEST['dir']) && is_numeric($_REQUEST['dir'])) {
-    if($_REQUEST['dir'] >= 0) {
-        $strInnerPage = 'frame_chat.inc.php';
-    } else {
-        $strInnerPage = 'mappaclick.inc.php';
-        $_REQUEST['id_map'] = $_SESSION['mappa'];
+    //SE È AVVENUTO UNO SPOSTAMENTO IN UNA MAPPA
+    if(isset($_REQUEST['map_id'])) {
+    
+        //aggiorna la variabile di sesisone della mappa
+        $_SESSION['mappa'] = gdrcd_filter_num($_REQUEST['map_id']);
+        
+        //aggiorna la posizione del personagigo nel database
+        $query = "UPDATE personaggio 
+                 SET 
+                     ultima_mappa = " . gdrcd_filter_num($_SESSION['mappa']) . ", 
+                     ultimo_luogo = -1 
+                 WHERE 
+                     nome = ' ". gdrcd_filter_in($_SESSION['login']) . "' 
+                 LIMIT 1";
+        gdrcd_query($query);
+    
     }
 
-    gdrcd_query("UPDATE personaggio SET ultimo_luogo=".gdrcd_filter('num', $_REQUEST['dir'])." WHERE nome='".gdrcd_filter('in', $_SESSION['login'])."'");
-    /**    * Caso di fix
-     * se non ci sono variabili via url, si ripristinano dei valori di default
-     * @author Blancks
-     */
-} else {
-    $strInnerPage = 'mappaclick.inc.php';
-    $_REQUEST['id_map'] = $_SESSION['mappa'];
-}
-/**    * Fine caso di Fix */
-if(gdrcd_controllo_esilio($_SESSION['login']) === true) {
-    session_destroy();
-} else {
-    template\start('content');
-	require('layouts/'.$PARAMETERS['themes']['kind_of_layout'].'_frames.php');
-	template\end('content');
-}
+    //SE È STATO INDICATO UN MODULO
+    if(isset($_REQUEST['page'])) {
+    
 
-	echo $OUT['header'];	
-	
-	echo $OUT['content'];	
-  
-	echo $OUT['footer'];
+        $strInnerPage = $_REQUEST['page'];
+
+    //SE INVECE È STATA INDICATA UNA CHAT
+    }  elseif (   isset($_REQUEST['dir']) 
+               && is_numeric($_REQUEST['dir'])) {
+    
+        //SE LA STANZA HA UN ID VALIDO
+            /** @todo inserire un controllo che controlli se la chat esiste oltre a quello dell'id valido **/
+        if($_REQUEST['dir'] >= 0) {
+            
+            //imposta il modulo da caricare
+            $strInnerPage = 'frame_chat';
+    
+        //SE LA STANZA NON HA UN ID VALIDO
+        } else {
+        
+            //imposta il modulo da caricare
+            $strInnerPage = 'mappaclick';
+            
+            $_REQUEST['id_map'] = $_SESSION['mappa'];
+        
+        }
+
+        //aggiorna la posizione del personagigo nel database
+        $query = "UPDATE personaggio 
+                 SET 
+                     ultimo_luogo = " . gdrcd_filter_num($_REQUEST['dir']) . " 
+                 WHERE 
+                     nome = '" . gdrcd_filter_in($_SESSION['login']) . "' 
+                 LIMIT 1";
+        gdrcd_query($query);
+
+
+    //SE NON È STATO INDICATO NULLA NELLA QUERYSTRING
+    } else {
+    
+        //imposta il modulo da caricare
+        $strInnerPage = 'mappaclick';
+        $_REQUEST['id_map'] = $_SESSION['mappa'];
+    
+    }
+    
+    //SE IL PG È ESILIATO
+    if(gdrcd_controllo_esilio($_SESSION['login']) === true) {
+        
+        //resetta la sesisone
+        session_destroy();
+    
+    //SE IL PG È AUTORIZZATO ALL'ACCESSO IN LAND
+    } else {
+        
+        //SE LA PAGINA NON È STATA RICHIESTA TRAMITE CHIAMATA AJAX
+        if(\template\is_ajax() === false) {
+        
+            //richiama il template del layout
+            require \template\file('main/layout');
+        
+        }
+        
+        //richiama il template del contenuto
+        template\start('content');
+        require_once modulo\file($strInnerPage);        
+        template\end('content');
+
+    }
+
+    //pulizia variabili
+    unset($MESSAGE);
+    unset($PARAMETERS);
+
+    //stampa a video la pagina
+    \template\render($OUT); 
