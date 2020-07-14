@@ -17,7 +17,7 @@
    "Blancks" Rotondo.
 </p>
 <p>
-    Include un innumerevole quantitativo di bug fix e una migliore ottimizzazione del prodotto per una maggiore velocità,
+   Include un innumerevole quantitativo di bug fix e una migliore ottimizzazione del prodotto per una maggiore velocità,
    stabilità ma soprattutto una maggiore <strong>sicurezza</strong>, senza contare l'ampio numero di features
    facilmente selezionabili e customizzabili senza bisogno di essere esperti programmatori!
 </p>
@@ -28,21 +28,19 @@
    renderlo compatibile con la presente versione.
 </p>
 <p>
-    Troverai l'elenco delle nuove features e dei bug fix al <a href="http://www.gdr-online.com/readforum.asp?id=135483">topic di presentazione</a> sul portale GDR-Online.com
+    Troverai l'elenco delle nuove features e dei bug fix al <a href="http://www.gdr-online.com/readforum.asp?id=135483" 
+    target="__blank">topic di presentazione</a> sul portale GDR-Online.com
 </p>
 <p>
-    Prima di iniziare a realizzare il tuo sito, hai letto la <a href="licenza.txt">licenza d'uso</a> che accompagna il prodotto? Se non l'hai ancora fatto premurati gentilmente di leggerla.
+    Prima di iniziare a realizzare il tuo sito, hai letto la <a href="licenza.txt">licenza d'uso</a> che accompagna il 
+    prodotto? Se non l'hai ancora fatto premurati gentilmente di leggerla.
 </p>
 <p>
-    Troverai le istruzioni su come utilizzare GDRCD 5.1 nel <a href="COME-FARE-LA-LAND---LEGGIMI!.txt">manuale</a> allegato.
-</p>
-<img src="imgs/pelready.png" style="float:left;">
-<p><br /><strong>PEL Ready</strong></p>
-<p>
-    Il presente Software fornisce gli strumenti sul piano tecnico per aderire in semplicità al <a href="http://www.gdr-online.com/progetto_legalita.asp">progetto di educazione alla legalità</a> per i giochi di ruolo online al fine di sensibilizzare gli utilizzatori del CMS a tale iniziativa, nel rispetto e nella sicurezza dei possibili futuri giocatori.
+    Troverai le istruzioni su come utilizzare GDRCD 5.1 nel <a href="COME-FARE-LA-LAND---LEGGIMI!.txt">manuale</a> 
+    allegato.
 </p>
 <p>
-    Ti piace il progetto ? Lo hai trovato particolarmente utile ? Allora scopri come puoi <a href="http://www.gdr-online.com/readforum.asp?id=137092">contribuire al suo sviluppo</a> ;-)
+    Ti piace il progetto ? Lo hai trovato particolarmente utile ? Allora scopri come puoi 
+    <a href="http://www.gdr-online.com/readforum.asp?id=137092" target="__blank">contribuire al suo sviluppo</a> ;-)
 </p>
-
 <p>Buon diverimento!</p>

@@ -1,0 +1,23 @@
+@mixin glass {
+    border-right:2px solid #C4D8E2;
+    border-bottom:2px solid #C4D8E2;
+    border-left:2px solid #003A6C;
+    border-top:2px solid #003A6C;
+    box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,0.5);
+    background-color:#708090;
+    background-image: 
+        linear-gradient(110deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 74%,rgba(255,255,255,0.1) 75%,rgba(255,255,255,0.1) 100%);   
+    border-radius:5px;  
+}
+
+@mixin metal {
+    background-color:#46505a;
+    background-image:
+        linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0.25) 50%,rgba(0,0,0,0) 70%,rgba(255,255,255,0.2) 100%),
+        linear-gradient(to right, rgba(255,255,255,0.2) 0px,rgba(0,0,0,0.2) 20px,rgba(0,0,0,0) 40px,rgba(0,0,0,0) 100%),
+        linear-gradient(to left, rgba(255,255,255,0.2) 0px,rgba(0,0,0,0.2) 20px,rgba(0,0,0,0) 40px,rgba(0,0,0,0) 100%); 
+}
+
+@mixin glossy {
+
+}

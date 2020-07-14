@@ -8,8 +8,9 @@
 
 /*Frame dei presenti*/
 div.presenti iframe.iframe_presenti {
-    width: 180px;
-    height: 520px;
+    width: 100%;
+    min-width:150px;
+	height: 100%;
     border: none;
     overflow: auto;
     background-color: transparent;

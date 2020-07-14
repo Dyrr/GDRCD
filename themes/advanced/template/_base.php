@@ -5,9 +5,14 @@
 	<html lang="it">
 		<head>
 			<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />			
 			<link rel="shortcut icon" href="favicon.png" type="image/png" />
 			<link rel="stylesheet" href="<?php echo csscrush_file('themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/includes/corefunctions.js"></script>			
 <?php
     /** * Il controllo individua se l'header non è impiegato per il main */
     if( ! isset($check_for_update)) {
@@ -20,14 +25,12 @@
         <?php echo $PARAMETERS['info']['site_name']; ?>
     </title>
 </head>
-<body class="main_body">
+<body>
 <?php
 	template\end('header');	
 	template\start('footer');
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/includes/corefunctions.js"></script>
+
 <!--<script type="text/javascript" src="includes/gdrcdskills.js"></script>-->
 <?php
 /** * Abilitazione tooltip

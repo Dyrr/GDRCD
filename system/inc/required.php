@@ -54,9 +54,9 @@
     //include il file con le funzioni del GDRCD
     require_once ROOT . '/includes/functions.inc.php';
     //include il plugin di default per il bbcode
-    require_once ROOT . '/plugins/bbdecoder/bbdecoder.php';
+    require_once ROOT . '/system/lib/bbdecoder/bbdecoder.php';
     //include il preprocessore dei css
-    require_once ROOT . '/plugins/csscrush/CssCrush.php';
+    require_once ROOT . '/system/lib/csscrush/CssCrush.php';
     
     //opzioni per il processore dei css
     $settings= array(

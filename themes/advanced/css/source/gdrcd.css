@@ -5,7 +5,8 @@
 @import 'common.css';
 
 /* IMPORTA I CSS DELLA HOME */
-@import 'homepage.css';
+@import 'home/layout.css';
+/*@import 'homepage.css';*/
 
 /* importa i css principali */
 @import 'main.css';

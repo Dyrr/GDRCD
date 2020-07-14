@@ -1,25 +1,245 @@
 /* INIZIO STILI COMUNI */
+
+body,
+html
+{
+    padding: 0;
+    margin: 0;
+	width:100%;
+	height:100%;
+	color:black;
+	font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+	letter-spacing:1px;
+	position:relative;
+
+}
+
+
+
 /* LINK */
 a, 
 a:visited
 {
-    color: #333;
+    color:#000;
     text-decoration: none;
+	transition-duration: 0.2s;	
+	color:#00b7f8;	
+
 }
 
 a:hover {
-    color: #222;
-    font-weight: bolder;
-    text-decoration: underline;
+	filter: brightness(150%);
 }
 
+::placeholder
+{
+		color:black;
+		opacity:1;
+}
+
+input[type="submit"]
+{
+    background: 
+        linear-gradient(to bottom, 
+            rgba(76,76,76,1) 0%,
+            rgba(89,89,89,1) 12%,
+            rgba(102,102,102,1) 25%,
+            rgba(71,71,71,1) 39%,
+            rgba(44,44,44,1) 50%,
+            rgba(0,0,0,1) 51%,
+            rgba(17,17,17,1) 60%,
+            rgba(43,43,43,1) 76%,
+            rgba(28,28,28,1) 91%,
+            rgba(19,19,19,1) 100%);
+	border-top:1px solid white;
+	border-left:1px solid white;
+	border-right:1px solid #666666;
+	border-bottom:1px solid #666666;
+	border-radius:5px;
+	padding:0.5em;
+	text-transform:uppercase;
+	color:#EBECF0;
+	min-width:100px;
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	cursor:pointer;
+	transition-duration: 0.2s;
+	font-weight:bolder;
+	letter-spacing:2px;
+	box-sizing: border-box;
+	margin:10px 0;
+}
+
+input[type=submit]:hover
+{
+	color:#007AA5;
+	filter: brightness(150%);
+}
+
+input[type=submit]:active
+{
+	border-bottom:1px solid white;
+	border-right:1px solid white;
+	border-left:1px solid #000000;
+	border-top:1px solid #000000;
+	box-shadow: inset 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+
+input[type="text"],
+input[type="password"],
+select
+
+{
+	background-color:rgba(255,255,255,0.25);
+	border-bottom:1px solid white;
+	border-right:1px solid white;
+	border-left:1px solid #000000;
+	border-top:1px solid #000000;
+	box-shadow: inset 2px 2px 5px 0px rgba(0,0,0,0.75);
+	padding:7px;
+	box-sizing: border-box;		
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus
+{
+	background-color:rgba(255,255,255,0.5);	
+}
+
+form
+{
+	
+	.fields
+	{
+		display:flex;
+		flex-flow:row wrap;
+		align-items:center;
+
+	}
+	
+	.submit
+	{
+		
+		text-align:center;
+	
+	}
+	
+	
+	
+	
+}
+
+
 /* HEADER */
-h2 {
-    font-size: 25px;
-    font-weight: normal;
-    margin: 0;
-    padding-bottom: 4px;
-    border-bottom: solid 1px #d9d9d9;
+h1,
+h2
+{
+    font-weight: bolder;
+	color:#EBECF0;
+	font-family: 'Roboto', sans-serif;
+	text-transform:uppercase;
+	letter-spacing:2px;
+
+	 text-shadow: 
+	rgba(0,0,0,0.5) -1px 0, 
+	rgba(0,0,0,0.3) 0 -1px, 
+	rgba(255,255,255,0.5) 0 1px, 
+	rgba(0,0,0,0.3) -1px -2px;
+}
+
+h1
+{
+	font-size:32px;
+}
+
+h2
+{
+	font-size:16px;	
+}
+
+table
+{
+	margin:auto;			
+	border-collapse:collapse;
+	
+	tr:nth-child(odd)
+	{
+		background-color:rgba(255,255,255,0.2);
+	}
+	
+	tr:nth-child(even)
+	{
+		background-color:rgba(255,255,255,0.4);
+	}
+
+	td
+	{
+		border:1px solid rgba(0,0,0,5);
+		padding:5px;
+		/*
+		border-left-width:0;
+		border-right-width:0;
+*/		
+	}
+/*	
+	td:first-of-type
+	{
+		padding-left:5px;
+	}
+	td:last-of-type
+	{
+		padding-right:5px;
+	}
+*/	
+}
+
+
+
+@media (min-width:1380px)  {
+	
+	body,
+	html
+	{
+		font-size: 14px;
+	}
+
+	
+	
+}
+
+.tc
+{
+	text-align:center;
+}
+
+div.error
+{
+    background-color: #cf8888;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    border: solid 1px #800;
+    color: #970b0b;	
+	text-align:left;
+	
+	h2
+	{
+		text-align:left !IMPORTANT;
+		color:#970b0b !IMPORTANT;
+	}
+	
+	ol
+	{
+		
+		li
+		{
+			line-height:1.5em;
+		}
+	
+	}
+
 }
 
 /* FINE STILI COMUNI */

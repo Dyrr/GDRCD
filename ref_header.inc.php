@@ -2,7 +2,7 @@
 	define('ROOT', __DIR__);
 
 	//Includo i parametri, la configurazione, la lingua e le funzioni
-	require_once ROOT . '/includes/required.php';
+    require_once ROOT . '/system/inc/required.php';
 
 $last_message = isset($_SESSION['last_message']) ? $_SESSION['last_message'] : 0;
 

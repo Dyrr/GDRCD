@@ -1,6 +1,5 @@
 <?php
-    
-$CREDITS = gdrcd_filter_out('Basato su "GDRCD '.$GLOBALS['PARAMETERS']['info']['GDRCD'].'". CMS Open Source sviluppato da Breaker e distribuito gratuitamente.');
+  $CREDITS = gdrcd_filter_out('Basato su "GDRCD '.$GLOBALS['PARAMETERS']['info']['GDRCD'].'". CMS Open Source sviluppato da Breaker e distribuito gratuitamente.');
 $LICENCE = '<a href="licenza.txt">' . gdrcd_filter('out', 'Licenza d\'uso e riproduzione') . '</a>.';   
     
     $RP_response = '';

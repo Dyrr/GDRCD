@@ -12,15 +12,7 @@
     define('ROOT', __DIR__);
 
     //Includo i parametri, la configurazione, la lingua e le funzioni
-    require_once ROOT . '/includes/required.php';
-
-    $query = "SELECT 
-                 COUNT(nome) AS online 
-             FROM personaggio 
-             WHERE 
-                     ora_entrata > ora_uscita 
-                 AND DATE_ADD(ultimo_refresh, INTERVAL 4 MINUTE) > NOW()";   
-    $users = gdrcd_query($query);
+    require_once ROOT . '/system/inc/required.php';
 
     //definizione della sezione da caricare
     $page = ( ! empty($_GET['page'])) ? gdrcd_filter('include', $_GET['page']) : 'index';

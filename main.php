@@ -16,7 +16,7 @@
     define('ROOT', __DIR__);
 
     //Includo i parametri, la configurazione, la lingua e le funzioni
-    require_once ROOT . '/includes/required.php';
+    require_once ROOT . '/system/inc/required.php';
 
     //definizione del modulo da caricare
     $strInnerPage = "";
