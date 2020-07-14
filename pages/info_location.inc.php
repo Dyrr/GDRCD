@@ -141,7 +141,7 @@
             }
             if(empty($meteo) === false) { ?>
                 <div class="page_title">
-                    <h2><?php echo gdrcd_filter('out', $MESSAGE['interface']['meteo']['title']); ?></h2>
+                    <h2>Meteo</h2>
                 </div>
                 <div class="meteo_date">
                     <?php echo strftime('%d').'/'.strftime('%m').'/'.(strftime('%Y') + $PARAMETERS['date']['offset']); ?>

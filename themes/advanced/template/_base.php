@@ -5,14 +5,15 @@
 	<html lang="it">
 		<head>
 			<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />			
+			<meta name="viewport" content="width=device-width, initial-scale=1" />			
 			<link rel="shortcut icon" href="favicon.png" type="image/png" />
 			<link rel="stylesheet" href="<?php echo csscrush_file('themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/includes/corefunctions.js"></script>			
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" crossorigin="anonymous">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="/includes/corefunctions.js"></script>			
 <?php
     /** * Il controllo individua se l'header non è impiegato per il main */
     if( ! isset($check_for_update)) {

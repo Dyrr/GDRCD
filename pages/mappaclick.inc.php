@@ -53,7 +53,7 @@ if(gdrcd_query($result, 'num_rows') == 0) {
                 echo '<div id="descriptionLoc"></div>';
             }
 
-            echo '<div class="mappaclick_map" style="background:url(\'themes/', $PARAMETERS['themes']['current_theme'], '/imgs/maps/', $row['immagine'], '\') top left no-repeat; width:', $row['larghezza'], 'px; height:', $row['altezza'], 'px;">';
+            echo '<div class="map_wrapper"><div class="mappaclick_map" style="background:url(\'themes/', $PARAMETERS['themes']['current_theme'], '/imgs/maps/', $row['immagine'], '\') top left no-repeat; width:', $row['larghezza'], 'px; height:', $row['altezza'], 'px;">';
             $echoed_title = true;
             $echo_bottom = true;
             $vicinato = $row['posizione'];
@@ -109,7 +109,7 @@ if(gdrcd_query($result, 'num_rows') == 0) {
         echo '</div>';
     }//while
     if($echo_bottom === true) {
-        echo '</div>';
+        echo '</div></div>';
         $echo_bottom = false;
     }//if
 

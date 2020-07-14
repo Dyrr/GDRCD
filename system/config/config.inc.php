@@ -456,17 +456,17 @@ $PARAMETERS['mode']['chatsave_download'] = 'OFF';
  */
 
 /* VOCI DEL MENU */
-$PARAMETERS['menu']['refresh']['text'] = 'Aggiorna';
+$PARAMETERS['menu']['refresh']['text'] = '<i class="fas fa-sync"></i> Aggiorna';
 $PARAMETERS['menu']['refresh']['url'] = 'main.php?dir=' . $_SESSION['luogo'];
 $PARAMETERS['menu']['refresh']['image_file'] = '';
 $PARAMETERS['menu']['refresh']['image_file_onclick'] = '';
 
-$PARAMETERS['menu']['map']['text'] = 'Mappa';
+$PARAMETERS['menu']['map']['text'] = '<i class="fas fa-map"></i> Mappa';
 $PARAMETERS['menu']['map']['url'] = 'main.php?page=mappaclick&map_id=' . $_SESSION['mappa'];
 $PARAMETERS['menu']['map']['image_file'] = '';
 $PARAMETERS['menu']['map']['image_file_onclick'] = '';
 
-$PARAMETERS['menu']['profile']['text'] = 'Scheda';
+$PARAMETERS['menu']['profile']['text'] = '<i class="fas fa-user"></i> Scheda';
 $PARAMETERS['menu']['profile']['url'] = 'main.php?page=scheda&pg=' . $_SESSION['login'];
 /*Esempio di link nel caso si volesse aprire come scheda modale
 $PARAMETERS['menu']['profile']['url']="javascript:modalWindow('scheda', 'Scheda di ". $_SESSION['login'] ."', 'popup.php?page=scheda&pg=". $_SESSION['login'] ."');";
@@ -474,30 +474,30 @@ $PARAMETERS['menu']['profile']['url']="javascript:modalWindow('scheda', 'Scheda 
 $PARAMETERS['menu']['profile']['image_file'] = '';
 $PARAMETERS['menu']['profile']['image_file_onclick'] = '';
 
-$PARAMETERS['menu']['forum']['text'] = 'Bacheca';
+$PARAMETERS['menu']['forum']['text'] = '<i class="fas fa-hashtag"></i> Bacheca';
 $PARAMETERS['menu']['forum']['url'] = 'main.php?page=forum';
 $PARAMETERS['menu']['forum']['image_file'] = '';
 $PARAMETERS['menu']['forum']['image_file_onclick'] = '';
 
 if ($_SESSION['permessi'] >= MODERATOR)
 {
-    $PARAMETERS['menu']['backend']['text'] = 'Gestione';
+    $PARAMETERS['menu']['backend']['text'] = '<i class="fas fa-cogs"></i> Gestione';
     $PARAMETERS['menu']['backend']['url'] = 'main.php?page=gestione';
     $PARAMETERS['menu']['backend']['image_file'] = '';
     $PARAMETERS['menu']['backend']['image_file_onclick'] = '';
 }
 
-$PARAMETERS['menu']['services']['text'] = 'Servizi';
+$PARAMETERS['menu']['services']['text'] = '<i class="fas fa-tools"></i> Servizi';
 $PARAMETERS['menu']['services']['url'] = 'main.php?page=uffici';
 $PARAMETERS['menu']['services']['image_file'] = '';
 $PARAMETERS['menu']['services']['image_file_onclick'] = '';
 
-$PARAMETERS['menu']['user_services']['text'] = 'Menu utente';
+$PARAMETERS['menu']['user_services']['text'] = '<i class="fas fa-user-cog"></i> Menu utente';
 $PARAMETERS['menu']['user_services']['url'] = 'main.php?page=utenti';
 $PARAMETERS['menu']['user_services']['image_file'] = '';
 $PARAMETERS['menu']['user_services']['image_file_onclick'] = '';
 
-$PARAMETERS['menu']['quit']['text'] = 'Esci';
+$PARAMETERS['menu']['quit']['text'] = '<i class="fas fa-power-off"></i> Esci';
 $PARAMETERS['menu']['quit']['url'] = 'logout.php';
 $PARAMETERS['menu']['quit']['image_file'] = '';
 $PARAMETERS['menu']['quit']['image_file_onclick'] = '';

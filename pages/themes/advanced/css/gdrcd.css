@@ -22,10 +22,17 @@ a,
 a:visited {
     color: #000;
     text-decoration: none;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    color: #00b7f8;
     }
 a:hover {
-    color: #003A6C;
-    font-weight: bolder;
+    -webkit-filter: brightness(150%);
+    filter: brightness(150%);
+    }
+::placeholder {
+    color: black;
+    opacity: 1;
     }
 input[type="submit"] {
     background: -webkit-linear-gradient(to bottom,rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%);
@@ -65,7 +72,8 @@ input[type=submit]:active {
     box-shadow: inset 2px 2px 5px 0 rgba(0,0,0,.75);
     }
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+select {
     background-color: rgba(255,255,255,.25);
     border-bottom: 1px solid white;
     border-right: 1px solid white;
@@ -81,6 +89,20 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="password"]:focus {
     background-color: rgba(255,255,255,.5);
+    }
+form .fields {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    }
+form .submit {
+    text-align: center;
     }
 
 /* HEADER */
@@ -99,6 +121,20 @@ h1 {
 h2 {
     font-size: 16px;
     }
+table {
+    margin: auto;
+    border-collapse: collapse;
+    }
+table tr:nth-child(odd) {
+    background-color: rgba(255,255,255,.2);
+    }
+table tr:nth-child(even) {
+    background-color: rgba(255,255,255,.4);
+    }
+table td {
+    border: 1px solid rgba(0,0,0,5);
+    padding: 5px;
+    }
 @media (min-width:1380px) {
 body,
 html {
@@ -108,6 +144,22 @@ html {
 
 .tc {
     text-align: center;
+    }
+div.error {
+    background-color: #cf8888;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    border: solid 1px #800;
+    color: #970b0b;
+    text-align: left;
+    }
+div.error h2 {
+    text-align: left !important;
+    color: #970b0b !important;
+    }
+div.error ol li {
+    line-height: 1.5em;
     }
 
 /* FINE STILI COMUNI */
@@ -183,6 +235,8 @@ html {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     text-align: center;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
     }
 .home.layout nav li:hover,
 .home.layout nav.bottom li:hover {
@@ -226,6 +280,21 @@ html {
     background-image: linear-gradient(110deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 74%,rgba(255,255,255,.1) 75%,rgba(255,255,255,.1) 100%);
     border-radius: 5px;
     }
+.home.layout aside#sez_stat .item {
+    padding: 0;
+    }
+.home.layout aside#sez_stat .item h2 {
+    margin: 10px 0;
+    }
+.home.layout aside#sez_stat .item table {
+    min-width: 250px;
+    width: 100%;
+    font-size: 12px;
+    }
+.home.layout aside#sez_stat .item table td {
+    border-left-width: 0;
+    border-right-width: 0;
+    }
 .home.layout aside.sez_form {
     grid-area: logon;
     }
@@ -251,18 +320,6 @@ html {
     color: rgba(255,255,255,.75);
     text-align: center;
     }
-.home.layout aside .item .modulo.login form .fields,
-.home.layout aside .item .modulo.recupero form .fields {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    }
 .home.layout aside .item .modulo.login form .fields label,
 .home.layout aside .item .modulo.recupero form .fields label {
     -webkit-flex: 0 0 60px;
@@ -278,10 +335,6 @@ html {
     -ms-flex: 2 0 75%;
     flex: 2 0 75%;
     margin: .5em 0;
-    }
-.home.layout aside .item .modulo.login form .submit,
-.home.layout aside .item .modulo.recupero form .submit {
-    text-align: center;
     }
 .home.layout main {
     grid-area: main;
@@ -301,9 +354,50 @@ html {
     background-image: linear-gradient(110deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 74%,rgba(255,255,255,.1) 75%,rgba(255,255,255,.1) 100%);
     border-radius: 5px;
     }
+.home.layout main h1,
 .home.layout main h2 {
     color: rgba(255,255,255,.75);
     text-align: center;
+    }
+.home.layout main a {
+    color: white;
+    }
+.home.layout main a:hover {
+    color: #00b7f8;
+    -webkit-filter: brightness(150%);
+    filter: brightness(150%);
+    }
+.home.layout main section.iscrizione {
+    overflow-x: auto;
+    }
+.home.layout main section.iscrizione h2 {
+    margin-bottom: 10px;
+    }
+.home.layout main section.iscrizione form .fields {
+    margin: auto;
+    max-width: 500px;
+    }
+.home.layout main section.iscrizione form .fields label {
+    -webkit-flex: 0 0 90px;
+    -ms-flex: 0 0 90px;
+    flex: 0 0 90px;
+    padding: .5em 0;
+    font-weight: bolder;
+    }
+.home.layout main section.iscrizione form .fields input[type="text"],
+.home.layout main section.iscrizione form .fields input[type="password"],
+.home.layout main section.iscrizione form .fields select {
+    -webkit-flex: 2 0 -webkit-calc(100% - 90px);
+    -webkit-flex: 2 0 calc(100% - 90px);
+    -ms-flex: 2 0 calc(100% - 90px);
+    flex: 2 0 -webkit-calc(100% - 90px);
+    flex: 2 0 calc(100% - 90px);
+    margin: .5em 0;
+    }
+.home.layout main section.iscrizione form .fields .form_info {
+    -webkit-flex: 1 0 100%;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
     }
 .home.layout nav.bottom {
     grid-area: nav_bottom;
@@ -316,7 +410,7 @@ html {
 @media screen and (orientation: landscape) {
 .home.layout {
     grid-template-columns: min-content auto;
-    grid-template-rows: min-content min-content min-content min-content min-content min-content;
+    grid-template-rows: min-content min-content min-content min-content min-content min-content min-content;
     justify-items: stretch;
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
@@ -431,6 +525,15 @@ html {
 .main.layout aside .item .modulo .pagina_mappaclick {
     position: relative;
     }
+.main.layout aside .item .modulo .pagina_mappaclick .map_wrapper {
+    overflow: auto;
+    width: 100%;
+    display: block;
+    position: relative;
+    }
+.main.layout aside .item .modulo.menu {
+    padding: 10px 0 0;
+    }
 .main.layout main {
     height: 100%;
     -webkit-box-sizing: border-box;
@@ -488,6 +591,15 @@ html {
     }
 .main.layout main .modulo .pagina_mappaclick {
     position: relative;
+    }
+.main.layout main .modulo .pagina_mappaclick .map_wrapper {
+    overflow: auto;
+    width: 100%;
+    display: block;
+    position: relative;
+    }
+.main.layout main .modulo.menu {
+    padding: 10px 0 0;
     }
 .main.layout main .modulo {
     -webkit-flex: 1 1 auto;
@@ -644,17 +756,6 @@ select.year {
     }
 
 /** * Stile dei messaggi d'avviso dell'engine */
-div.warning,
-div.error {
-    background-color: #cf8888;
-    font-size: 12px;
-    text-align: center;
-    margin: 15px;
-    font-weight: bolder;
-    padding: 10px;
-    border: solid 1px #800;
-    color: #970b0b;
-    }
 div.link_back {
     text-align: center;
     background-color: #d1d1d1;
@@ -687,6 +788,7 @@ div.page_title h2 {
     border-bottom: 1px solid #D9D9D9;
     padding-bottom: 4px;
     margin-top: 0;
+    margin-bottom: 5px;
     color: #EBECF0;
     font-family: 'Roboto',sans-serif;
     text-transform: uppercase;
@@ -740,8 +842,8 @@ div.meteo_date {
 /** * Frame Messaggi 
 */
 iframe.iframe_messaggi {
-    height: 33px;
-    width: 180px;
+    height: 1em;
+    width: 100%;
     }
 div.pagina_messaggi {
     text-align: center;
@@ -764,19 +866,18 @@ div.messaggio_forum_nuovo a:visited {
 select#gotomap {
     display: block;
     width: 160px;
-    margin: 0 auto 15px auto;
-    }
-div.link_menu {
-    padding: 0 0 0 10px;
+    margin: 0 auto 10px auto;
     }
 div.link_menu a {
     display: block;
     padding: 2px;
+    padding-left: 10px;
     text-align: left;
+    color: rgba(0,0,0,.75);
+    font-size: bolder;
     }
 div.link_menu a:hover {
-    background-color: #cfcfcf;
-    border-radius: 5px;
+    background-color: rgba(255,255,255,.4);
     }
 div.link_menu a.sprite {
     display: block;
@@ -794,13 +895,14 @@ div.link_menu a.sprite:hover {
 /** * Posizionamento mappa cliccabile 
 */
 div.mappaclick_map {
-    margin: 20px auto;
+    margin: 0 auto;
     }
 
 /** * Link testuali sulla mappa */
 div.mappaclick_map a {
     font-size: 13px;
     font-weight: bolder;
+    color: rgba(0,0,0,.75);
     }
 
 /** * stile della tooltip di descrizione sulla mappa 

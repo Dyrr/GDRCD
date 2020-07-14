@@ -525,6 +525,15 @@ div.error ol li {
 .main.layout aside .item .modulo .pagina_mappaclick {
     position: relative;
     }
+.main.layout aside .item .modulo .pagina_mappaclick .map_wrapper {
+    overflow: auto;
+    width: 100%;
+    display: block;
+    position: relative;
+    }
+.main.layout aside .item .modulo.menu {
+    padding: 10px 0 0;
+    }
 .main.layout main {
     height: 100%;
     -webkit-box-sizing: border-box;
@@ -582,6 +591,15 @@ div.error ol li {
     }
 .main.layout main .modulo .pagina_mappaclick {
     position: relative;
+    }
+.main.layout main .modulo .pagina_mappaclick .map_wrapper {
+    overflow: auto;
+    width: 100%;
+    display: block;
+    position: relative;
+    }
+.main.layout main .modulo.menu {
+    padding: 10px 0 0;
     }
 .main.layout main .modulo {
     -webkit-flex: 1 1 auto;
@@ -770,6 +788,7 @@ div.page_title h2 {
     border-bottom: 1px solid #D9D9D9;
     padding-bottom: 4px;
     margin-top: 0;
+    margin-bottom: 5px;
     color: #EBECF0;
     font-family: 'Roboto',sans-serif;
     text-transform: uppercase;
@@ -823,8 +842,8 @@ div.meteo_date {
 /** * Frame Messaggi 
 */
 iframe.iframe_messaggi {
-    height: 33px;
-    width: 180px;
+    height: 1em;
+    width: 100%;
     }
 div.pagina_messaggi {
     text-align: center;
@@ -847,19 +866,18 @@ div.messaggio_forum_nuovo a:visited {
 select#gotomap {
     display: block;
     width: 160px;
-    margin: 0 auto 15px auto;
-    }
-div.link_menu {
-    padding: 0 0 0 10px;
+    margin: 0 auto 10px auto;
     }
 div.link_menu a {
     display: block;
     padding: 2px;
+    padding-left: 10px;
     text-align: left;
+    color: rgba(0,0,0,.75);
+    font-size: bolder;
     }
 div.link_menu a:hover {
-    background-color: #cfcfcf;
-    border-radius: 5px;
+    background-color: rgba(255,255,255,.4);
     }
 div.link_menu a.sprite {
     display: block;
@@ -877,13 +895,14 @@ div.link_menu a.sprite:hover {
 /** * Posizionamento mappa cliccabile 
 */
 div.mappaclick_map {
-    margin: 20px auto;
+    margin: 0 auto;
     }
 
 /** * Link testuali sulla mappa */
 div.mappaclick_map a {
     font-size: 13px;
     font-weight: bolder;
+    color: rgba(0,0,0,.75);
     }
 
 /** * stile della tooltip di descrizione sulla mappa 
