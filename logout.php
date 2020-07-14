@@ -1,9 +1,9 @@
-<?php session_start();
-//Includio i parametri, la configurazione, la lingua e le funzioni
-require ('includes/required.php');
+<?php 
+	define('ROOT', __DIR__);
 
-//Eseguo la connessione al database
-$handleDBConnection = gdrcd_connect();
+	//Includo i parametri, la configurazione, la lingua e le funzioni
+    require_once ROOT . '/system/inc/required.php';
+
 
 /** * Aggiorno l'ora di uscita del pg
 * @author Blancks
@@ -41,4 +41,3 @@ unset($PARAMETERS);
 
 session_unset();
 session_destroy();
-?>
