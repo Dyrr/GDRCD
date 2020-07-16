@@ -1,4 +1,24 @@
 <?php
+/**
+ *  @file       pages/scheda/scheda.inc.php
+ *  
+ *  @brief      Modulo principale della scheda del personaggio
+ *  
+ *  @version    5.6.0
+ *  @date       16/07/2020
+ *  
+ *  @author     Davide 'Dyrr' Grandi
+ *  
+ *  @details    Modulo principale, e forse in futuro unico per la scheda del personaggio 
+
+ *  @details    Cartella con i template della pagina della scheda
+ *  @see        themes/advanced/template/scheda    
+ *  
+ *  @details    Cartella con le funzioni per il personaggio
+ *  @see        system/inc/functions/personaggio
+ *  
+ *  @todo       finire la pagina e ottimizzarla 
+ */     
     
     //include il set di funzioni del personaggio
     require \functions\file('personaggio');
