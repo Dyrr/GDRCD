@@ -50,15 +50,13 @@
             if($TAG['page']['pg']['url_media'] != '') {
                     //visualizzo il lettore audio
 ?>
-                        
-                        <audio id="audio_scheda"  autoplay loop preload="none" width="100%" controls style="background-color:rgba(0,0,0,0);">
-                            <source src="<?php echo $TAG['page']['pg']['url_media']; ?>">
-                        </audio>
-                        
-                        <script>
-
-            $('audio').mediaelementplayer();                                                            
-                        </script>               
+                <audio id="audio_scheda"  autoplay loop preload="none" width="100%" controls style="background-color:rgba(0,0,0,0);">
+                    <source src="<?php echo $TAG['page']['pg']['url_media']; ?>">
+                </audio>
+                
+                <script>
+                    $('audio').mediaelementplayer();                                                            
+                </script>               
 <?php
             }
 ?>
