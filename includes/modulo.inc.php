@@ -1,17 +1,34 @@
 <?php
-    namespace modulo;
+	namespace functions {
 
-    function file($modulo)
-    {
-
-        $modulo = ROOT . '/pages/' . $modulo . '.inc.php';
-        $modulo = str_replace('\\','/',$modulo);
- 
-		if(file_exists($modulo) === false) {
+		function file($file) {
 			
-			$modulo = 'error/non_trovato.inc.php';
-		
+			$file = ROOT . '/system/inc/functions/' . $file . '.inc.php';
+			$file = str_replace('\\','/',$file);
+				
+			return $file;
+			
 		}
 		
-		return $modulo;
-    }
+	}    
+	
+	namespace modulo {
+
+		function file($modulo)
+		{
+
+			$modulo = ROOT . '/pages/' . $modulo . '.inc.php';
+			$modulo = str_replace('\\','/',$modulo);
+			$modulo = str_replace('__','/',$modulo);
+	 
+			
+			if(file_exists($modulo) === false) {
+				
+				$modulo = 'error/non_trovato.inc.php';
+			
+			}
+			
+			return $modulo;
+		}
+		
+	}

@@ -33,8 +33,8 @@ $info = gdrcd_query("SELECT nome, stanza_apparente, invitati, privata, proprieta
         } else {
             ?>
             <?php $_SESSION['last_message'] = 0; ?>
-            <div style="height: 1px; width: 1px;">
-                <iframe src="pages/chat.inc.php?ref=30&chat=yes" class="iframe_chat" id="chat_frame" name="chat_frame" frameborder="0" allowtransparency="true">
+            <div style="height: 0px; width: 100%">
+                <iframe src="pages/chat.inc.php?ref=30&chat=yes" class="" id="chat_frame" name="chat_frame" frameborder="0" allowtransparency="true">
                 </iframe>
             </div>
             <div id='pagina_chat' class="chat_box">
@@ -63,7 +63,7 @@ $info = gdrcd_query("SELECT nome, stanza_apparente, invitati, privata, proprieta
                                 <br /><span class="casella_info"><?php echo gdrcd_filter('out', $MESSAGE['chat']['type']['info']); ?></span>
                             </div>
                             <div class="casella_chat">
-                                <input name="tag" id="tag" value="" />
+                                <input type="text" name="tag" id="tag" value="" />
                                 <br /><span class="casella_info">
                                     <?php echo gdrcd_filter('out', $MESSAGE['chat']['tag']['info']['tag'].$MESSAGE['chat']['tag']['info']['dst']);
                                     if($_SESSION['permessi'] >= GAMEMASTER) {
@@ -72,7 +72,7 @@ $info = gdrcd_query("SELECT nome, stanza_apparente, invitati, privata, proprieta
 	                            </span>
                             </div>
                             <div class="casella_chat">
-                                <input name="message" id="message" value="" />
+                                <input type="text" name="message" id="message" value="" />
                                 <br /><span class="casella_info">
 	                                    <?php echo gdrcd_filter('out', $MESSAGE['chat']['tag']['info']['msg']); ?>
 	                                </span>

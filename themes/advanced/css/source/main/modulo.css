@@ -23,18 +23,7 @@
 		flex:1 1 auto;
 	}
 	
-	.pagina_mappaclick
-	{
-		position:relative;
-		
-		.map_wrapper
-		{
-			overflow: auto;
-			width: 100%;
-			display: block;
-			position: relative;			
-		}
-	}
+
 	
 	&.menu
 	{

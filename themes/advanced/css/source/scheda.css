@@ -1,10 +1,97 @@
-/****************************************************************************/
-/* STILE DELLA SCHEDA DEL PERSONAGGIO */
+main section.scheda
+{
+	text-align:justify;
+	line-height:1.5em;
+	padding:0 !IMPORTANT;
+	
+	h1
+	{
+		margin: 0.5em 0;
+	}
+	
+	.ajax
+	{
+		padding:10px;
+	}
+	
 
-/* HELP: Da qui è possibile modificare:
-- I font ed i colori della scheda del personaggio
-- Le dimensioni, l'aspetto e la posizione degli elementi della scheda
-- Lo sfondo della scheda */
+	
+	.outer_container
+	{
+	
+		/*background:teal;*/
+		padding:20px 0px 40px 0px;
+		margin:auto;
+		width:calc(100% - 50px);
+		min-width:250px;
+		height:50vh;		
+		
+
+		
+		.avatar_wrapper
+		{
+			
+			width:calc(100% - 20px);
+			height:calc(100% - 20px);
+			/*background-color:red;*/
+			background-color:white;
+			box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
+			transform: rotate(5deg);
+			 transition-duration: 0.5s;
+			 display:flex;
+			 flex-flow:column nowrap;
+			padding:10px;
+			&:hover
+			{
+				transform: rotate(0deg);
+				
+			}
+			
+			.avatar
+			{
+				flex:1 1 100%;
+				background-color:black;
+				display:flex;
+				background-position:50% 50%;
+				background-size:contain;
+				background-repeat:no-repeat;
+
+
+				
+
+				
+			}
+			
+			.sign
+			{
+				background-color:white;
+				padding: 10px 0 0 0;
+				flex:0 1 auto;
+				font-weight:bolder;
+
+			}
+			
+			
+		}
+		
+	}
+
+	@media screen and (orientation: landscape) {
+		
+		.outer_container
+		{		
+			
+			padding:20px 30px 40px 30px;
+			width:25%;
+			float:left;
+		
+		}	
+	
+	}
+	
+}
+
+
 
 div.pagina_scheda {
     margin-left: auto;

@@ -2,7 +2,8 @@
     defined('GDRCD') OR exit('Non è permesso accesso diretto ai template');
     template\start('layout_top');
 ?>
-        <div class="main layout">
+    
+		<div class="main layout">
 <?php
             foreach ($PARAMETERS['section'] as $k => $v) {
 ?>            <aside id="sez_<?php echo gdrcd_filter_out($k); ?>">
@@ -30,8 +31,8 @@
 				</div>
 		   </main>
         </div>
-      <script>
-         $(document).ready(function(){
+	 <script>
+
              
           $(document).ready(function(){
             var outerContent = $('.main.layout');
@@ -40,8 +41,8 @@
             //outerContent.scrollTop(((outerContent.height() / 10) * 9));
 
             });
-               
-         });
+	   
+
       </script>
 <?php
     template\end('layout_bottom');

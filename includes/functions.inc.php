@@ -14,6 +14,8 @@
 /**
  * Connettore al database MySql
  */
+ 
+ 
 function gdrcd_connect() {
     static $db_link = false;
 
@@ -22,14 +24,15 @@ function gdrcd_connect() {
         $db_pass = $GLOBALS['PARAMETERS']['database']['password'];
         $db_name = $GLOBALS['PARAMETERS']['database']['database_name'];
         $db_host = $GLOBALS['PARAMETERS']['database']['url'];
-        $db_error = $GLOBALS['MESSAGE']['error']['db_not_found'];
+        $db_collation = $GLOBALS['PARAMETERS']['database']['collation'];
+		$db_error = $GLOBALS['MESSAGE']['error']['db_not_found'];
 
         #$db = mysql_connect($db_host, $db_user, $db_pass)or die(gdrcd_mysql_error());
         #mysql_select_db($db_name)or die(gdrcd_mysql_error($db_error));
 
         $db_link = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
-        mysqli_set_charset($db_link, "utf8");
+        mysqli_set_charset($db_link, $db_collation);
 
         if(mysqli_connect_errno()) {
             gdrcd_mysql_error($db_error);
@@ -69,7 +72,7 @@ function gdrcd_query($sql, $mode = 'query') {
             switch(strtoupper(substr(trim($sql), 0, 6))) {
                 case 'SELECT':
                     $result = mysqli_query($db_link, $sql) or die(gdrcd_mysql_error($sql));
-                    $row = mysqli_fetch_array($result, MYSQLI_BOTH);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     mysqli_free_result($result);
 
                     return $row;
@@ -90,7 +93,7 @@ function gdrcd_query($sql, $mode = 'query') {
             break;
 
         case 'fetch':
-            $row = mysqli_fetch_array($sql, MYSQLI_BOTH);
+            $row = mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
             return $row;
             break;
@@ -625,6 +628,8 @@ function gdrcd_list($str) {
 
     return $list;
 }
+
+
 
 require 'template.inc.php';
 require 'modulo.inc.php';

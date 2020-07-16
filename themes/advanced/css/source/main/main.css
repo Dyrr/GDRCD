@@ -79,15 +79,50 @@
 		justify-content:center;
 		overflow:hidden;
 
+		/* importa il css del menu di navigazione dei moduli presenti nel main */
+		@import 'nav.css';		
+		
 		/* importa il css dei riquadri dei moduli */
 		@import 'modulo.css';
 
+		/* modifica gli attributi standard dei moduli per destirli per il riquadro centrale */
 		.modulo
 		{
 			flex:1 1 auto;
-			height:calc(100% - 44px);
+			height:calc(100% - 24px);
+			padding:0;
+			position:relative;
+			
+			.pagina_mappaclick
+			{
+				
+				
+				.map_wrapper
+				{
+					overflow: auto;
+					width: 100%;
+					display: block;
+					position: relative;			
+				}
+			}			
+			
+
 		}
 		
+
+		
+		.mejs__container,
+		.mejs__controls:not([style*="display: none"])		
+		{
+			background:rgba(0,0,0,0);
+		}
+		
+		
+		section
+		{
+			padding:10px;
+		}	
+	
 	}
 	
 }

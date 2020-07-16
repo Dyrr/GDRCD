@@ -14,11 +14,8 @@ error_reporting(E_ERROR | E_PARSE);
 //error_reporting(E_ALL);
 
 
-/* PARAMETRI DI CONNESSIONE */
-$PARAMETERS['database']['username'] = 'gdrcd';            //nome utente del database
-$PARAMETERS['database']['password'] = 'gdrcd';            //password del database
-$PARAMETERS['database']['database_name'] = 'my_database';    //nome del database
-$PARAMETERS['database']['url'] = 'localhost';        //indirizzo ip del database
+    //include la sezione del file di configurazione per il database
+    require_once __DIR__ . '/db.inc.php';
 
 
 /* HELP: Sostituire le diciture inserite tra le virgolette con i parametri di connessione al Database del proprio dominio. Essi sono forniti al momento della registrazione. Se non si e' in possesso di tali parametri consultare le FAQ della homepage dell'host che fornisce il dominio. Se non le si trovano li contattare lo staff dell'host. */

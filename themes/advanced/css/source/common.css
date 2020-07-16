@@ -1,4 +1,22 @@
 /* INIZIO STILI COMUNI */
+::-webkit-scrollbar {
+  width: 5px;
+} 
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.25); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.50); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.75); 
+}
+
 
 body,
 html
@@ -15,7 +33,13 @@ html
 
 }
 
+div,
+textarea
+{
 
+	scrollbar-color: #26282c #737579;
+	scrollbar-width: thin;	
+}
 
 /* LINK */
 a, 
@@ -152,6 +176,7 @@ h2
 h1
 {
 	font-size:32px;
+	text-align:center;
 }
 
 h2

@@ -4,6 +4,24 @@
 /* IMPORTA LE VARIABILI */
 /* IMPORTA GLI STILI COMUNI */
 /* INIZIO STILI COMUNI */
+::-webkit-scrollbar {
+    width: 5px;
+    }
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.25);
+    }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.50);
+    }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,.75);
+    }
 body,
 html {
     padding: 0;
@@ -15,6 +33,11 @@ html {
     font-size: 12px;
     letter-spacing: 1px;
     position: relative;
+    }
+div,
+textarea {
+    scrollbar-color: #26282c #737579;
+    scrollbar-width: thin;
     }
 
 /* LINK */
@@ -117,6 +140,7 @@ h2 {
     }
 h1 {
     font-size: 32px;
+    text-align: center;
     }
 h2 {
     font-size: 16px;
@@ -202,6 +226,9 @@ div.error ol li {
 .home.layout header {
     padding: 10px 20px 10px 20px;
     grid-area: header;
+    }
+.home.layout header h1 {
+    text-align: left;
     }
 .home.layout nav,
 .home.layout nav.bottom {
@@ -522,15 +549,6 @@ div.error ol li {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     }
-.main.layout aside .item .modulo .pagina_mappaclick {
-    position: relative;
-    }
-.main.layout aside .item .modulo .pagina_mappaclick .map_wrapper {
-    overflow: auto;
-    width: 100%;
-    display: block;
-    position: relative;
-    }
 .main.layout aside .item .modulo.menu {
     padding: 10px 0 0;
     }
@@ -558,6 +576,66 @@ div.error ol li {
     -ms-flex-pack: center;
     justify-content: center;
     overflow: hidden;
+    }
+.main.layout main nav {
+    background-color: #939fab;
+    background-color: #a9b3bd;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    position: -webkit-sticky;
+    position: sticky;
+    top: .10px;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
+    }
+.main.layout main nav ul,
+.main.layout main nav li {
+    margin: 0;
+    padding: 0;
+    }
+.main.layout main nav li:hover {
+    background-color: rgba(255,255,255,.4);
+    }
+.main.layout main nav ul {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+.main.layout main nav ul li {
+    list-style-type: none;
+    padding: 10px;
+    position: relative;
+    white-space: nowrap;
+    }
+.main.layout main nav ul li ul {
+    border: 1px solid rgba(0,0,0,.75);
+    position: absolute;
+    top: -webkit-calc(1.5em + 20px);
+    top: calc(1.5em + 20px);
+    background-color: #a9b3bd;
+    display: none;
+    z-index: 1;
+    }
+.main.layout main nav ul li:last-of-type ul {
+    right: 0;
+    }
+.main.layout main nav ul li:hover ul {
+    display: block;
+    }
+.main.layout main nav ul li ul li {
+    display: block;
+    }
+.main.layout main nav a {
+    color: rgba(0,0,0,1);
+    padding: 10px;
     }
 .main.layout main .modulo {
     -webkit-flex: 0 1 auto;
@@ -589,7 +667,16 @@ div.error ol li {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     }
-.main.layout main .modulo .pagina_mappaclick {
+.main.layout main .modulo.menu {
+    padding: 10px 0 0;
+    }
+.main.layout main .modulo {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    height: -webkit-calc(100% - 24px);
+    height: calc(100% - 24px);
+    padding: 0;
     position: relative;
     }
 .main.layout main .modulo .pagina_mappaclick .map_wrapper {
@@ -598,15 +685,12 @@ div.error ol li {
     display: block;
     position: relative;
     }
-.main.layout main .modulo.menu {
-    padding: 10px 0 0;
+.main.layout main .mejs__container,
+.main.layout main .mejs__controls:not([style*="display: none"]) {
+    background: rgba(0,0,0,0);
     }
-.main.layout main .modulo {
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    height: -webkit-calc(100% - 44px);
-    height: calc(100% - 44px);
+.main.layout main section {
+    padding: 10px;
     }
 @media screen and (orientation: portrait) {
 html,
@@ -1274,13 +1358,79 @@ img.presenti_ico {
     height: 10px;
     border: none;
     }
+main section.scheda {
+    text-align: justify;
+    line-height: 1.5em;
+    padding: 0 !important;
+    }
+main section.scheda h1 {
+    margin: .5em 0;
+    }
+main section.scheda .ajax {
+    padding: 10px;
+    }
+main section.scheda .outer_container {
+    padding: 20px 0 40px 0;
+    margin: auto;
+    width: -webkit-calc(100% - 50px);
+    width: calc(100% - 50px);
+    min-width: 250px;
+    height: 50vh;
+    }
+main section.scheda .outer_container .avatar_wrapper {
+    width: -webkit-calc(100% - 20px);
+    width: calc(100% - 20px);
+    height: -webkit-calc(100% - 20px);
+    height: calc(100% - 20px);
+    background-color: white;
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
+    -webkit-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    padding: 10px;
+    }
+main section.scheda .outer_container .avatar_wrapper:hover {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    }
+main section.scheda .outer_container .avatar_wrapper .avatar {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    background-color: black;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    }
+main section.scheda .outer_container .avatar_wrapper .sign {
+    background-color: white;
+    padding: 10px 0 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    font-weight: bolder;
+    }
+@media screen and (orientation: landscape) {
+main section.scheda .outer_container {
+    padding: 20px 30px 40px 30px;
+    width: 25%;
+    float: left;
+    }
+}
 
-/****************************************************************************/
-/* STILE DELLA SCHEDA DEL PERSONAGGIO */
-/* HELP: Da qui è possibile modificare:
-- I font ed i colori della scheda del personaggio
-- Le dimensioni, l'aspetto e la posizione degli elementi della scheda
-- Lo sfondo della scheda */
 div.pagina_scheda {
     margin-left: auto;
     margin-right: auto;

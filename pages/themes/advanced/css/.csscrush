@@ -5,16 +5,13 @@
             "common.css",
             "home\/layout.css",
             "main.css",
-            "layouts\/main.css",
-            "layouts\/modulo.css",
-            "layouts\/modulo.css",
             "chat.css",
             "presenti.css",
             "scheda.css",
             "messaggi.css",
             "forum.css"
         ],
-        "datem_sum": 20718998172,
+        "datem_sum": 15938267183,
         "options": {
             "minify": false,
             "formatter": null,

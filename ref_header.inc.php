@@ -149,13 +149,19 @@ if((gdrcd_filter_get($_REQUEST['chat']) == 'yes') && (empty($_SESSION['login']) 
                         $tag_n_beyond = $_SESSION['login'];
                         $chat_message = gdrcd_filter('in', $MESSAGE['status_pg']['exausted']);
                     }
-                } elseif((($type == "2") || ($first_char == "§") || ($first_char == "-") || ($first_char == "*")) && ($_SESSION['permessi'] >= GAMEMASTER)) { /*Master*/
+                } elseif((($type == "2") || ($first_char == "§") || ($first_char == "-") || ($first_char == "*")|| ($first_char == "!")|| ($first_char == "?")) && ($_SESSION['permessi'] >= GAMEMASTER)) { /*Master*/
                     $m_type = 'M';
                     if(($first_char == "§") || ($first_char == "-")) {
                         $chat_message = substr($chat_message, 1);
                     } elseif($first_char == "*") {
                         $chat_message = substr($chat_message, 1);
                         $m_type = 'I';
+                    } elseif($first_char == "!") {
+                        $chat_message = substr($chat_message, 1);
+                        $m_type = 'V';
+                    } elseif($first_char == "?") {
+                        $chat_message = substr($chat_message, 1);
+                        $m_type = 'X';
                     }
                 } elseif(($type == "3") && ($_SESSION['permessi'] >= GAMEMASTER)) { /*PNG*/
                     $m_type = 'N';
@@ -231,11 +237,12 @@ $typeOrder = ($PARAMETERS['mode']['chat_from_bottom'] == 'ON') ? 'DESC' : 'ASC';
  * facendo risultare quindi sempre veritiero il controllo in questo caso.
  * @author Blancks
  */
-$query = gdrcd_query("	SELECT chat.id, chat.imgs, chat.mittente, chat.destinatario, chat.tipo, chat.ora, chat.testo, personaggio.url_img_chat, mappa.ora_prenotazione
+ $querylog = "	SELECT chat.id, chat.imgs, chat.mittente, chat.destinatario, chat.tipo, chat.ora, chat.testo, personaggio.url_img_chat, mappa.ora_prenotazione
         FROM chat
         INNER JOIN mappa ON mappa.id = chat.stanza
         LEFT JOIN personaggio ON personaggio.nome = chat.mittente
-        WHERE chat.id > ".$last_message." AND stanza = ".$_SESSION['luogo']." AND chat.ora > IFNULL(mappa.ora_prenotazione, '0000-00-00 00:00:00') AND DATE_SUB(NOW(), INTERVAL 30 MINUTE) < ora ORDER BY id ".$typeOrder, 'result');
+        WHERE chat.id > ".$last_message." AND stanza = ".$_SESSION['luogo']." AND chat.ora > IFNULL(mappa.ora_prenotazione, '0000-00-00 00:00:00') AND DATE_SUB(NOW(), INTERVAL 30 MINUTE) < ora ORDER BY id ".$typeOrder;
+$query = gdrcd_query($querylog, 'result');
 
 while($row = gdrcd_query($query, 'fetch')) {
     //Impedisci XSS nelle immagini
@@ -303,8 +310,14 @@ while($row = gdrcd_query($query, 'fetch')) {
             break;
         case 'I':
             $add_chat .= '<img class="chat_img" src="'.gdrcd_filter('fullurl', $row['testo']).'" />';
-            break;
-        case 'C':
+		break;
+        case 'V':
+            $add_chat .= '<video width="320" height="240" controls><source src="'.gdrcd_filter('fullurl', $row['testo']).'" type="video/mp4"></video>';
+		break;        
+        case 'X':
+            $add_chat .= '<audio controls><source src="'.gdrcd_filter('fullurl', $row['testo']).'"></audio>';
+		break; 		
+		case 'C':
         case 'D':
         case 'O':
             $add_chat .= '<span class="chat_time">'.gdrcd_format_time($row['ora']).'</span>';
@@ -318,8 +331,10 @@ while($row = gdrcd_query($query, 'fetch')) {
     }
 }
 gdrcd_query($query, 'free');
+
+if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {        
 $_SESSION['last_message'] = $last_message;
-/******************************************************************************************/
+}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -339,13 +354,16 @@ if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {
     /** * Gestione dell'ordinamento
      * @author Blancks
      */
-    if($PARAMETERS['mode']['chat_from_bottom'] == 'OFF') {
-        echo 'parent.document.getElementById(\'pagina_chat\').innerHTML+= '.json_encode((string) $add_chat).';';
+    if( ! empty($add_chat)) {    
+	if($PARAMETERS['mode']['chat_from_bottom'] == 'OFF') {
+        echo 'top.$("#pagina_chat").append('.json_encode((string) $add_chat).');';
+		//echo 'parent.document.getElementById(\'pagina_chat\').innerHTML+= '.json_encode((string) $add_chat).';';
         echo 'scrolling = parent.document.getElementById(\'pagina_chat\').scrollHeight;';
     } elseif($PARAMETERS['mode']['chat_from_bottom'] == 'ON') {
         echo 'parent.document.getElementById(\'pagina_chat\').innerHTML= '.json_encode((string) $add_chat).'+parent.document.getElementById(\'pagina_chat\').innerHTML;';
         echo 'scrolling = 0;';
     }
+	}
     /** * Gestione intelligente della scrollbar
      * Forza lo scroll solo quando ci sono nuovi messaggi
      * @author Blancks
@@ -362,10 +380,13 @@ if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {
                 parent.document.getElementById(\'chat_form_messages\').elements["tag"].value=\''.$_SESSION["tag"].'\';';
     }//if
     echo '}</script>';
+
 }
+
 if ($PARAMETERS['mode']['allow_audio'] == 'ON' && $_SESSION['blocca_media'] != 1 && $add_chat != '' && isset($alert_new_msg) && $alert_new_msg == 1) { ?>
 <script type="text/javascript">
     var mediaElementChat = parent.document.getElementById("sound_player_chat");
     mediaElementChat.play();
 </script>
+
 <?php } ?>

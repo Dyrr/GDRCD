@@ -75,7 +75,7 @@ if($PARAMETERS['mode']['check_messages'] === 'ON') {
 
         if($PARAMETERS['mode']['alert_pm_via_pagetitle'] == 'ON') { ?>
         <script type="text/javascript">
-            parent.stop_blinking_title();
+            //parent.stop_blinking_title();
         </script>
         <?php
         }
