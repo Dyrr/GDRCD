@@ -15,12 +15,62 @@
  *  @see        pages/scheda/scheda.inc.php
  *  
  *  @todo		effettuare i cambi pagina tramite ajax
- */     
+ */
+ $i = 0;
 ?>
     <section class="scheda">
         <?php require \template\file('scheda/nav'); // include il template del menù di navigazione ?>
         <div class="ajax">
+			<div class="skill_list">
+			<div class="single">
 			<h2>Skill</h2>
-			<?php echo var_dump($TAG['page']['skill']); ?>
+			PX: <?php echo gdrcd_filter_num($TAG['page']['pg']['esperienza'] - $TAG['page']['pg']['esperienza_spesa']); ?>/<?php echo gdrcd_filter_num($TAG['page']['pg']['esperienza']); ?>
+			
+			</div>
+<?php //var_dump($TAG['page']['skill']); ?>			
+<?php
+			foreach($TAG['page']['skill'] as $v) {
+?>
+<?php
+				if($v['first'] === true) {
+					$i = $i + 1;
+?>
+<?php
+					if($i == 4) {
+?>
+						</div>
+<?php
+					}
+?>
+<?php
+					if($i == 1 || $i == 4) {
+?>
+						<div class="pair">
+<?php
+					}
+?>
+					<h2><?php echo gdrcd_filter_out($PARAMETERS['names']['stats']['car'.$v['car']]); ?></h2>
+<?php
+				}
+?>
+					<div class="item">
+						<div>
+							<?php echo gdrcd_filter_out($v['nome']); ?>
+						</div>
+						<div>
+							<i class="far fa-minus-square"></i>
+							<i class="far fa-plus-square"></i>
+						</div>
+						<div>
+							<progress value="<?php echo gdrcd_filter_out($v['grado']); ?>" max="10" />
+						</div>
+						<div><?php echo gdrcd_filter_out($v['grado']); ?></div>
+					</div>
+<?php
+			}
+?>
+			</div>
+			
+			</div>
 		</div>
     </section>

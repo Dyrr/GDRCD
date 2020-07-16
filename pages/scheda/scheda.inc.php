@@ -94,7 +94,9 @@
                 //dati delle skill
                 $TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza']);
             
-                //imposta il template da visualizzare
+                $TAG['page']['pg']['esperienza_spesa'] = \pg\px\spesi($_REQUEST['pg']);
+				
+				//imposta il template da visualizzare
                 $TAG['template'] = 'scheda/skill';                  
             
             break;

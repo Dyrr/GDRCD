@@ -186,6 +186,72 @@ div.error ol li {
     line-height: 1.5em;
     }
 
+/*
+progress[value^="1"]::-moz-progress-bar,
+progress[value^="2"]::-moz-progress-bar,
+progress[value^="3"]::-moz-progress-bar
+{
+background-color:A90000;
+background-image:
+	linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 100%);
+background-position:
+	left top;
+background-size:
+	10% 100%;
+background-repeat:
+	repeat-x;
+}
+
+progress[value^="4"]::-moz-progress-bar,
+progress[value^="5"]::-moz-progress-bar,
+progress[value^="6"]::-moz-progress-bar,
+progress[value^="7"]::-moz-progress-bar
+{
+background-color:#8fc800;
+background-image:
+	linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 100%);
+background-position:
+	left top;
+background-size:
+	10% 100%;
+background-repeat:
+	repeat-x;
+}
+
+progress[value^="8"]::-moz-progress-bar,
+progress[value^="9"]::-moz-progress-bar,
+progress[value^="10"]::-moz-progress-bar
+{
+background-color:#258dc8;
+background-image:
+	linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 100%);
+background-position:
+	left top;
+background-size:
+	10% 100%;
+background-repeat:
+	repeat-x;
+}
+*/
+progress {
+    width: 120px;
+    height: 14px;
+    border: 0 solid rgba(0,0,0,0);
+    background-image: -webkit-linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 11px,rgba(0,0,0,1) 12px),-webkit-linear-gradient(to bottom,rgba(247,252,255,1) 0%,rgba(247,252,255,1) 50%,rgba(202,211,218,1) 51%,rgba(230,235,240,1) 100%);
+    background-image: linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 11px,rgba(0,0,0,1) 12px),linear-gradient(to bottom,rgba(247,252,255,1) 0%,rgba(247,252,255,1) 50%,rgba(202,211,218,1) 51%,rgba(230,235,240,1) 100%);
+    background-size: 12px 100%,100% 100%;
+    border-top: 1px solid rgba(255,255,255,.2);
+    border-left: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(0,0,0,.75);
+    border-right: 1px solid rgba(0,0,0,.75);
+    background-color: white;
+    }
+progress[value]::-moz-progress-bar {
+    background-image: -webkit-linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 11px,rgba(0,0,0,1) 12px),-webkit-linear-gradient(to bottom,rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%);
+    background-image: linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 11px,rgba(0,0,0,1) 12px),linear-gradient(to bottom,rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%);
+    background-size: 12px 100%,100% 100%;
+    }
+
 /* FINE STILI COMUNI */
 /* IMPORTA I CSS DELLA HOME */
 .home.layout {
@@ -1369,6 +1435,58 @@ main section.scheda h1 {
 main section.scheda .ajax {
     padding: 10px;
     }
+main section.scheda .skill_list {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+main section.scheda .skill_list .pair,
+main section.scheda .skill_list .single {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    }
+main section.scheda .skill_list .item {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    width: 100%;
+    margin: auto;
+    }
+main section.scheda .skill_list .item div {
+    margin: 2.5px 0;
+    }
+main section.scheda .skill_list .item div:nth-child(1) {
+    -webkit-flex: 100 1 auto;
+    -ms-flex: 100 1 auto;
+    flex: 100 1 auto;
+    }
+main section.scheda .skill_list .item div:nth-child(2) {
+    -webkit-flex: 0 0 35px;
+    -ms-flex: 0 0 35px;
+    flex: 0 0 35px;
+    }
+main section.scheda .skill_list .item div:nth-child(3) {
+    -webkit-flex: 1 0 122px;
+    -ms-flex: 1 0 122px;
+    flex: 1 0 122px;
+    }
+main section.scheda .skill_list .item div:nth-child(4) {
+    -webkit-flex: 0 0 20px;
+    -ms-flex: 0 0 20px;
+    flex: 0 0 20px;
+    text-align: right;
+    font-weight: bolder;
+    }
 main section.scheda .outer_container {
     padding: 20px 0 40px 0;
     margin: auto;
@@ -1403,7 +1521,7 @@ main section.scheda .outer_container .avatar_wrapper:hover {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
     }
-main section.scheda .outer_container .avatar_wrapper .avatar {
+main section.scheda .outer_container .avatar {
     -webkit-flex: 1 1 100%;
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
@@ -1415,7 +1533,7 @@ main section.scheda .outer_container .avatar_wrapper .avatar {
     background-size: contain;
     background-repeat: no-repeat;
     }
-main section.scheda .outer_container .avatar_wrapper .sign {
+main section.scheda .outer_container .sign {
     background-color: white;
     padding: 10px 0 0;
     -webkit-flex: 0 1 auto;
@@ -1428,6 +1546,18 @@ main section.scheda .outer_container {
     padding: 20px 30px 40px 30px;
     width: 25%;
     float: left;
+    }
+main section.scheda .skill_list {
+    -webkit-justify-content: space-evenly;
+    justify-content: space-evenly;
+    }
+main section.scheda .skill_list .pair {
+    min-width: 300px;
+    max-width: 450px;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin: 5px;
     }
 }
 

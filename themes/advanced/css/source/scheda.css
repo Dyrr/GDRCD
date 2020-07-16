@@ -14,6 +14,77 @@ main section.scheda
 		padding:10px;
 	}
 	
+	
+	.skill_list
+	{
+		display:flex;
+		flex-flow:row wrap;
+		
+		.pair,
+		.single
+		{
+			flex:1 1 100%;
+		}
+		
+		.item
+		{
+			
+
+			
+			display:flex;
+			justify-content:flex-end;
+			align-items:baseline;
+			width:100%;
+			margin:auto;
+			
+			div{
+				margin:2.5px 0;
+			}
+			
+			
+			
+			div:nth-child(1)
+			{
+			
+
+				flex:100 1 auto;
+				
+			}
+				
+
+			div:nth-child(2)			
+			{
+
+				flex:0 0 35px;
+
+				
+			}			
+			
+			div:nth-child(3)
+			{
+
+				flex:1 0 122px;
+				
+			}
+			
+			div:nth-child(4)
+			{
+
+				flex:0 0 20px;
+				text-align:right;
+				font-weight:bolder;
+				
+			}			
+		
+		}
+	
+	
+	}
+
+	
+
+		
+		
 
 	
 	.outer_container
@@ -41,55 +112,71 @@ main section.scheda
 			 display:flex;
 			 flex-flow:column nowrap;
 			padding:10px;
+			
 			&:hover
 			{
 				transform: rotate(0deg);
 				
 			}
-			
-			.avatar
-			{
-				flex:1 1 100%;
-				background-color:black;
-				display:flex;
-				background-position:50% 50%;
-				background-size:contain;
-				background-repeat:no-repeat;
-
-
 				
-
-				
-			}
+		}
 			
-			.sign
-			{
-				background-color:white;
-				padding: 10px 0 0 0;
-				flex:0 1 auto;
-				font-weight:bolder;
-
-			}
-			
-			
+		.avatar
+		{
+			flex:1 1 100%;
+			background-color:black;
+			display:flex;
+			background-position:50% 50%;
+			background-size:contain;
+			background-repeat:no-repeat;
+		
 		}
 		
-	}
+		.sign
+		{
+			background-color:white;
+			padding: 10px 0 0 0;
+			flex:0 1 auto;
+			font-weight:bolder;
 
-	@media screen and (orientation: landscape) {
-		
-		.outer_container
-		{		
+		}
 			
-			padding:20px 30px 40px 30px;
-			width:25%;
-			float:left;
-		
-		}	
-	
+			
 	}
 	
+
+		@media screen and (orientation: landscape) {
+			
+			.outer_container
+			{		
+				
+				padding:20px 30px 40px 30px;
+				width:25%;
+				float:left;
+			
+			}	
+		
+			.skill_list
+			{			
+
+				justify-content:space-evenly;
+				
+				.pair
+				{
+					min-width:300px;
+					max-width:450px;
+					flex:1 1 auto;
+					margin:5px;
+
+				}
+
+			}
+		
+		}		
+
 }
+
+
 
 
 

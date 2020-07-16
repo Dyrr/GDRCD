@@ -93,7 +93,7 @@ if($PARAMETERS['mode']['check_messages'] === 'ON') {
         <?php
         if($PARAMETERS['mode']['alert_pm_via_pagetitle'] == 'ON'){ ?>
             <script type="text/javascript">
-                parent.blink_title("(<?php echo $MESSAGE['interface']['forums']['topic']['new_posts']['sing']; ?>) <?php echo $PARAMETERS['info']['site_name']; ?>", true);
+                //parent.blink_title("(<?php echo $MESSAGE['interface']['forums']['topic']['new_posts']['sing']; ?>) <?php echo $PARAMETERS['info']['site_name']; ?>", true);
             </script>
         <?php
         }

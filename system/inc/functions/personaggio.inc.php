@@ -111,6 +111,8 @@
 			
 			$old_car = -1;
 			
+			$costo_skill = $GLOBALS['PARAMETERS']['settings']['px_x_rank'];
+			
 			$query = "SELECT 
 					     a.nome, 
 						 a.car, 
@@ -144,6 +146,10 @@
 					$old_car = $row['car'];
 					
 				}
+				$row['costo'] = ($row['grado'] + 1) * $costo_skill;
+				$row['grado_assimo'] = ($row['grado'] >= $GLOBALS['PARAMETERS']['settings']['skills_cap'])
+					? true
+					: false;
 				
 				$dati[] = $row;
 			
@@ -155,4 +161,39 @@
 		
 	}
 	
-	
+	namespace pg\px {
+
+		function spesi($pg)
+		{
+			
+			$px_spesi = 0;
+			$costo_skill = $GLOBALS['PARAMETERS']['settings']['px_x_rank'];			
+			
+			$query = "SELECT 
+						 pa.grado
+					 FROM clgpersonaggioabilita as pa 
+					 WHERE 
+					     pa.nome = '" . gdrcd_filter_in($pg) . "'";
+			
+			$result = gdrcd_query($query,'result');
+			
+			while($row = gdrcd_query($result, 'fetch')) {
+
+				$row['grado'] = (int)(0 + $row['grado']);
+				
+				$px_spesi = $px_spesi + ($costo_skill * (($row['grado'] * ($row['grado'] + 1)) / 2));
+
+
+			}
+			gdrcd_query($result,'free');
+			
+			return $px_spesi;
+			
+			
+		}
+		
+		
+
+
+
+	}
