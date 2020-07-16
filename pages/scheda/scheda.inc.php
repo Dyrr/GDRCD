@@ -22,25 +22,21 @@
         $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'default';
         $view = $op;
         
-        $dati = \pg\dati($_REQUEST['pg']);
-        
-        
-        if($dati['esilio'] > strftime('%Y-%m-%d')) {
+        //recupera i dati base del pg
+		$dati = \pg\dati($_REQUEST['pg']);
+         
+        //SE IL PG RISULTA ESILIATO
+		if($dati['esilio'] > strftime('%Y-%m-%d')) {
 
-            $op = 'pg_esiliato';
+            //forza l'operaizone su esiliato
+			$op = 'default';
+			$view = 'pg_esiliato';
         
         }
-        
         
         //ESEGUE IL SET DI ISTRUZIONI IN BASE ALL'OPERAZIONE RICHIESTA
         switch(strtoupper($view)) {
     
-            case 'PG_ESILIATO' :
-            
-                $view = $op;
-            
-            break;
-            
             default :
             
             break;
@@ -50,61 +46,79 @@
         //ESEGUE IL SET DI ISTRUZIONI IN BASE ALLA VIEW RICHIESTA       
         switch(strtoupper($view)) {
     
-            case 'PG_ESILIATO' :
+            //pg esiliato
+			case 'PG_ESILIATO' :
             
-                if($_SESSION['permessi'] > GAMEMASTER) {
+                //SE SI HANNO I PERMESSI DI MASTER O SUPERIORE
+				if($_SESSION['permessi'] > GAMEMASTER) {
                     
-                    $TAG['template'] = 'scheda/gestione_esilio';
+                    //visualizza il template per la gestione dell'esilio
+					$TAG['template'] = 'scheda/gestione_esilio';
                 
-                } else {
+				//SE SI È UN UTENTE NORMALE
+				} else {
                     
-                    $TAG['template'] = 'scheda/pg_esiliato';
+                    //visualizza il template per il pg esiliato
+					$TAG['template'] = 'scheda/pg_esiliato';
                     
                 }
             
             break;
             
-            case 'SKILL' :
+            //pagina principale delle skill
+			case 'SKILL' :
             
-                $TAG['page']['pg'] = $dati;
-                $TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza']);
+                //ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
+				//dati base del pg
+				$TAG['page']['pg'] = $dati;
+                //dati delle skill
+				$TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza']);
             
-                $TAG['template'] = 'scheda/skill';                  
+                //imposta il template da visualizzare
+				$TAG['template'] = 'scheda/skill';                  
             
             break;
             
-            
+            //pagina del background del personaggio
             case 'STORIA' :
             
-                $TAG['page']['pg'] = $dati;
+                //ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
+				//dati base del pg                
+				$TAG['page']['pg'] = $dati;
                 
-                $TAG['page']['pg']['affetti'] = ($PARAMETERS['mode']['user_bbcode'] == 'ON') 
+                //filtra i dati in base alla modalità di visualizzazione scelta del campo (BBCode/HTML)
+				$TAG['page']['pg']['affetti'] = ($PARAMETERS['mode']['user_bbcode'] == 'ON') 
                     ? gdrcd_bbcoder(gdrcd_filter_out($dati['affetti'])) 
                     : gdrcd_html_filter($dati['affetti']);  
 
-                $TAG['template'] = 'scheda/storia';                 
+                //imposta il template da visualizzare                
+				$TAG['template'] = 'scheda/storia';                 
             
             break;
             
-            default :
+            //visualizzaizone della pagina di default della scheda
+			default :
             
                 $dati['url_media'] = gdrcd_filter('fullurl',$dati['url_media']);
                 $TAG['page']['pg'] = $dati;
 
-                $TAG['page']['pg']['descrizione'] = ($PARAMETERS['mode']['user_bbcode'] == 'ON') 
+				 //filtra i dati in base alla modalità di visualizzazione scelta del campo (BBCode/HTML)
+				$TAG['page']['pg']['descrizione'] = ($PARAMETERS['mode']['user_bbcode'] == 'ON') 
                     ? gdrcd_bbcoder(gdrcd_filter_out($dati['descrizione'])) 
                     : gdrcd_html_filter($dati['descrizione']);
                 
-                $TAG['page']['pg']['abbigliamento'] = ($PARAMETERS['mode']['user_bbcode'] == 'ON') 
+                //filtra i dati in base alla modalità di visualizzazione scelta del campo (BBCode/HTML)                
+				$TAG['page']['pg']['abbigliamento'] = ($PARAMETERS['mode']['user_bbcode'] == 'ON') 
                     ? gdrcd_bbcoder(gdrcd_filter_out($dati['abbigliamento'])) 
                     : gdrcd_html_filter($dati['abbigliamento']);                
                 
-                $TAG['page']['audio'] = ($PARAMETERS['mode']['allow_audio'] == 'ON' && ! $_SESSION['blocca_media'])
+                //semplifica la variabile di visualizzazione o meno dell'audio in scheda
+				$TAG['page']['audio'] = ($PARAMETERS['mode']['allow_audio'] == 'ON' && ! $_SESSION['blocca_media'])
                     ? true 
                     : false;
                 
-                
-                $TAG['template'] = 'scheda/index';
+                //imposta il template da visualizzare                 
+				$TAG['template'] = 'scheda/index';
             
             break;  
         
@@ -112,6 +126,7 @@
     
     }
     
-    require \template\file($TAG['template']);   
+    //CARICA IL TEMPLATE RICHIESTO
+	require \template\file($TAG['template']);   
     
     
