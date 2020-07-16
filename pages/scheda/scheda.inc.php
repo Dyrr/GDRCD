@@ -10,7 +10,7 @@
  *  @author     Davide 'Dyrr' Grandi
  *  
  *  @details    Modulo principale, e forse in futuro unico per la scheda del personaggio 
-
+ *  
  *  @details    Cartella con i template della pagina della scheda
  *  @see        themes/advanced/template/scheda    
  *  
