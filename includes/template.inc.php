@@ -74,7 +74,7 @@
     /**
      *  @brief      Identifica  la modalirà di richiesta della pagina
      *  
-     *  @return     $ajax <b>(int)</b>
+     *  @return     $ajax <b>(bool)</b> true se la pagine è stata richiesta tramite ajax false in caso contrario
      *  
      *  @details    Il metodo identifica se la pagina è stata richiesta tramite chiamata ajax o meno, restituendo 
      *  1 nel primo caso e 0 nel secondo.

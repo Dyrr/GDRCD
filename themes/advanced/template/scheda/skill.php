@@ -1,76 +1,69 @@
+	<div class="single">
+		<h2>Skill</h2>
+		PX: <?php echo gdrcd_filter_num($TAG['page']['pg']['esperienza'] - $TAG['page']['pg']['esperienza_spesa']); ?>/<?php echo gdrcd_filter_num($TAG['page']['pg']['esperienza']); ?>
+	</div>
+	<div class="break"></div>
 <?php
-/**
- *  @file       themes/advanced/template/scheda/storia.php
- *  
- *  @brief      Template della pagina della scheda per la storia del pg
- *  
- *  @version    5.6.0
- *  @date       11/07/2020
- *  
- *  @author     Davide 'Dyrr' Grandi
- *  
- *  @details i tag che possono essere in bbcode o html puro in base alle impostazioni sono gia filtrati nella pagina 
- *  della logica della scheda non è un errore se qui non sono filtrati prima di essere stampati non rifiltrateli 
- *  
- *  @see        pages/scheda/scheda.inc.php
- *  
- *  @todo		effettuare i cambi pagina tramite ajax
- */
- $i = 0;
+	//CICLA I BLOCCKI DELLE SKILL
+	foreach($TAG['page']['skill'] as $block) {
+		//creando un contenitore per ogni blocco
 ?>
-    <section class="scheda">
-        <?php require \template\file('scheda/nav'); // include il template del menù di navigazione ?>
-        <div class="ajax">
-			<div class="skill_list">
-			<div class="single">
-			<h2>Skill</h2>
-			PX: <?php echo gdrcd_filter_num($TAG['page']['pg']['esperienza'] - $TAG['page']['pg']['esperienza_spesa']); ?>/<?php echo gdrcd_filter_num($TAG['page']['pg']['esperienza']); ?>
-			
-			</div>
-<?php //var_dump($TAG['page']['skill']); ?>			
+		<div class="block">
 <?php
-			foreach($TAG['page']['skill'] as $v) {
+			//CICLA LE SKILL PER STATISTICA
+			foreach($block as $k => $stat) {
+				//inserendo il titolo della statistica
+?>
+
+				<h2><?php echo gdrcd_filter_out($TAG['page']['stats']['car'.$k]); ?></h2>
+<?php
+					//CICLA LE SKILL
+					foreach($stat as $v) {
+						//inserendo le voci delle skill
+?>
+						<div class="item">
+							<div>
+								<?php echo gdrcd_filter_out($v['nome']); ?>
+							</div>
+							<div>
+<?php
+								if($v['skill_down'] === true) {
+?>
+									<a href="main.php?page=scheda&pg=<?php echo gdrcd_filter_url($_REQUEST['pg']); ?>&op=addskill&what=<?php echo $v['id_abilita'] ?>">
+										<i class="far fa-minus-square"></i>
+									</a>
+<?php
+								} else {
+?>
+									<i class="far fa-minus-square invisible"></i>
+<?php
+								}
 ?>
 <?php
-				if($v['first'] === true) {
-					$i = $i + 1;
+								if($v['skill_up'] === true) {
 ?>
+									<a href="main.php?page=scheda&pg=<?php echo gdrcd_filter_url($_REQUEST['pg']); ?>&op=subskill&what=<?php echo $v['id_abilita'] ?>">
+										<i class="far fa-plus-square"></i>
+									</a>
 <?php
-					if($i == 4) {
+								} else {
 ?>
+									<i class="far fa-plus-square invisible"></i>
+<?php
+								}
+?>
+							</div>
+							<div>
+								<progress value="<?php echo gdrcd_filter_out($v['grado']); ?>" max="10" />
+							</div>
+							<div><?php echo gdrcd_filter_out($v['grado']); ?></div>
 						</div>
 <?php
 					}
 ?>
 <?php
-					if($i == 1 || $i == 4) {
+}
 ?>
-						<div class="pair">
-<?php
-					}
-?>
-					<h2><?php echo gdrcd_filter_out($PARAMETERS['names']['stats']['car'.$v['car']]); ?></h2>
-<?php
-				}
-?>
-					<div class="item">
-						<div>
-							<?php echo gdrcd_filter_out($v['nome']); ?>
-						</div>
-						<div>
-							<i class="far fa-minus-square"></i>
-							<i class="far fa-plus-square"></i>
-						</div>
-						<div>
-							<progress value="<?php echo gdrcd_filter_out($v['grado']); ?>" max="10" />
-						</div>
-						<div><?php echo gdrcd_filter_out($v['grado']); ?></div>
-					</div>
-<?php
-			}
-?>
-			</div>
-			
-			</div>
 		</div>
-    </section>
+<?php
+	}

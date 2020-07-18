@@ -78,7 +78,19 @@
         justify-content:center;
         overflow:hidden;
 
-        /* importa il css del menu di navigazione dei moduli presenti nel main */
+        a,
+		a:visited
+		{
+			color:#003A6C;
+		}
+		
+		a:hover
+		{
+			color:#EBECF0;
+			filter:brightness(100%);
+		}
+		
+		/* importa il css del menu di navigazione dei moduli presenti nel main */
         @import 'nav.css';      
         
         /* importa il css dei riquadri dei moduli */

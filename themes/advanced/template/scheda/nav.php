@@ -16,7 +16,7 @@
 			</ul>
 		</li>		
 		<li>				
-			<a href="main.php?page=scheda__scheda&op=skill&pg=<?php echo gdrcd_filter('url', $_REQUEST['pg']); ?>">
+			<a href="main.php?page=scheda__scheda&op=stats&pg=<?php echo gdrcd_filter('url', $_REQUEST['pg']); ?>">
 				<i class="fas fa-chart-bar"></i> Skill
 			</a>		
 		</li>				

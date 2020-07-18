@@ -23,7 +23,9 @@
     //include il set di funzioni del personaggio
     require \functions\file('personaggio');
     
-    //controlla la validità del personaggio richiesto
+    $_REQUEST['pg'] = ucfirst(trim($_REQUEST['pg']));
+	
+	//controlla la validità del personaggio richiesto
     $check = \pg\check($_REQUEST['pg']);
 
     //SE IL PERSONAGGIO NON ESISTE O NON È STATO INDICATO
@@ -57,7 +59,40 @@
         //ESEGUE IL SET DI ISTRUZIONI IN BASE ALL'OPERAZIONE RICHIESTA
         switch(strtoupper($view)) {
     
-            default :
+			//incremento skill
+			case 'ADDSKILL' :
+			
+				//SE IL PG È IL PG DEL GIOCATORE RICHIEDENTE
+				//O SE HO I PERMESSI DI MASTER O SUPERIORE
+				if( \pg\mio($_REQUEST['pg']) === true 
+					|| $_SESSION['permessi'] >= GAMEMASTER) {
+						
+					//esegue le procedure per l'incremento delle skill
+					\pg\skill\add($_REQUEST['pg'],$_REQUEST['what']);
+				
+				}
+				
+				//imposta la view da utilizzare dopo l'operaizone
+				$view = 'stats';
+			
+			break;
+			
+			//decremento skill
+			case 'SUBKILL' :
+			
+				// SE HO I PERMESSI DI MASTER O SUPERIORE				
+				if($_SESSION['permessi'] >= GAMEMASTER) {
+						
+					//esegue le procedure per la diminuizione delle skill
+					\pg\skill\sub($_REQUEST['pg'],$_REQUEST['what']);
+				
+				}
+				
+				$view = 'stats';
+			
+			break;			
+			
+			default :
             
             break;
         
@@ -86,18 +121,33 @@
             break;
             
             //pagina principale delle skill
-            case 'SKILL' :
-            
-                //ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
-                //dati base del pg
-                $TAG['page']['pg'] = $dati;
-                //dati delle skill
-                $TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza']);
-            
-                $TAG['page']['pg']['esperienza_spesa'] = \pg\px\spesi($_REQUEST['pg']);
+            case 'STATS' :
+  				
+				//dati base del pg
+				$TAG['page']['pg'] = $dati;				
 				
-				//imposta il template da visualizzare
-                $TAG['template'] = 'scheda/skill';                  
+				$TAG['page']['section']['skill'] = ($PARAMETERS['mode']['skillsystem'] == 'ON') ? true : false;
+				$TAG['page']['section']['stat'] = ($PARAMETERS['mode']['statssystem'] == 'ON') ? true : false;
+				
+				
+				//se è attivato il sistema di skill
+				if($PARAMETERS['mode']['skillsystem'] == 'ON') {
+					
+					//dati riguardanti l'esperienza spesa
+					$TAG['page']['pg']['esperienza_spesa'] = \pg\px\spesi($_REQUEST['pg']);                
+					$TAG['page']['pg']['esperienza_rimasta'] = $dati['esperienza'] - $TAG['page']['pg']['esperienza_spesa'];
+					
+					//dati delle skill
+					$TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza'],$TAG['page']['pg']['esperienza_rimasta']);
+
+					//nomi delle statistiche
+					$TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+					array_pop($TAG['page']['stats']);
+					
+					//imposta il template da visualizzare
+					$TAG['template'] = 'scheda/stat';
+					
+				}
             
             break;
             

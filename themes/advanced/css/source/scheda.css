@@ -20,11 +20,16 @@ main section.scheda
 		display:flex;
 		flex-flow:row wrap;
 		
-		.pair,
+		.block,
 		.single
 		{
 			flex:1 1 100%;
 		}
+		
+		.break
+		{
+			flex:0 0 100%;
+		}		
 		
 		.item
 		{
@@ -161,12 +166,22 @@ main section.scheda
 
 				justify-content:space-evenly;
 				
-				.pair
+				.single
 				{
-					min-width:300px;
-					max-width:450px;
+					min-width:calc(((100% - 640px) / 3) + 640px);
+					max-width:80%;
+					margin:auto;
+			
+				}
+				
+
+				
+				.block
+				{
+					min-width:320px;
+					max-width:35%;
 					flex:1 1 auto;
-					margin:5px;
+
 
 				}
 

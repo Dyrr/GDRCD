@@ -57,6 +57,14 @@ define('INVIAGGIO', -1);
 define('HTML_FILTER_BASE', 0);
 define('HTML_FILTER_HIGH', 1);
 
+const ERROR = array(
+				'pg' => array( 
+					'generic' => 100001,
+					'empty' => 100002,
+					'not_found' => 100003
+				)
+			);
+
 /*Vettori globali dei parametri*/
 $PARAMETER = array();
 $MESSAGES = array();

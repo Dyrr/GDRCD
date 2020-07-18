@@ -324,6 +324,7 @@ $PARAMETERS['mode']['auto_meteo'] = 'ON';
 $PARAMETERS['mode']['skillsystem'] = 'ON';
 //ON: E' attivato il sistema di gioco con punteggi, abilità e tiri di dado.
 //OFF: E' attivato il sistema di gioco solo interpretativo
+$PARAMETERS['mode']['statssystem'] = 'ON';
 $PARAMETERS['mode']['filterdocuments'] = 'OFF';
 //ON: Non e' permesso l'uso di codici html nella documentazione del gioco.
 //OFF: E' permesso l'uso di codici html nella documentazione del gioco (questa opzione potrebbe compromettere la sicurezza del sito).

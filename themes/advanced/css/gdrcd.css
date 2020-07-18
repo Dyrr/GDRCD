@@ -185,54 +185,6 @@ div.error h2 {
 div.error ol li {
     line-height: 1.5em;
     }
-
-/*
-progress[value^="1"]::-moz-progress-bar,
-progress[value^="2"]::-moz-progress-bar,
-progress[value^="3"]::-moz-progress-bar
-{
-background-color:A90000;
-background-image:
-	linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 100%);
-background-position:
-	left top;
-background-size:
-	10% 100%;
-background-repeat:
-	repeat-x;
-}
-
-progress[value^="4"]::-moz-progress-bar,
-progress[value^="5"]::-moz-progress-bar,
-progress[value^="6"]::-moz-progress-bar,
-progress[value^="7"]::-moz-progress-bar
-{
-background-color:#8fc800;
-background-image:
-	linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 100%);
-background-position:
-	left top;
-background-size:
-	10% 100%;
-background-repeat:
-	repeat-x;
-}
-
-progress[value^="8"]::-moz-progress-bar,
-progress[value^="9"]::-moz-progress-bar,
-progress[value^="10"]::-moz-progress-bar
-{
-background-color:#258dc8;
-background-image:
-	linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 100%);
-background-position:
-	left top;
-background-size:
-	10% 100%;
-background-repeat:
-	repeat-x;
-}
-*/
 progress {
     width: 120px;
     height: 14px;
@@ -250,6 +202,12 @@ progress[value]::-moz-progress-bar {
     background-image: -webkit-linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 11px,rgba(0,0,0,1) 12px),-webkit-linear-gradient(to bottom,rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%);
     background-image: linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 11px,rgba(0,0,0,1) 12px),linear-gradient(to bottom,rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%);
     background-size: 12px 100%,100% 100%;
+    }
+.invisible {
+    color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0);
+    background-image: none;
+    border-color: rgba(0,0,0,0);
     }
 
 /* FINE STILI COMUNI */
@@ -642,6 +600,15 @@ progress[value]::-moz-progress-bar {
     -ms-flex-pack: center;
     justify-content: center;
     overflow: hidden;
+    }
+.main.layout main a,
+.main.layout main a:visited {
+    color: #003A6C;
+    }
+.main.layout main a:hover {
+    color: #EBECF0;
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
     }
 .main.layout main nav {
     background-color: #939fab;
@@ -1443,11 +1410,16 @@ main section.scheda .skill_list {
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
     }
-main section.scheda .skill_list .pair,
+main section.scheda .skill_list .block,
 main section.scheda .skill_list .single {
     -webkit-flex: 1 1 100%;
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
+    }
+main section.scheda .skill_list .break {
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
     }
 main section.scheda .skill_list .item {
     display: -ms-flexbox;
@@ -1551,13 +1523,18 @@ main section.scheda .skill_list {
     -webkit-justify-content: space-evenly;
     justify-content: space-evenly;
     }
-main section.scheda .skill_list .pair {
-    min-width: 300px;
-    max-width: 450px;
+main section.scheda .skill_list .single {
+    min-width: -webkit-calc(((100% - 640px) / 3) + 640px);
+    min-width: calc(((100% - 640px) / 3) + 640px);
+    max-width: 80%;
+    margin: auto;
+    }
+main section.scheda .skill_list .block {
+    min-width: 320px;
+    max-width: 35%;
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    margin: 5px;
     }
 }
 

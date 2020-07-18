@@ -68,7 +68,14 @@
     csscrush_set('options',$settings);  
     
     //Eseguo la connessione al database
-    $handleDBConnection = gdrcd_connect();
+    //$handleDBConnection = gdrcd_connect();
+	$db = \gdrcd\db\connect(
+		$PARAMETERS['database']['username'],
+		$PARAMETERS['database']['password'],
+		$PARAMETERS['database']['url'],
+		$PARAMETERS['database']['database_name'],
+		$PARAMETERS['database']['collation']
+	);
     
     //include il template base
     require template\file('_base');
