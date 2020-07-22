@@ -23,6 +23,7 @@
         <section class="oggetti">
 <?php
             //CICLA L'ELENCO DELLE CATEGORIE DI OGGETTI
+            //esempio: armi, attrezzi
             foreach($TAG['page']['oggetti']['lista'] as $k => $categorie) {
 ?>
                 <h2>
@@ -33,7 +34,8 @@
                 </h2>
                 <div id="categoria_<?php out($k); ?>" class="categoria">
 <?php
-                    //CICLA I GRUPPI DEGLI OGGETTI
+                    //CICLA I GRUPPI DI OGGETTI UGUALI.
+                    //esempio: 3 pistole beretta, 2 coltelli, ecc
                     foreach($categorie as $k => $item) {
 ?>
                         <div>
