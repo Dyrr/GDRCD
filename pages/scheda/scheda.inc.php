@@ -42,8 +42,7 @@
         
         //imposta l'op e la view
         $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'default';
-        
-       $view = $op;
+        $view = $op;
         
         //recupera i dati base del pg
         $dati = \pg\dati($_REQUEST['pg']);
@@ -58,7 +57,7 @@
         }
         
         //ESEGUE IL SET DI ISTRUZIONI IN BASE ALL'OPERAZIONE RICHIESTA
-        switch(strtoupper($view)) {
+        switch(strtoupper($op)) {
     
             //incremento skill
             case 'ADDSKILL' :
