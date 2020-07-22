@@ -202,9 +202,9 @@
                 //dati base del pg
                 $TAG['page']['pg'] = $dati;             
                 
-                $TAG['page']['section']['skill'] = ($PARAMETERS['mode']['skillsystem'] == 'ON') ? true : false;
+                //seleziona se visualizzare o meno le aree del template per le skill e stat
+				$TAG['page']['section']['skill'] = ($PARAMETERS['mode']['skillsystem'] == 'ON') ? true : false;
                 $TAG['page']['section']['stat'] = ($PARAMETERS['mode']['statssystem'] == 'ON') ? true : false;
-                
                 
                 //se è attivato il sistema di skill
                 if($PARAMETERS['mode']['skillsystem'] == 'ON') {
@@ -250,19 +250,28 @@
                 //dati base del pg                
                 $TAG['page']['pg'] = $dati;             
                 $TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
-                $TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
-                array_shift($TAG['page']['equipped']);
-                array_shift($TAG['page']['equipped']);
-                $TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
-                $TAG['page']['area'] = 'proprieta';
                 
+				//recupera l'elenco delle locazioni indossabili
+				$TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
+                //elimina dall'elenco le voci 
+				array_shift($TAG['page']['equipped']);
+                array_shift($TAG['page']['equipped']);
                 
+				//recupera l'elenco deli oggetti indossati				
+				$TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
+               
+				//seleziona la modalità equipaggiamento nel template			    
+				$TAG['page']['area'] = 'proprieta';
+   
+                //recupera l'elenco delle proprietà del pg
                 $TAG['page']['oggetti'] = \pg\oggetti\lista($_REQUEST['pg']); 
-                    //nomi delle statistiche
-                    $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
-                    array_pop($TAG['page']['stats']);               
                 
+				//nomi delle statistiche
+                $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+                //elimina dall'array l'ultima voce ovvero i punti ferita per comodità
+				array_pop($TAG['page']['stats']);               
                 
+                //seleziona il template da visualizzare
                 $TAG['template'] = 'scheda/oggetti';
             
             break;
@@ -273,19 +282,27 @@
                 //dati base del pg                
                 $TAG['page']['pg'] = $dati;             
                 $TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
-                $TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
-                array_shift($TAG['page']['equipped']);
-                array_shift($TAG['page']['equipped']);
-                $TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
-                $TAG['page']['area'] = 'equip';             
                 
+				//recupera l'elenco delle locazioni indossabili
+				$TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
+                //elimina dall'elenco le voci 
+				array_shift($TAG['page']['equipped']);
+                array_shift($TAG['page']['equipped']);
                 
+				//recupera l'elenco deli oggetti indossati
+				$TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
+                
+				//seleziona la modalità equipaggiamento nel template
+				$TAG['page']['area'] = 'equip';             
+                
+                //recupera l'elenco degli oggetti trapsortati
                 $TAG['page']['oggetti'] = \pg\oggetti\equip($_REQUEST['pg']); 
-                    //nomi delle statistiche
-                    $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
-                    array_pop($TAG['page']['stats']);               
+                //nomi delle statistiche
+                $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+                //elimina dall'array l'ultima voce ovvero i punti ferita per comodità
+				array_pop($TAG['page']['stats']);               
                 
-                
+                //seleziona il template da visualizzare                
                 $TAG['template'] = 'scheda/oggetti';
             
             break;          
