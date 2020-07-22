@@ -26,20 +26,20 @@
             <div class="outer_container">
                 <div class="avatar_wrapper">
                     <div class="avatar" 
-                         style="background-image:url(<?php echo gdrcd_filter_out($TAG['page']['pg']['url_img']); ?>);"></div>
+                         style="background-image:url(<?php out($TAG['page']['pg']['url_img']); ?>);"></div>
                     <div class="sign">
-                        <a href="main.php?page=messages_center&op=create&reply_dest=<?php echo gdrcd_filter_url($TAG['page']['pg']['nome']); ?>" 
+                        <a href="main.php?page=messages_center&op=create&reply_dest=<?php out($TAG['page']['pg']['nome']); ?>" 
                            class="link_invia_messaggio" data-function="msg">
                             <i class="fas fa-envelope"></i>
                         </a> 
-                        <?php echo gdrcd_filter_out($TAG['page']['pg']['nome_completo']); ?>
+                        <?php out($TAG['page']['pg']['nome_completo']); ?>
                     </div>
                 </div>
             </div>
             <h2>Descrizione</h2>
-            <?php echo $TAG['page']['pg']['descrizione']; ?>
+            <?php rawout($TAG['page']['pg']['descrizione']); ?>
             <h2>Abbigliamento</h2>
-            <?php echo $TAG['page']['pg']['abbigliamento']; ?>          
+            <?php rawout($TAG['page']['pg']['abbigliamento']); ?>          
         </div>
 <?php
         //SE LE COMPONENTI AUDIO SONO STATE ABILITATE
@@ -48,12 +48,11 @@
 <?php
             //SE C'È UN URL VALIDO PER L'AUDIO
             if($TAG['page']['pg']['url_media'] != '') {
-                    //visualizzo il lettore audio
+                //visualizzo il lettore audio
 ?>
                 <audio id="audio_scheda"  autoplay loop preload="none" width="100%" controls style="background-color:rgba(0,0,0,0);">
-                    <source src="<?php echo $TAG['page']['pg']['url_media']; ?>">
+                    <source src="<?php out($TAG['page']['pg']['url_media']); ?>">
                 </audio>
-                
                 <script>
                     $('audio').mediaelementplayer();                                                            
                 </script>               
