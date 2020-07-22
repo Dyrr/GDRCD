@@ -92,4 +92,44 @@
         
         return $ajax;
     
-    }   
+    }
+
+		/**
+		 *  @brief 			Filtra automaticamente l'output
+		 *  
+		 *  @param [in] 	$item <b>array</b> reference all'array contenente i dati dell'output
+		 *  
+		 *  @details 		Il metodo passa tutti gli elementi dell'array $var attraverso la funzione htmlentities()
+		 *  per assicurarsi che tutti i dati passati per l'output del template siano sicuri.
+		 *  Le funzione è anche impostata come paramtri per evitare che le entità html non siano codificate più di una 
+		 *  volta.
+		*/		
+		function __autoFilter(&$item, $key)
+		{
+
+			//SELEZIONA LE AZIONI DA ESEGUIRE IN BASE AL TIPO DI VARIABILE
+			switch(gettype($item)) {
+				
+				case 'boolean' :
+				case 'integer' :
+				break;
+			
+				default :
+				
+					//$item = $this->replace_n($item);
+					$item = htmlentities($item, ENT_QUOTES|ENT_SUBSTITUTE, "UTF-8", false);				
+				
+				break;
+			
+			}
+		
+		}
+
+		function filterOut($TAG)
+		{
+			
+			array_walk_recursive($TAG,'\template\__autofilter');
+			
+			return $TAG;
+		
+		}

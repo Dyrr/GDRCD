@@ -212,7 +212,7 @@ $(document).ready(function() {
 			//se non è stata definita una azione il form viene inviato nel modo classico altrimenti viene 
 			//eseguita l'azione richiesta			
 			action = (action === undefined) 
-				? 'ajax_form' 
+				? 'default' 
 				: action;
 
 		//ALTRIMENTI SE È INTERNO AD UN ELEMENTO PREDISPOSTO DI DEFAULT PER LE CHIAMATE AJAX		

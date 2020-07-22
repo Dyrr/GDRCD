@@ -42,7 +42,8 @@
         
         //imposta l'op e la view
         $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'default';
-        $view = $op;
+        
+	   $view = $op;
         
         //recupera i dati base del pg
         $dati = \pg\dati($_REQUEST['pg']);
@@ -91,6 +92,84 @@
 				$view = 'stats';
 			
 			break;			
+			
+			//equipaggiare un oggetto
+			/* @todo inserire log errori in caso di errori nella procedura */
+			case 'TRASPORTA' :
+			
+				//SE SONO IL POSSESSORE DEL PG
+				if( \pg\mio($_REQUEST['pg']) === true) {
+
+					//SE POSSIEDO L'OGGETTO
+					if(\pg\oggetti\possiede($_REQUEST['pg'],$_REQUEST['idpooggetto']) === true) {
+						
+						//equipaggia l'oggetto
+						\pg\oggetti\trasporta($_REQUEST['pg'],$_REQUEST['idpooggetto']);
+						
+					}
+				
+				}
+				
+				//imposta la view da utilizzare dopo l'operazione
+				$view = 'OGGETTI';
+			
+			break;
+			
+			//depositare un oggetto
+			/* @todo inserire log errori in caso di errori nella procedura */
+			case 'DEPOSITA' :
+			
+				//SE SONO IL POSSESSORE DEL PG
+				if( \pg\mio($_REQUEST['pg']) === true) {
+
+					//SE POSSIEDO L'OGGETTO
+					if(\pg\oggetti\possiede($_REQUEST['pg'],$_REQUEST['idpooggetto']) === true) {
+						
+						//equipaggia l'oggetto
+						\pg\oggetti\deposita($_REQUEST['pg'],$_REQUEST['idpooggetto']);
+						
+					}
+				
+				}
+				
+				//imposta la view da utilizzare dopo l'operazione
+				$view = 'EQUIP';
+			
+			break;			
+			
+			case 'INDOSSA' :
+			
+				//SE SONO IL POSSESSORE DEL PG
+				if( \pg\mio($_REQUEST['pg']) === true) {
+
+					//indossa l'oggetto
+					\pg\oggetti\indossa($_REQUEST['idpooggetto']);
+
+					//imposta la view da utilizzare dopo l'operazione
+					$view = 'EQUIP';				
+				
+				}
+			
+			
+			break;
+			
+			case 'TOGLI' :
+			
+				//SE SONO IL POSSESSORE DEL PG
+				if( \pg\mio($_REQUEST['pg']) === true) {
+
+					//toglie l'oggetto l'oggetto
+					\pg\oggetti\togli($_REQUEST['idpooggetto']);
+
+					//imposta la view da utilizzare dopo l'operazione
+					$view = 'EQUIP';				
+				
+				}
+			
+			
+			break;
+			
+			
 			
 			default :
             
@@ -168,7 +247,53 @@
             
             break;
             
-            //visualizzaizone della pagina di default della scheda
+            case 'OGGETTI' :
+			
+                //ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
+                //dati base del pg                
+                $TAG['page']['pg'] = $dati;				
+				$TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
+				$TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
+				array_shift($TAG['page']['equipped']);
+				array_shift($TAG['page']['equipped']);
+				$TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
+				$TAG['page']['area'] = 'proprieta';
+				
+				
+				$TAG['page']['oggetti'] = \pg\oggetti\lista($_REQUEST['pg']); 
+					//nomi delle statistiche
+					$TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+					array_pop($TAG['page']['stats']);				
+				
+				
+				$TAG['template'] = 'scheda/oggetti';
+			
+			break;
+			
+            case 'EQUIP' :
+			
+				//ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
+                //dati base del pg                
+                $TAG['page']['pg'] = $dati;				
+				$TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
+				$TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
+				array_shift($TAG['page']['equipped']);
+				array_shift($TAG['page']['equipped']);
+				$TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
+				$TAG['page']['area'] = 'equip';				
+				
+				
+				$TAG['page']['oggetti'] = \pg\oggetti\equip($_REQUEST['pg']); 
+					//nomi delle statistiche
+					$TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+					array_pop($TAG['page']['stats']);				
+				
+				
+				$TAG['template'] = 'scheda/oggetti';
+			
+			break;			
+			
+			//visualizzaizone della pagina di default della scheda
             default :
             
                 $dati['url_media'] = gdrcd_filter('fullurl',$dati['url_media']);
@@ -197,8 +322,10 @@
         }
     
     }
-    
-    //CARICA IL TEMPLATE RICHIESTO
-    require \template\file($TAG['template']);   
+	
+	//filtra le variabili in uscita in automatico in modo da dover evitare di usare il gdrcd_filter_out ogni volta
+    $TAG = \template\filterOut($TAG);
+    //CARICA IL TEMPLATE RICHIESTO	
+	require \template\file($TAG['template']);   
     
     

@@ -26,7 +26,7 @@
     <section class="scheda">
         <?php require \template\file('scheda/nav'); // include il template del menù di navigazione ?>
         <div class="ajax">
-            <div class="skill_list">
+            <section class="stats">
 <?php
                 //SE È ABILITATO IL SISTEMA DI CARATTERISTICHE DEL PG
                 if($TAG['page']['section']['stat'] === true) {
@@ -45,6 +45,6 @@
 <?php
                 }
 ?>
-            </div>
+            </section>
         </div>
     </section>

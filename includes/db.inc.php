@@ -3,8 +3,8 @@
     namespace gdrcd\db {
         
         //definisce le costanti per i parametri
-        define(PARAM_STR,'s');
-        define(PARAM_INT,'i');
+        define('PARAM_STR','s');
+        define('PARAM_INT','i');
         
         /**
          *  @brief Connessione al database MySQL

@@ -8,18 +8,21 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1" />			
 			<link rel="shortcut icon" href="favicon.png" type="image/png" />
 			<link rel="stylesheet" href="<?php echo csscrush_file('themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
-			
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" crossorigin="anonymous">
-			
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css" />			
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>			
 			<script type="text/javascript" src="includes/corefunctions.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement-and-player.min.js"></script>	
+			<script type="text/javascript" src="themes/advanced/js/dlight/dlight.js"></script>	
+			<script type="text/javascript" src="themes/advanced/js/dlight/dlight_actions.js"></script>	
+			<script type="text/javascript" src="themes/advanced/js/dlight/dlight_form.js"></script>	
+						
 			
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css" />			
+			
 <?php
     /** * Il controllo individua se l'header non è impiegato per il main */
     if( ! isset($check_for_update)) {

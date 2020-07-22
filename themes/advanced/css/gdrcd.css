@@ -211,6 +211,12 @@ progress[value]::-moz-progress-bar {
     }
 
 /* FINE STILI COMUNI */
+div.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    }
+
 /* IMPORTA I CSS DELLA HOME */
 .home.layout {
     position: absolute;
@@ -622,7 +628,7 @@ progress[value]::-moz-progress-bar {
     position: -webkit-sticky;
     position: sticky;
     top: .10px;
-    z-index: 1;
+    z-index: 100000;
     -webkit-box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
     box-shadow: 5px 5px 10px 1px rgba(0,0,0,.5);
     }
@@ -647,6 +653,7 @@ progress[value]::-moz-progress-bar {
     padding: 10px;
     position: relative;
     white-space: nowrap;
+    color: #003A6C;
     }
 .main.layout main nav ul li ul {
     border: 1px solid rgba(0,0,0,.75);
@@ -721,9 +728,6 @@ progress[value]::-moz-progress-bar {
 .main.layout main .mejs__container,
 .main.layout main .mejs__controls:not([style*="display: none"]) {
     background: rgba(0,0,0,0);
-    }
-.main.layout main section {
-    padding: 10px;
     }
 @media screen and (orientation: portrait) {
 html,
@@ -1402,63 +1406,6 @@ main section.scheda h1 {
 main section.scheda .ajax {
     padding: 10px;
     }
-main section.scheda .skill_list {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    }
-main section.scheda .skill_list .block,
-main section.scheda .skill_list .single {
-    -webkit-flex: 1 1 100%;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
-    }
-main section.scheda .skill_list .break {
-    -webkit-flex: 0 0 100%;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    }
-main section.scheda .skill_list .item {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    -webkit-align-items: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
-    width: 100%;
-    margin: auto;
-    }
-main section.scheda .skill_list .item div {
-    margin: 2.5px 0;
-    }
-main section.scheda .skill_list .item div:nth-child(1) {
-    -webkit-flex: 100 1 auto;
-    -ms-flex: 100 1 auto;
-    flex: 100 1 auto;
-    }
-main section.scheda .skill_list .item div:nth-child(2) {
-    -webkit-flex: 0 0 35px;
-    -ms-flex: 0 0 35px;
-    flex: 0 0 35px;
-    }
-main section.scheda .skill_list .item div:nth-child(3) {
-    -webkit-flex: 1 0 122px;
-    -ms-flex: 1 0 122px;
-    flex: 1 0 122px;
-    }
-main section.scheda .skill_list .item div:nth-child(4) {
-    -webkit-flex: 0 0 20px;
-    -ms-flex: 0 0 20px;
-    flex: 0 0 20px;
-    text-align: right;
-    font-weight: bolder;
-    }
 main section.scheda .outer_container {
     padding: 20px 0 40px 0;
     margin: auto;
@@ -1519,17 +1466,320 @@ main section.scheda .outer_container {
     width: 25%;
     float: left;
     }
-main section.scheda .skill_list {
+}
+
+/* INIZIO SEZIONE DEI CSS PER LA PAGINA DEGLI OGGETTI IN SCHEDA */
+/* versione base portrait mobile */
+section.oggetti {
+    margin: 0 10px;
+    }
+section.oggetti a {
+    color: #ebecf0 !important;
+    }
+section.oggetti .categoria {
+    display: none;
+    }
+section.oggetti .categoria .gruppo {
+    display: none;
+    margin-left: 1em;
+    }
+section.oggetti .categoria .gruppo .item {
+    margin: 5px 0;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper {
+    display: none;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details div.img {
+    -webkit-flex: 1 0 90%;
+    -ms-flex: 1 0 90%;
+    flex: 1 0 90%;
+    height: 200px;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 5px;
+    border-right: 2px solid #C4D8E2;
+    border-bottom: 2px solid #C4D8E2;
+    border-left: 2px solid #003A6C;
+    border-top: 2px solid #003A6C;
+    -webkit-box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);
+    box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);
+    margin: auto;
+    position: relative;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details div.img:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: -webkit-linear-gradient(135deg,rgba(255,249,249,.25) 0%,rgba(255,254,254,.25) 30%,rgba(255,255,255,0) 50%,rgba(255,255,255,.25) 70%,rgba(255,255,255,.25) 100%);
+    background: linear-gradient(135deg,rgba(255,249,249,.25) 0%,rgba(255,254,254,.25) 30%,rgba(255,255,255,0) 50%,rgba(255,255,255,.25) 70%,rgba(255,255,255,.25) 100%);
+    content: '';
+    border-radius: 5px;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus {
+    -webkit-flex: 1 0 90%;
+    -ms-flex: 1 0 90%;
+    flex: 1 0 90%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus div span {
+    display: initial;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus div:nth-child(even) {
+    -webkit-flex: 1 0 35%;
+    -ms-flex: 1 0 35%;
+    flex: 1 0 35%;
+    padding-left: 5px;
+    text-transform: uppercase;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus div:nth-child(odd) {
+    -webkit-flex: 0 0 1.5em;
+    -ms-flex: 0 0 1.5em;
+    flex: 0 0 1.5em;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus h2 {
+    -webkit-flex: 1 0 90%;
+    -ms-flex: 1 0 90%;
+    flex: 1 0 90%;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .operazioni {
+    -webkit-flex: 1 0 100%;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .operazioni form {
+    margin: 0 5px;
+    }
+@media screen and (orientation: landscape) {
+section.oggetti {
+    max-width: 750px;
+    margin: auto;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details div.img {
+    width: initial;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    margin: initial;
+    position: relative;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus {
+    -webkit-flex: 1 0 40%;
+    -ms-flex: 1 0 40%;
+    flex: 1 0 40%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-left: 10px;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus div span {
+    display: initial;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus div:nth-child(even) {
+    -webkit-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    padding-left: 5px;
+    text-transform: uppercase;
+    }
+section.oggetti .categoria .gruppo .item .details_wrapper .item_details .bonus div:nth-child(odd) {
+    -webkit-flex: 0 0 1.5em;
+    -ms-flex: 0 0 1.5em;
+    flex: 0 0 1.5em;
+    }
+}
+
+section.equipped {
+    max-width: 750px;
+    margin: 0 10px;
+    }
+section.equipped h2 {
+    text-align: center;
+    }
+section.equipped .siluette {
+    position: relative;
+    height: 60vh;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 5px;
+    border-right: 2px solid #C4D8E2;
+    border-bottom: 2px solid #C4D8E2;
+    border-left: 2px solid #003A6C;
+    border-top: 2px solid #003A6C;
+    -webkit-box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);
+    box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);
+    padding: 10px;
+    max-width: 400px;
+    margin: auto;
+    }
+section.equipped .siluette .location {
+    position: absolute;
+    padding: 5px;
+    background-color: rgba(255,255,255,.4);
+    border: 1px solid rgba(0,0,0,1);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1;
+    }
+section.equipped .siluette .location.equipped_head {
+    left: 50%;
+    top: 4%;
+    }
+section.equipped .siluette .location.equipped_neck {
+    left: 50%;
+    top: 12%;
+    }
+section.equipped .siluette .location.equipped_chest {
+    left: 50%;
+    top: 22%;
+    }
+section.equipped .siluette .location.equipped_legs {
+    left: 50%;
+    top: 60%;
+    }
+section.equipped .siluette .location.equipped_feet {
+    left: 50%;
+    top: 85%;
+    }
+section.equipped .siluette .location.equipped_hand_dx {
+    left: 10px;
+    top: 50%;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    }
+section.equipped .siluette .location.equipped_hand_sx {
+    right: 10px;
+    top: 50%;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    }
+section.equipped .siluette .location.equipped_ring {
+    left: 10px;
+    top: 70%;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    }
+section.equipped .siluette .sesso_m {
+    height: 100%;
+    background-image: url(../imgs/pg/male.png);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -webkit-filter: hue-rotate(-50deg) opacity(75%) drop-shadow(5px 5px 5px rgba(0,0,0,.5)) grayscale(50%);
+    filter: hue-rotate(-50deg) opacity(75%) drop-shadow(5px 5px 5px rgba(0,0,0,.5)) grayscale(50%);
+    }
+@media screen and (orientation: landscape) {
+section.equipped {
+    margin: auto;
+    }
+}
+
+section.stats {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    }
+section.stats .block,
+section.stats .single {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    }
+section.stats .break {
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    }
+section.stats .item {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    width: 100%;
+    margin: auto;
+    }
+section.stats .item div {
+    margin: 2.5px 0;
+    }
+section.stats .item div:nth-child(1) {
+    -webkit-flex: 100 1 auto;
+    -ms-flex: 100 1 auto;
+    flex: 100 1 auto;
+    }
+section.stats .item div:nth-child(2) {
+    -webkit-flex: 0 0 35px;
+    -ms-flex: 0 0 35px;
+    flex: 0 0 35px;
+    }
+section.stats .item div:nth-child(3) {
+    -webkit-flex: 1 0 122px;
+    -ms-flex: 1 0 122px;
+    flex: 1 0 122px;
+    }
+section.stats .item div:nth-child(4) {
+    -webkit-flex: 0 0 20px;
+    -ms-flex: 0 0 20px;
+    flex: 0 0 20px;
+    text-align: right;
+    font-weight: bolder;
+    }
+@media screen and (orientation: landscape) {
+section.stats {
     -webkit-justify-content: space-evenly;
     justify-content: space-evenly;
     }
-main section.scheda .skill_list .single {
+section.stats .single {
     min-width: -webkit-calc(((100% - 640px) / 3) + 640px);
     min-width: calc(((100% - 640px) / 3) + 640px);
     max-width: 80%;
     margin: auto;
     }
-main section.scheda .skill_list .block {
+section.stats .block {
     min-width: 320px;
     max-width: 35%;
     -webkit-flex: 1 1 auto;

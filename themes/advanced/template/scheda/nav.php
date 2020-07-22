@@ -24,12 +24,12 @@
 			<ul>
 
 				<li>				
-					<a href="main.php?page=scheda_oggetti&pg=<?php echo gdrcd_filter('url', $_REQUEST['pg']); ?>">
+					<a href="main.php?page=scheda__scheda&op=oggetti&pg=<?php echo gdrcd_filter('url', $_REQUEST['pg']); ?>">
 						<?php echo gdrcd_filter('out', $MESSAGE['interface']['sheet']['menu']['inventory']); ?>
 					</a>
 				</li>				
 				<li>				
-					<a href="main.php?page=scheda_equip&pg=<?php echo gdrcd_filter('url', $_REQUEST['pg']); ?>">
+					<a href="main.php?page=scheda__scheda&op=equip&pg=<?php echo gdrcd_filter('url', $_REQUEST['pg']); ?>">
 						<?php echo gdrcd_filter('out', $MESSAGE['interface']['sheet']['menu']['equipment']); ?>
 					</a>		
 				</li>

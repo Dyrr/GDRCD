@@ -1,0 +1,318 @@
+/* INIZIO SEZIONE DEI CSS PER LA PAGINA DEGLI OGGETTI IN SCHEDA */
+
+    /* versione base portrait mobile */
+    section.oggetti
+    {
+        margin:0 10px;
+		
+		a
+        {
+            color:#ebecf0 !IMPORTANT;
+        }
+
+        .categoria
+        {
+            display:none;
+
+            .gruppo
+            {
+                display:none;
+                margin-left:1em;
+
+                .item
+                {
+                    margin:5px 0;
+
+                    .details_wrapper
+                    {
+                        display:none;
+
+                        .item_details
+                        {
+                            display:flex;
+                            position:relative;
+                            flex-flow:row wrap;
+
+                            div.img
+                            {
+                                flex:1 0 90%;
+                                height:200px;
+                                background-color:rgba(0,0,0,0.1);
+                                border-radius:5px;
+                                border-right: 2px solid #C4D8E2;
+                                border-bottom: 2px solid #C4D8E2;
+                                border-left: 2px solid #003A6C;
+                                border-top: 2px solid #003A6C;
+                                box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);
+                                margin:auto;
+								position:relative;
+                            }       
+
+                            div.img::after
+                            {
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                bottom:0;
+                                right:0;
+                                background: linear-gradient(135deg,rgba(255,249,249,.25) 0%,rgba(255,254,254,.25) 30%,rgba(255,255,255,0) 50%,rgba(255,255,255,.25) 70%,rgba(255,255,255,.25) 100%);
+                                content:'';
+                                border-radius:5px;
+                            }                           
+						   
+						   .bonus
+                            {
+                                flex:1 0 90%;
+                                display:flex;
+                                flex-flow:row wrap;
+
+                                div
+                                {
+
+                                    /*selettore fasullo per correggere fix di mancato riconoscimento aperture parentesi*/
+                                    span{display:initial;}
+                                    
+                                    &:nth-child(even)
+                                    {
+                                        flex:1 0 35%;
+                                        padding-left:5px;
+                                        text-transform:uppercase;
+                                    }
+
+                                    &:nth-child(odd)
+                                    {
+                                        flex:0 0 1.5em;
+                                    }
+
+                                }
+
+                                h2
+                                {
+                                    flex:1 0 90%;
+                                }
+
+                            }
+
+                            .operazioni
+                            {
+                                
+								flex: 1 0 100%;
+								display:flex;
+                                flex-flow:row wrap;
+								justify-content:center;
+
+                                form
+                                {
+                                    margin:0 5px;
+                                }
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+@media screen and (orientation: landscape) {
+
+    section.oggetti
+    {
+        max-width:750px;
+        margin:auto;
+
+        .categoria
+        {
+
+            .gruppo
+            {
+
+                .item
+                {
+
+                    .details_wrapper
+                    {
+
+                        .item_details
+                        {
+                            display:flex;
+                            flex-flow:row wrap;
+
+                            div.img
+                            {
+                                width:initial;
+                                flex:0 0 50%;
+                                margin:initial;
+                                position:relative;
+                            }
+
+
+
+                            .bonus
+                            {
+                                flex:1 0 40%;
+                                display:flex;
+                                flex-flow:row wrap;
+                                margin-left:10px;
+
+                                div
+                                {
+
+                                    /*selettore fasullo per correggere fix di mancato riconoscimento aperture parentesi*/
+                                    span{display:initial;}
+
+                                    &:nth-child(even)
+                                    {
+                                        flex:0 0 40%;
+                                        padding-left:5px;
+                                        text-transform:uppercase;
+                                    }
+
+                                    &:nth-child(odd)
+                                    {
+                                        flex:0 0 1.5em;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+	section.equipped
+	{
+        max-width:750px;
+		margin:0 10px;
+
+		h2
+		{
+			text-align:center;
+		}
+		
+		.siluette
+		{
+			position:relative;
+			height:60vh;
+			background-color:rgba(0,0,0,0.1);
+			border-radius:5px;
+			border-right: 2px solid #C4D8E2;
+			border-bottom: 2px solid #C4D8E2;
+			border-left: 2px solid #003A6C;
+			border-top: 2px solid #003A6C;
+			box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);	
+			padding:10px;
+			max-width:400px;
+			margin:auto;
+			
+			.location
+			{
+				position:absolute;
+				padding:5px;
+				background-color:rgba(255,255,255,0.4);
+				border:1px solid rgba(0,0,0,1);
+				transform:translateX(-50%);
+				z-index:1;
+				
+				&.equipped_head
+				{
+					left:50%;
+					top:4%;
+				}
+				
+				&.equipped_neck
+				{
+					left:50%;
+					top:12%;
+				}			
+				
+				&.equipped_chest
+				{
+					left:50%;
+					top:22%;
+				}			
+			
+				&.equipped_legs
+				{
+					left:50%;
+					top:60%;
+				}			
+			
+			
+				&.equipped_feet
+				{
+					left:50%;
+					top:85%;
+				}			
+			
+			
+				&.equipped_hand_dx
+				{
+					left:10px;
+					top:50%;
+					transform:translateX(0);
+				}			
+			
+				&.equipped_hand_sx
+				{
+					right:10px;
+					top:50%;
+					transform:translateX(0);
+				}			
+			
+				&.equipped_ring
+				{
+					left:10px;
+					top:70%;
+					transform:translateX(0);
+				}			
+			
+			}
+			
+			.sesso_m
+			{
+				height:100%;
+				background-image: url('../../../imgs/pg/male.png');
+				background-size:contain;
+				background-position:50% 50%;
+				background-repeat:no-repeat;
+				filter:
+					hue-rotate(-50deg) 
+					opacity(75%) 
+					drop-shadow(5px 5px 5px rgba(0,0,0,.5)) 
+					grayscale(50%);
+				
+		
+			
+			}
+			
+			
+			
+		}
+	
+	}
+	
+@media screen and (orientation: landscape) {
+
+	section.equipped
+	{
+		margin:auto;
+	}
+
+}	

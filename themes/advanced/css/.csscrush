@@ -37,10 +37,12 @@
             "chat.css",
             "presenti.css",
             "scheda.css",
+            "scheda\/oggetti.css",
+            "scheda\/skill.css",
             "messaggi.css",
             "forum.css"
         ],
-        "datem_sum": 22317926076,
+        "datem_sum": 25509968955,
         "options": {
             "minify": false,
             "formatter": null,
@@ -51,7 +53,7 @@
             "context": null,
             "import_path": null,
             "output_file": null,
-            "output_dir": "themes\/advanced\/css",
+            "output_dir": "F:\\webserver\\applications\\github\\Dyrr\\GDRCD\/themes\/advanced\/css",
             "asset_dir": null,
             "doc_root": null,
             "vendor_target": "all",

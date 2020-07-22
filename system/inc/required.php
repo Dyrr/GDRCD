@@ -61,7 +61,7 @@
     //opzioni per il processore dei css
     $settings= array(
         'minify' => false,
-        'output_dir' =>  'themes/' . $PARAMETERS['themes']['current_theme'] . '/css',
+        'output_dir' =>  ROOT . '/themes/' . $PARAMETERS['themes']['current_theme'] . '/css',
         'versioning' => true,
     );  
     //imposta le opzioni per il processore dei css      

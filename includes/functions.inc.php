@@ -689,6 +689,6 @@ function gdrcd_list($str) {
 }
 
 
-
+require 'helpers.inc.php';
 require 'template.inc.php';
 require 'modulo.inc.php';
