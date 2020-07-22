@@ -24,8 +24,8 @@
     require \functions\file('personaggio');
     
     $_REQUEST['pg'] = ucfirst(trim($_REQUEST['pg']));
-	
-	//controlla la validità del personaggio richiesto
+    
+    //controlla la validità del personaggio richiesto
     $check = \pg\check($_REQUEST['pg']);
 
     //SE IL PERSONAGGIO NON ESISTE O NON È STATO INDICATO
@@ -43,7 +43,7 @@
         //imposta l'op e la view
         $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'default';
         
-	   $view = $op;
+       $view = $op;
         
         //recupera i dati base del pg
         $dati = \pg\dati($_REQUEST['pg']);
@@ -60,118 +60,116 @@
         //ESEGUE IL SET DI ISTRUZIONI IN BASE ALL'OPERAZIONE RICHIESTA
         switch(strtoupper($view)) {
     
-			//incremento skill
-			case 'ADDSKILL' :
-			
-				//SE IL PG È IL PG DEL GIOCATORE RICHIEDENTE
-				//O SE HO I PERMESSI DI MASTER O SUPERIORE
-				if( \pg\mio($_REQUEST['pg']) === true 
-					|| $_SESSION['permessi'] >= GAMEMASTER) {
-						
-					//esegue le procedure per l'incremento delle skill
-					\pg\skill\add($_REQUEST['pg'],$_REQUEST['what']);
-				
-				}
-				
-				//imposta la view da utilizzare dopo l'operaizone
-				$view = 'stats';
-			
-			break;
-			
-			//decremento skill
-			case 'SUBKILL' :
-			
-				// SE HO I PERMESSI DI MASTER O SUPERIORE				
-				if($_SESSION['permessi'] >= GAMEMASTER) {
-						
-					//esegue le procedure per la diminuizione delle skill
-					\pg\skill\sub($_REQUEST['pg'],$_REQUEST['what']);
-				
-				}
-				
-				$view = 'stats';
-			
-			break;			
-			
-			//equipaggiare un oggetto
-			/* @todo inserire log errori in caso di errori nella procedura */
-			case 'TRASPORTA' :
-			
-				//SE SONO IL POSSESSORE DEL PG
-				if( \pg\mio($_REQUEST['pg']) === true) {
+            //incremento skill
+            case 'ADDSKILL' :
+            
+                //SE IL PG È IL PG DEL GIOCATORE RICHIEDENTE
+                //O SE HO I PERMESSI DI MASTER O SUPERIORE
+                if( \pg\mio($_REQUEST['pg']) === true 
+                    || $_SESSION['permessi'] >= GAMEMASTER) {
+                        
+                    //esegue le procedure per l'incremento delle skill
+                    \pg\skill\add($_REQUEST['pg'],$_REQUEST['what']);
+                
+                }
+                
+                //imposta la view da utilizzare dopo l'operaizone
+                $view = 'stats';
+            
+            break;
+            
+            //decremento skill
+            case 'SUBKILL' :
+            
+                // SE HO I PERMESSI DI MASTER O SUPERIORE               
+                if($_SESSION['permessi'] >= GAMEMASTER) {
+                        
+                    //esegue le procedure per la diminuizione delle skill
+                    \pg\skill\sub($_REQUEST['pg'],$_REQUEST['what']);
+                
+                }
+                
+                $view = 'stats';
+            
+            break;          
+            
+            //equipaggiare un oggetto
+            /* @todo inserire log errori in caso di errori nella procedura */
+            case 'TRASPORTA' :
+            
+                //SE SONO IL POSSESSORE DEL PG
+                if( \pg\mio($_REQUEST['pg']) === true) {
 
-					//SE POSSIEDO L'OGGETTO
-					if(\pg\oggetti\possiede($_REQUEST['pg'],$_REQUEST['idpooggetto']) === true) {
-						
-						//equipaggia l'oggetto
-						\pg\oggetti\trasporta($_REQUEST['pg'],$_REQUEST['idpooggetto']);
-						
-					}
-				
-				}
-				
-				//imposta la view da utilizzare dopo l'operazione
-				$view = 'OGGETTI';
-			
-			break;
-			
-			//depositare un oggetto
-			/* @todo inserire log errori in caso di errori nella procedura */
-			case 'DEPOSITA' :
-			
-				//SE SONO IL POSSESSORE DEL PG
-				if( \pg\mio($_REQUEST['pg']) === true) {
+                    //SE POSSIEDO L'OGGETTO
+                    if(\pg\oggetti\possiede($_REQUEST['pg'],$_REQUEST['idpooggetto']) === true) {
+                        
+                        //equipaggia l'oggetto
+                        \pg\oggetti\trasporta($_REQUEST['pg'],$_REQUEST['idpooggetto']);
+                        
+                    }
+                
+                }
+                
+                //imposta la view da utilizzare dopo l'operazione
+                $view = 'OGGETTI';
+            
+            break;
+            
+            //depositare un oggetto
+            /* @todo inserire log errori in caso di errori nella procedura */
+            case 'DEPOSITA' :
+            
+                //SE SONO IL POSSESSORE DEL PG
+                if( \pg\mio($_REQUEST['pg']) === true) {
 
-					//SE POSSIEDO L'OGGETTO
-					if(\pg\oggetti\possiede($_REQUEST['pg'],$_REQUEST['idpooggetto']) === true) {
-						
-						//equipaggia l'oggetto
-						\pg\oggetti\deposita($_REQUEST['pg'],$_REQUEST['idpooggetto']);
-						
-					}
-				
-				}
-				
-				//imposta la view da utilizzare dopo l'operazione
-				$view = 'EQUIP';
-			
-			break;			
-			
-			case 'INDOSSA' :
-			
-				//SE SONO IL POSSESSORE DEL PG
-				if( \pg\mio($_REQUEST['pg']) === true) {
+                    //SE POSSIEDO L'OGGETTO
+                    if(\pg\oggetti\possiede($_REQUEST['pg'],$_REQUEST['idpooggetto']) === true) {
+                        
+                        //equipaggia l'oggetto
+                        \pg\oggetti\deposita($_REQUEST['pg'],$_REQUEST['idpooggetto']);
+                        
+                    }
+                
+                }
+                
+                //imposta la view da utilizzare dopo l'operazione
+                $view = 'EQUIP';
+            
+            break;          
+            
+            //indossa un oggetto equipaggiat
+            case 'INDOSSA' :
+            
+                //SE SONO IL POSSESSORE DEL PG
+                if( \pg\mio($_REQUEST['pg']) === true) {
 
-					//indossa l'oggetto
-					\pg\oggetti\indossa($_REQUEST['idpooggetto']);
+                    //indossa l'oggetto
+                    \pg\oggetti\indossa($_REQUEST['idpooggetto']);
 
-					//imposta la view da utilizzare dopo l'operazione
-					$view = 'EQUIP';				
-				
-				}
-			
-			
-			break;
-			
-			case 'TOGLI' :
-			
-				//SE SONO IL POSSESSORE DEL PG
-				if( \pg\mio($_REQUEST['pg']) === true) {
+                    //imposta la view da utilizzare dopo l'operazione
+                    $view = 'EQUIP';                
+                
+                }
+            
+            break;
+            
+            //toglie d aindossato un oggetto
+            case 'TOGLI' :
+            
+                //SE SONO IL POSSESSORE DEL PG
+                if( \pg\mio($_REQUEST['pg']) === true) {
 
-					//toglie l'oggetto l'oggetto
-					\pg\oggetti\togli($_REQUEST['idpooggetto']);
+                    //toglie l'oggetto l'oggetto
+                    \pg\oggetti\togli($_REQUEST['idpooggetto']);
 
-					//imposta la view da utilizzare dopo l'operazione
-					$view = 'EQUIP';				
-				
-				}
-			
-			
-			break;
-			
-			
-			
-			default :
+                    //imposta la view da utilizzare dopo l'operazione
+                    $view = 'EQUIP';                
+                
+                }
+            
+            break;
+            
+            default :
             
             break;
         
@@ -201,32 +199,32 @@
             
             //pagina principale delle skill
             case 'STATS' :
-  				
-				//dati base del pg
-				$TAG['page']['pg'] = $dati;				
-				
-				$TAG['page']['section']['skill'] = ($PARAMETERS['mode']['skillsystem'] == 'ON') ? true : false;
-				$TAG['page']['section']['stat'] = ($PARAMETERS['mode']['statssystem'] == 'ON') ? true : false;
-				
-				
-				//se è attivato il sistema di skill
-				if($PARAMETERS['mode']['skillsystem'] == 'ON') {
-					
-					//dati riguardanti l'esperienza spesa
-					$TAG['page']['pg']['esperienza_spesa'] = \pg\px\spesi($_REQUEST['pg']);                
-					$TAG['page']['pg']['esperienza_rimasta'] = $dati['esperienza'] - $TAG['page']['pg']['esperienza_spesa'];
-					
-					//dati delle skill
-					$TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza'],$TAG['page']['pg']['esperienza_rimasta']);
+                
+                //dati base del pg
+                $TAG['page']['pg'] = $dati;             
+                
+                $TAG['page']['section']['skill'] = ($PARAMETERS['mode']['skillsystem'] == 'ON') ? true : false;
+                $TAG['page']['section']['stat'] = ($PARAMETERS['mode']['statssystem'] == 'ON') ? true : false;
+                
+                
+                //se è attivato il sistema di skill
+                if($PARAMETERS['mode']['skillsystem'] == 'ON') {
+                    
+                    //dati riguardanti l'esperienza spesa
+                    $TAG['page']['pg']['esperienza_spesa'] = \pg\px\spesi($_REQUEST['pg']);                
+                    $TAG['page']['pg']['esperienza_rimasta'] = $dati['esperienza'] - $TAG['page']['pg']['esperienza_spesa'];
+                    
+                    //dati delle skill
+                    $TAG['page']['skill'] = \pg\skill\lista($_REQUEST['pg'],$dati['id_razza'],$TAG['page']['pg']['esperienza_rimasta']);
 
-					//nomi delle statistiche
-					$TAG['page']['stats'] = $PARAMETERS['names']['stats'];
-					array_pop($TAG['page']['stats']);
-					
-					//imposta il template da visualizzare
-					$TAG['template'] = 'scheda/stat';
-					
-				}
+                    //nomi delle statistiche
+                    $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+                    array_pop($TAG['page']['stats']);
+                    
+                    //imposta il template da visualizzare
+                    $TAG['template'] = 'scheda/stat';
+                    
+                }
             
             break;
             
@@ -248,52 +246,52 @@
             break;
             
             case 'OGGETTI' :
-			
+            
                 //ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
                 //dati base del pg                
-                $TAG['page']['pg'] = $dati;				
-				$TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
-				$TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
-				array_shift($TAG['page']['equipped']);
-				array_shift($TAG['page']['equipped']);
-				$TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
-				$TAG['page']['area'] = 'proprieta';
-				
-				
-				$TAG['page']['oggetti'] = \pg\oggetti\lista($_REQUEST['pg']); 
-					//nomi delle statistiche
-					$TAG['page']['stats'] = $PARAMETERS['names']['stats'];
-					array_pop($TAG['page']['stats']);				
-				
-				
-				$TAG['template'] = 'scheda/oggetti';
-			
-			break;
-			
+                $TAG['page']['pg'] = $dati;             
+                $TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
+                $TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
+                array_shift($TAG['page']['equipped']);
+                array_shift($TAG['page']['equipped']);
+                $TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
+                $TAG['page']['area'] = 'proprieta';
+                
+                
+                $TAG['page']['oggetti'] = \pg\oggetti\lista($_REQUEST['pg']); 
+                    //nomi delle statistiche
+                    $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+                    array_pop($TAG['page']['stats']);               
+                
+                
+                $TAG['template'] = 'scheda/oggetti';
+            
+            break;
+            
             case 'EQUIP' :
-			
-				//ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
+            
+                //ASSEGNA I DATI ALLE VARIABILI PER IL TEMPLATE
                 //dati base del pg                
-                $TAG['page']['pg'] = $dati;				
-				$TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
-				$TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
-				array_shift($TAG['page']['equipped']);
-				array_shift($TAG['page']['equipped']);
-				$TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
-				$TAG['page']['area'] = 'equip';				
-				
-				
-				$TAG['page']['oggetti'] = \pg\oggetti\equip($_REQUEST['pg']); 
-					//nomi delle statistiche
-					$TAG['page']['stats'] = $PARAMETERS['names']['stats'];
-					array_pop($TAG['page']['stats']);				
-				
-				
-				$TAG['template'] = 'scheda/oggetti';
-			
-			break;			
-			
-			//visualizzaizone della pagina di default della scheda
+                $TAG['page']['pg'] = $dati;             
+                $TAG['page']['pg']['mio'] = \pg\mio($_REQUEST['pg']);
+                $TAG['page']['equipped'] = $MESSAGE['interface']['administration']['items']['fit_in'];
+                array_shift($TAG['page']['equipped']);
+                array_shift($TAG['page']['equipped']);
+                $TAG['page']['siluette'] = \pg\oggetti\siluette($_REQUEST['pg']);
+                $TAG['page']['area'] = 'equip';             
+                
+                
+                $TAG['page']['oggetti'] = \pg\oggetti\equip($_REQUEST['pg']); 
+                    //nomi delle statistiche
+                    $TAG['page']['stats'] = $PARAMETERS['names']['stats'];
+                    array_pop($TAG['page']['stats']);               
+                
+                
+                $TAG['template'] = 'scheda/oggetti';
+            
+            break;          
+            
+            //visualizzaizone della pagina di default della scheda
             default :
             
                 $dati['url_media'] = gdrcd_filter('fullurl',$dati['url_media']);
@@ -322,10 +320,10 @@
         }
     
     }
-	
-	//filtra le variabili in uscita in automatico in modo da dover evitare di usare il gdrcd_filter_out ogni volta
+    
+    //filtra le variabili in uscita in automatico in modo da dover evitare di usare il gdrcd_filter_out ogni volta
     $TAG = \template\filterOut($TAG);
-    //CARICA IL TEMPLATE RICHIESTO	
-	require \template\file($TAG['template']);   
+    //CARICA IL TEMPLATE RICHIESTO  
+    require \template\file($TAG['template']);   
     
     
