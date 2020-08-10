@@ -1,4 +1,4 @@
-main section.scheda
+section.scheda
 {
 	text-align:justify;
 	line-height:1.5em;
@@ -96,7 +96,8 @@ main section.scheda
 	}		
 
 }
-
+		/* importa il css del menu di navigazione dei moduli presenti nel main */
+        @import 'main/nav.css';  
 @import 'scheda/oggetti.css';
 @import 'scheda/skill.css';
 

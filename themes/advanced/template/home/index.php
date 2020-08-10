@@ -31,7 +31,7 @@
                         foreach ($v['box'] as $box) {
 ?>
                             <div class="modulo <?php echo gdrcd_filter_out($box['class']); ?>">
-                                <?php gdrcd_load_modules('pages/home/' . $box['page'] . '.inc.php', $box); ?>
+                                <?php gdrcd_load_modules(\modulo\file('home/' . $box['page']), $box); ?>
                             </div>
 <?php               
                         }

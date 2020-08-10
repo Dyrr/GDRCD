@@ -13,7 +13,7 @@ $handleDBConnection = gdrcd_connect();
 //Ricevo il tempo di reload
 $i_ref_time = gdrcd_filter_get($_GET['ref']);
 /**********************************************************************************/
-if((gdrcd_filter_get($_REQUEST['chat']) == 'yes') && (empty($_SESSION['login']) === false)) {
+if(isset($_REQUEST['chat']) && $_REQUEST['chat'] == 'yes' && (empty($_SESSION['login']) === false)) {
     /*Aggiornamento chat*/
     /*Se ho inviato un azione*/
     if((gdrcd_filter('get', $_POST['op']) == 'take_action') && (($PARAMETERS['mode']['skillsystem'] == 'ON') || ($PARAMETERS['mode']['dices'] == 'ON'))) {
@@ -224,7 +224,7 @@ if((gdrcd_filter_get($_REQUEST['chat']) == 'yes') && (empty($_SESSION['login']) 
     }//Fine if ($type < "5")
 }//Fine (gdrcd_filter('get', $_POST['op']) == 'new_chat_message')
 
-$_SESSION['tag'] = gdrcd_filter('in', $_POST['tag']);
+$_SESSION['tag'] = isset($_POST['tag']) ? gdrcd_filter_in($_POST['tag']) : '';
 
 /**
  * Scorrimento dei messaggi in chat, verifico se non è stato invertito il flusso, shorthand
@@ -332,7 +332,7 @@ while($row = gdrcd_query($query, 'fetch')) {
 }
 gdrcd_query($query, 'free');
 
-if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {        
+if(isset($_REQUEST['chat']) && $_REQUEST['chat'] == 'yes') {        
 $_SESSION['last_message'] = $last_message;
 }
 ?>
@@ -343,13 +343,14 @@ $_SESSION['last_message'] = $last_message;
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="refresh" content="<?php echo $i_ref_time; ?>">
 	<link rel="stylesheet" href="<?php echo csscrush_file(ROOT . '/themes/' . $PARAMETERS['themes']['current_theme'] . '/css/source/gdrcd.css'); ?>" type="text/css" />
-    <title>Chat</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" crossorigin="anonymous">
+	<title>Chat</title>
 </head>
-<body class="transparent_body" <?php if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {
+<body class="transparent_body" <?php if(isset($_REQUEST['chat']) && $_REQUEST['chat'] == 'yes'){
     echo 'onLoad="echoChat();"';
 } ?> >
 <?php
-if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {
+if(isset($_REQUEST['chat']) && $_REQUEST['chat'] == 'yes') {
     echo '<script type="text/javascript"> function echoChat(){';
     /** * Gestione dell'ordinamento
      * @author Blancks
@@ -383,7 +384,7 @@ if(gdrcd_filter('get', $_REQUEST['chat']) == 'yes') {
 
 }
 
-if ($PARAMETERS['mode']['allow_audio'] == 'ON' && $_SESSION['blocca_media'] != 1 && $add_chat != '' && isset($alert_new_msg) && $alert_new_msg == 1) { ?>
+if ($PARAMETERS['mode']['allow_audio'] == 'ON' && $_SESSION['blocca_media'] != 1 && isset($add_chat) && $add_chat != '' && isset($alert_new_msg) && $alert_new_msg == 1) { ?>
 <script type="text/javascript">
     var mediaElementChat = parent.document.getElementById("sound_player_chat");
     mediaElementChat.play();

@@ -16,6 +16,9 @@ local.properties
 .settings/
 .loadpath
 .idea/
+/system/data/log/defcon/*.log
+/system/inc/functions/defcon.inc.php
+
 
 # External tool builders
 .externalToolBuilders/

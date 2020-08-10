@@ -625,7 +625,6 @@
 			
 			$result = \gdrcd\db\stmt($query,$param);
 
-
 			if($result['info']['num_nows'] != 0) {
 			
 				foreach($result['data'] as $v) {

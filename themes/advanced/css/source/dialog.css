@@ -1,0 +1,219 @@
+.ui-widget-content
+{
+color: black !IMPORTANT;
+        .mejs__container,
+        .mejs__controls:not([style*="display: none"])       
+        {
+            background:rgba(0,0,0,0);
+        }	
+}
+
+.ui-widget.ui-widget-content
+{
+	background-color: #708090;
+color: black !IMPORTANT;
+font-family: 'Roboto',sans-serif;
+font-size: 14px;
+letter-spacing: 1px;	
+	
+}
+
+.ui-front {
+ z-index:1000000 !IMPORTANT;
+}
+
+div.dialog
+{
+	position:absolute;
+	z-index:100000000;
+	overflow:hidden;
+	background-color: #708090;
+	border:1px solid hsla(0,0%,100%,.2);
+	
+	.title
+	{
+		display:none;
+	
+	}	
+	
+    
+        
+        /* importa il css dei riquadri dei moduli */
+        @import 'main/modulo.css';	
+	
+	.content
+	{
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		overflow:auto;
+		padding:$(padding_base);
+		
+			.page
+			{
+				@include grid_base;
+				grid-template-rows: 
+					min-content
+					min-content 
+					auto;			
+				grid-template-columns: auto;			
+				grid-template-areas:
+					"nav"
+					"player"
+					"content";		
+
+				/*
+				.tab_container
+				{
+					
+					grid-area:nav;
+					display:flex;
+					justify-content:space-between;
+					
+
+					
+					@import url('tab.css');
+					overflow:hidden;
+					flex-wrap:wrap;
+
+
+
+					.tab.active
+					{
+						border-left:0 !IMPORTANT;
+
+						border-top:1px solid #36393f !IMPORTANT;
+						
+						
+					}
+				
+				}
+				*/
+					
+
+
+
+
+
+				
+			}
+		
+	
+	
+	}
+	
+	.hidden
+	{
+		position:absolute;
+		top:0;
+		left:0;
+		width:1px;
+		height:1px;		
+	}
+	
+	
+	
+}
+
+@media screen and (orientation: portrait) {
+	
+	div.dialog
+	{
+
+	}	
+	
+}
+
+@media screen and (orientation: landscape) {
+	
+		div.dialog
+		{
+
+		}		
+		
+		
+		
+		@media (min-width:961px)  {		
+	
+			div.dialog
+			{
+				width:80%;
+				height:80%;
+
+
+				
+				.title
+				{
+					position:absolute;
+					top:0;
+					left:0;
+					right:0;
+					height:2em;
+					display:block;
+					background-color:rgba(0,0,0,0.2);
+					border-bottom:1px solid hsla(0,0%,100%,.2);
+					line-height:2em;
+					font-weight:bold;
+					padding-left:$(padding_base);
+					
+					.icons
+					{
+						
+						position:absolute;
+						top:0;
+						right:$(padding_base);
+						bottom:0;
+						
+						a:link,
+						a:visited
+						{
+							color:$(text_color_03);
+						}
+						a:hover
+						{
+							color:rgba(255,255,255,0.9);
+							text-decoration:none;
+						}						
+						i
+						{
+							margin-left:$(padding_base);
+						}
+						
+					}
+				
+				}
+				
+				.content
+				{
+					top:2em;
+				}				
+				
+			}
+
+		}
+	
+}
+
+.dialog_icon
+{
+	position:absolute;
+	top:100px;
+	left:100px;
+	width:32px;
+	height:32px;
+	z-index:1000000;
+	text-align:center;
+	i
+	{
+		width:32px;
+		font-size:24px;
+		line-height:32px;
+		margin:-auto;
+		background-color:$(bg_color_05);
+		border:1px solid hsla(0,0%,100%,.2);
+		
+	}
+	
+}

@@ -20,7 +20,7 @@
     <section class="scheda">
         <?php require \template\file('scheda/nav'); // include il template del menù di navigazione ?>
         <?php require \template\file('scheda/indossati'); //include il tmeplate con il manichino ?>
-        <section class="oggetti">
+		<section class="oggetti">
 <?php
             //CICLA L'ELENCO DELLE CATEGORIE DI OGGETTI
             //esempio: armi, attrezzi

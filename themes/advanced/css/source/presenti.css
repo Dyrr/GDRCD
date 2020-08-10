@@ -8,8 +8,7 @@
 
 /*Frame dei presenti*/
 div.presenti iframe.iframe_presenti {
-    width: 100%;
-    min-width:150px;
+
 	height: 100%;
     border: none;
     overflow: auto;
@@ -18,6 +17,42 @@ div.presenti iframe.iframe_presenti {
 
 div.presenti iframe.iframe_presenti body.transparent_body {
     background-color: none;
+}
+
+section.presenti
+{
+	li
+	{
+		white-space:nowrap;
+		margin:0;
+		padding:0;
+		list-style-type:none;
+	}
+	
+	.status
+	{
+		width:10px;
+		height:10px;
+		border:1px solid black;
+		box-shadow: 2px 2px 5px 1px rgba(0,0,0,.5);
+		border-radius:50%;
+		display:inline-block;
+		
+		&.status_1
+		{
+			background: radial-gradient(circle at 25% 25%, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%);
+		}
+		
+		&.status_2
+		{
+			background: radial-gradient(circle at 25% 25%, rgba(252,234,187,1) 0%,rgba(252,234,187,1) 50%,rgba(248,181,0,1) 51%,rgba(248,181,0,1) 100%);
+		}
+		
+		&.status_0
+		{
+			background: radial-gradient(circle at 25% 25%, rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%);	
+		}
+	}
 }
 
 div.luogo {

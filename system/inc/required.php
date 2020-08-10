@@ -46,13 +46,13 @@
     $check_for_update = false;
 
     //include il file con la dichiaraizone delle costanti
-    require_once ROOT . '/includes/constant_values.inc.php';
+    require_once ROOT . '/system/inc/constant_values.inc.php';
     //include il file di configurazione del GDRCD
     require_once ROOT . '/system/config/config.inc.php';  
     //include il file del vocabolario
     require_once ROOT . '/vocabulary/' . $PARAMETERS['languages']['set'] . '.vocabulary.php';
     //include il file con le funzioni del GDRCD
-    require_once ROOT . '/includes/functions.inc.php';
+    require_once ROOT . '/system/inc/functions/_core.inc.php';
     //include il plugin di default per il bbcode
     require_once ROOT . '/system/lib/bbdecoder/bbdecoder.php';
     //include il preprocessore dei css

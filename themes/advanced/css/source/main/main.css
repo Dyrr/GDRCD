@@ -268,7 +268,7 @@
                     &#sez_right
                     {
                         scroll-snap-align: end;
-                        grid-column: 3 / 3;
+                        grid-column: 3 / -1;
                         border-right-width:1px;
                     }
 

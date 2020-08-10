@@ -204,6 +204,17 @@ div.link_menu {
 	
 	}
 	
+
+	
+}
+
+.modulo.menu
+{
+	option.map
+	{
+		font-weight:bold;
+	}
+	
 }
 
 @media (min-width:1380px)  {

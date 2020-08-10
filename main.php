@@ -17,8 +17,20 @@
 
     //Includo i parametri, la configurazione, la lingua e le funzioni
     require_once ROOT . '/system/inc/required.php';
-
-    //definizione del modulo da caricare
+	
+	gdrcd_controllo_sessione();
+	
+	//SE ESISTE LA FUNZIONE PER IL LOG DI ACCESSO ALLE PAGINE
+	//il controllo dell'esistenza della funzione è stato messo non essendo ancora sicuro se introdurre DefCon in questa 
+	//release
+	if(function_exists('\defcon\logAccess') === true) {	
+	
+		//inserisce i dati nel log di accesso elle pagine
+		\defcon\logAccess($_SESSION['login']);
+		
+	}
+    
+	//definizione del modulo da caricare
     $strInnerPage = "";
 
     //SE È AVVENUTO UNO SPOSTAMENTO IN UNA MAPPA
@@ -33,9 +45,9 @@
                      ultima_mappa = " . gdrcd_filter_num($_SESSION['mappa']) . ", 
                      ultimo_luogo = -1 
                  WHERE 
-                     nome = ' ". gdrcd_filter_in($_SESSION['login']) . "' 
+                     nome = '". gdrcd_filter_in($_SESSION['login']) . "' 
                  LIMIT 1";
-        gdrcd_query($query);
+		gdrcd_query($query);
     
     }
 
@@ -108,9 +120,19 @@
         template\end('content');
 
     }
-
+	
+	//SE ESISTE LA FUNZIONE PER IL LOG DELLE QUERY
+	//il controllo dell'esistenza della funzione è stato messo non essendo ancora sicuro se introdurre DefCon in questa 
+	//release
+	if(function_exists('\defcon\logQuery') === true) {	
+		
+		\defcon\logQuery($_SESSION['login']);
+		
+	}
+	
     //pulizia variabili
-    unset($MESSAGE);
+    unset($DEFCON);
+	unset($MESSAGE);
     unset($PARAMETERS);
 
     //stampa a video la pagina

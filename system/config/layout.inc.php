@@ -21,7 +21,7 @@ $PARAMETERS['section']['left']['box']['link_menu']['page'] = 'link_menu'; //Menu
 
 /*COLONNA DESTRA*/
 $PARAMETERS['section']['right']['box']['frame_presenti']['class'] = 'presenti';
-$PARAMETERS['section']['right']['box']['frame_presenti']['page'] = 'frame_presenti'; //Presenti.
+$PARAMETERS['section']['right']['box']['frame_presenti']['page'] = 'presenti'; //Presenti.
 //$PARAMETERS['section']['right']['box']['frame_presenti']['class'] = 'presenti';
 //$PARAMETERS['section']['right']['box']['frame_presenti']['page'] = 'empty'; //Presenti. 
 

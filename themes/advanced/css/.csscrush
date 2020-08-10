@@ -37,12 +37,15 @@
             "chat.css",
             "presenti.css",
             "scheda.css",
+            "main\/nav.css",
             "scheda\/oggetti.css",
             "scheda\/skill.css",
             "messaggi.css",
-            "forum.css"
+            "forum.css",
+            "dialog.css",
+            "main\/modulo.css"
         ],
-        "datem_sum": 25509968955,
+        "datem_sum": 30309873761,
         "options": {
             "minify": false,
             "formatter": null,
