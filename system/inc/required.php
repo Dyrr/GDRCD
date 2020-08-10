@@ -54,7 +54,26 @@
     //include il file con le funzioni del GDRCD
     require_once ROOT . '/system/inc/functions/_core.inc.php';
     //include il plugin di default per il bbcode
-    require_once ROOT . '/system/lib/bbdecoder/bbdecoder.php';
+    
+	/// [autoloader_example]		
+	//include l'autoloader
+	require_once(ROOT . '/system/lib/dlight/core/autoloader/Autoloader.php');
+	//istanzia l'autoloader
+	$autoloader = new \dlight\core\autoloader\Autoloader();
+	
+	//aggiunge i path in cui cercare le risorse
+	$autoloader->addPath(ROOT . '/system/lib/');
+	
+	//aggiunge nell'array degli autori che sfruttano la classe phpbrowscap
+	$autoloader->addVendor('gdrcd'); 
+	/// [autoloader_example]		
+	
+	//avvia la classe contenitore
+	\gdrcd\core\gdrcd::getInstance();
+	//imposta un alias più comodo per il contenitore delle classi
+	$gdrcd = \gdrcd\core\gdrcd::$class;		
+	
+	require_once ROOT . '/system/lib/bbdecoder/bbdecoder.php';
     //include il preprocessore dei css
     require_once ROOT . '/system/lib/csscrush/CssCrush.php';
     
