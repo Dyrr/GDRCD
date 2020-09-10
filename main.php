@@ -23,10 +23,10 @@
 	//SE ESISTE LA FUNZIONE PER IL LOG DI ACCESSO ALLE PAGINE
 	//il controllo dell'esistenza della funzione è stato messo non essendo ancora sicuro se introdurre DefCon in questa 
 	//release
-	if(function_exists('\defcon\logAccess') === true) {	
+	if(function_exists('\security\defcon\logAccess') === true) {	
 	
 		//inserisce i dati nel log di accesso elle pagine
-		\defcon\logAccess($_SESSION['login']);
+		\security\defcon\logAccess($_SESSION['login']);
 		
 	}
     
@@ -124,9 +124,9 @@
 	//SE ESISTE LA FUNZIONE PER IL LOG DELLE QUERY
 	//il controllo dell'esistenza della funzione è stato messo non essendo ancora sicuro se introdurre DefCon in questa 
 	//release
-	if(function_exists('\defcon\logQuery') === true) {	
+	if(function_exists('\security\defcon\logQuery') === true) {	
 		
-		\defcon\logQuery($_SESSION['login']);
+		\security\defcon\logQuery($_SESSION['login']);
 		
 	}
 	

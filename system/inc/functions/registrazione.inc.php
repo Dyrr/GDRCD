@@ -148,4 +148,40 @@
         //restituisce i dati
         return $data;
         
-    }   
+    }  
+
+	function insertSuperuser($data)
+	{
+		
+		$PARAMETERS['encritp'] = $GLOBALS['PARAMETERS']['encritp'];
+		
+		$query = "INSERT INTO personaggio 
+					 (nome, 
+					 pass, 
+					 email,
+					 permessi, 
+					 data_iscrizione, 
+					 ultimo_cambiopass) 
+				 VALUES 
+					 (?, 
+					 ?, 
+					 ?,
+					 4,
+					 NOW(), 
+					 NOW())";		
+		$param = array();
+		$param[] = array(					
+			'type' 	=> PARAM_STR,
+			'value' => ucwords(trim($data['nome']))
+		);			
+		$param[] = array(					
+			'type' 	=> PARAM_STR,
+			'value' => \security\password\hash(trim($data['pass']))
+		);				
+		$param[] = array(					
+			'type' 	=> PARAM_STR,
+			'value' => \security\crypt\anonimize(trim($data['mail']),$PARAMETERS['encritp']['email'])
+		);
+		$result = \gdrcd\db\stmt($query,$param);		
+	
+	}

@@ -36,7 +36,7 @@
     // Comunica a PHP che useremo stringhe UTF-8 fino alla fine dello script
     mb_internal_encoding('UTF-8');
 
-    // Comunica a PHP che invieremo stringhe UTF-8 al browser
+    // Comunthe only sad thing is that being switch i attract few peopleùica a PHP che invieremo stringhe UTF-8 al browser
     mb_http_output('UTF-8');    
 
     header('Content-Type:text/html; charset=UTF-8');    
@@ -55,46 +55,62 @@
     require_once ROOT . '/system/inc/functions/_core.inc.php';
     //include il plugin di default per il bbcode
     
-	/// [autoloader_example]		
-	//include l'autoloader
-	require_once(ROOT . '/system/lib/dlight/core/autoloader/Autoloader.php');
-	//istanzia l'autoloader
-	$autoloader = new \dlight\core\autoloader\Autoloader();
+    //INCLUSIONE DI UN AUTOLOADER STANDARD QUALORA QUALCUNO VOLESSE CIMENTARSI NELL'USO DELLA PROGRAMMAZIONE AD OGGETTI
+    /// [autoloader_example]        
+    //include l'autoloader
+    require_once(ROOT . '/system/lib/dlight/core/autoloader/Autoloader.php');
+    //istanzia l'autoloader
+    $autoloader = new \dlight\core\autoloader\Autoloader();
+    
+    //aggiunge i path in cui cercare le risorse
+    $autoloader->addPath(ROOT . '/system/lib/');
+    
+    //aggiunge nell'array degli autori che sfruttano la classe phpbrowscap
+    $autoloader->addVendor('gdrcd'); 
+    $autoloader->addVendor('erusev'); 
+
 	
-	//aggiunge i path in cui cercare le risorse
-	$autoloader->addPath(ROOT . '/system/lib/');
-	
-	//aggiunge nell'array degli autori che sfruttano la classe phpbrowscap
-	$autoloader->addVendor('gdrcd'); 
-	/// [autoloader_example]		
-	
-	//avvia la classe contenitore
-	\gdrcd\core\gdrcd::getInstance();
-	//imposta un alias più comodo per il contenitore delle classi
-	$gdrcd = \gdrcd\core\gdrcd::$class;		
-	
-	require_once ROOT . '/system/lib/bbdecoder/bbdecoder.php';
+	/// [autoloader_example]        
+    
+    //INCLUSIONE DI UNA CLASSE CONTENITORE UTILE PER L'INIEZIONE DELLE DIPENDENZE SE QUALCUNO VOLESSE CIMENTARSI NELL'USO 
+    //DELLA PROGRAMMAZIONE AD OGGETTI
+    //avvia la classe contenitore
+    \gdrcd\core\gdrcd::getInstance();
+    //imposta un alias più comodo per il contenitore delle classi
+    $gdrcd = \gdrcd\core\gdrcd::$class;     
+    
+    require_once ROOT . '/system/lib/bbdecoder/bbdecoder.php';
     //include il preprocessore dei css
     require_once ROOT . '/system/lib/csscrush/CssCrush.php';
     
     //opzioni per il processore dei css
     $settings= array(
-        'minify' => false,
+        'minify' => true,
         'output_dir' =>  ROOT . '/themes/' . $PARAMETERS['themes']['current_theme'] . '/css',
         'versioning' => true,
+		'formatter' => 'block'
     );  
     //imposta le opzioni per il processore dei css      
     csscrush_set('options',$settings);  
     
-    //Eseguo la connessione al database
-    //$handleDBConnection = gdrcd_connect();
-	$db = \gdrcd\db\connect(
-		$PARAMETERS['database']['username'],
-		$PARAMETERS['database']['password'],
-		$PARAMETERS['database']['url'],
-		$PARAMETERS['database']['database_name'],
-		$PARAMETERS['database']['collation']
-	);
-    
     //include il template base
     require template\file('_base');
+	
+	//se esiste il file di installazione e quindi il cms non è ancora stato installato
+	if($PARAMETERS['install']['complete'] === false) {
+
+		//include il file di installazione
+		require(ROOT . '/system/install/install.php');
+		//arresta lo script corrente
+		exit();
+	
+	}
+
+    //Eseguo la connessione al database
+    $db = \gdrcd\db\connect(
+        $PARAMETERS['database']['username'],
+        $PARAMETERS['database']['password'],
+        $PARAMETERS['database']['url'],
+        $PARAMETERS['database']['database_name'],
+        $PARAMETERS['database']['collation']
+    );	

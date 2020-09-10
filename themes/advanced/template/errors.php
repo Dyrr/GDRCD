@@ -1,12 +1,75 @@
-	<div class="error">
-		<h2>Elenco errori</h2>
-		<ol>
-<?php
-			foreach($TAG['page']['errors'] as $v) {
+<?php 
+	if(isset($TAG['page']['errors'])) {
 ?>
-				<li>Errore <?php echo gdrcd_filter_num($v['code']); ?>: <?php echo gdrcd_filter_out($v['testo']); ?></li>
+		<div class="error">
+			<h2>Elenco errori</h2>
+			<ol>
 <?php
-			}
+				foreach($TAG['page']['errors'] as $v) {
 ?>
-		</ol>
-	</div>
+					<li>
+						Errore <?php isset($v['code']) ? out($v['code']) : ''; ?>: 
+						<?php echo out($v['testo']); ?>
+					</li>
+<?php
+				}
+?>
+			</ol>
+		</div>
+<?php
+	}
+	if(isset($TAG['page']['completed'])) {
+?>
+		<div class="completed">
+			<h2>Risultato</h2>
+			<ol>
+<?php
+				foreach($TAG['page']['errors'] as $v) {
+?>
+					<li>
+						Errore <?php isset($v['code']) ? out($v['code']) : ''; ?>: 
+						<?php echo out($v['testo']); ?>
+					</li>
+<?php
+				}
+?>
+			</ol>
+		</div>
+<?php
+	}		
+	if(isset($TAG['page']['warning'])) {
+?>
+		<div class="warning">
+			<h2>Warning</h2>
+			<ol>
+<?php
+				foreach($TAG['page']['warning'] as $v) {
+?>
+					<li>
+						Errore <?php isset($v['code']) ? out($v['code']) : ''; ?>: 
+						<?php echo out($v['testo']); ?>
+					</li>
+<?php
+				}
+?>
+			</ol>
+		</div>
+<?php
+	}
+	if(isset($TAG['page']['results'])) {
+?>
+		<div class="completed">
+			<ol>
+<?php
+				foreach($TAG['page']['warning'] as $v) {
+?>
+					<li>
+						<?php echo out($v['testo']); ?>
+					</li>
+<?php
+				}
+?>
+			</ol>
+		</div>
+<?php
+	}	

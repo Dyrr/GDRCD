@@ -31,7 +31,8 @@
 						 mappa.nome AS nome_chat, 
 						 mappa.chat, 
 						 mappa.pagina, 
-						 mappa.id_mappa_collegata
+						 mappa.id_mappa_collegata, 
+						 COALESCE(mappa.nome,mappa_click.nome) AS nome_locazione 
 					 FROM mappa_click
 					 LEFT JOIN mappa 
 					 ON 
@@ -92,9 +93,12 @@
 		function mappaDati($idmappa)
 		{
 			
+
 			$query = "SELECT 
-					     * 
-					 FROM mappaclick 
+					     mc.nome AS luogo, 
+						 mc.id_click AS id, 
+						 mc.immagine AS urlimg 
+					 FROM mappa_click AS mc
 					 WHERE 
 					     id_click = ? 
 					 LIMIT 0,1";
@@ -111,12 +115,119 @@
 				
 			} else {
 				
+				$data = $result['data'][0];
+				$data['type'] = 'map';
+				
+			}
+			return $data;
+			
+		}
+		
+		function luogoDati($idmappa)
+		{
+			
+
+
+			return '';
+			
+		}		
+		
+		function locazioni($idmap)
+		{
+			
+			$query = "SELECT 
+					     l.* 
+					 FROM mappa AS l 
+					 WHERE 
+					         l.id_mappa = ? 
+					     AND l.id_mappa_collegata != ? 
+					 ORDER BY 
+					      l.nome";
+			$param = array();
+			$param[] = array(					
+				'type' 	=> PARAM_INT,
+				'value' => $idmap
+			);			
+			$param[] = array(					
+				'type' 	=> PARAM_INT,
+				'value' => $idmap
+			);			
+			$result = \gdrcd\db\stmt($query,$param);
+
+			if($result['info']['num_rows'] == 0) {
+				
+				$data = false;
+				
+			} else {
+				
 				$data = $result['data'];
 				
 			}
 			
-			return $data;
+			return $data;			
 			
 		}
+		
+		function dati($idmap)
+		{
+			
+			$query = "SELECT 
+					     l.*, 
+						 l.immagine AS img_loc, 
+						 m.immagine AS img_map, 
+						 m.* 
+					 FROM mappa AS l 
+					 LEFT JOIN mappa_click AS m
+					 ON
+					         l.id_mappa_collegata = m.id_click 
+						 AND m.id_click = ? 
+					 WHERE 
+					     l.id_mappa_collegata = ? 
+					 ORDER BY 
+					      l.nome 
+					 LIMIT 0,1";
+			$param = array();
+			$param[] = array(					
+				'type' 	=> PARAM_INT,
+				'value' => $idmap
+			);			
+			$param[] = array(					
+				'type' 	=> PARAM_INT,
+				'value' => $idmap
+			);			
+			$result = \gdrcd\db\stmt($query,$param);
+
+			if($result['info']['num_rows'] == 0) {
+				
+				$data = false;
+				
+			} else {
+				
+				$data = $result['data'][0];
+				
+			}
+			
+			return $data;			
+			
+		}
+
+		function mappa($idmap)
+		{		
         
+			$mappa['dati'] = \mappa\dati($idmap);
+			
+			
+			$mappa['back'] = \mappa\dati($mappa['dati']['id_mappa']);
+			
+			if($mappa['dati']['id_mappa'] == $mappa['back']['id_mappa']) {
+				
+				$mappa['back'] = false;
+						
+			}
+			
+			return $mappa;
+		
+		
+		
+		}
     }

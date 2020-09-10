@@ -21,7 +21,7 @@
     $PARAMETERS['menu']['refresh']['function'] = 'main';
 
     $PARAMETERS['menu']['map']['text'] = '<i class="fas fa-map"></i> Mappa';
-    $PARAMETERS['menu']['map']['url'] = 'main.php?page=mappaclick&map_id=' . $_SESSION['mappa'];
+    $PARAMETERS['menu']['map']['url'] = 'main.php?page=mappa&map_id=' . $_SESSION['mappa'];
     $PARAMETERS['menu']['map']['function'] = 'main';
 
     $PARAMETERS['menu']['profile']['text'] = '<i class="fas fa-user"></i> Scheda';

@@ -19,17 +19,40 @@
 				//visualizzando le voci
 ?>
 <?php
+				//SE LA VOCE È UNA VOCE DI MAPPA
 				if($v['mappa'] === true) {
 ?>
-                    <option value="main.php?page=mappaclick&map_id=<?php out($v['id_click']); ?>" class="map">
-						<?php out($v['nome']); ?>
-					</option>		
 <?php
+					//SE LA MAPPA NON È LA STESSA DI CUI SI STANNO VISUALIZZANDO LE LOCAZIONI					
+					if($v['id_click'] != $v['id_mappa_collegata']) {
+?>
+						<option value="main.php?page=mappa&map_id=<?php out($v['id_click']); ?>" class="map">
+							<?php out($v['nome_locazione']); ?>
+						</option>
+<?php
+					}
+?>
+<?php
+				//SE LA VOCE È UNA LOCAZIONE
 				} else {
 ?>
-                    <option value="main.php?dir=<?php out($v['id']); ?>&id_map=<?php out($v['id_click']); ?>">
-						<?php out($v['nome_chat']); ?>
-					</option>
+<?php
+					//SE LA LOCAIZONE PUNTA AD UNA CHAT
+					if($v['id_mappa_collegata'] == 0) {
+?>
+						<option value="main.php?dir=<?php out($v['id']); ?>&id_map=<?php out($v['id_click']); ?>">
+							<?php out($v['nome_locazione']); ?>
+						</option>
+<?php
+					//SE LA LOCAIZONE PUNTA AD UNA SOTTOMAPPA
+					} else {
+?>
+						<option value="main.php?page=mappa&map_id=<?php out($v['id_mappa_collegata']); ?>">
+							<?php out($v['nome_locazione']); ?>
+						</option>
+<?php
+					}
+?>
 <?php
 				}
 ?>

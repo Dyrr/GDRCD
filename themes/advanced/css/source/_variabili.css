@@ -1,3 +1,12 @@
+@set {
+  default_page_padding: 10px;
+	/* ROSSO */
+	color_05:rgba(179, 0, 0,1);
+	
+	/* VERDE */
+	color_01:rgba(27,220,0,1);
+}
+
 @mixin glass {
     border-right:2px solid #C4D8E2;
     border-bottom:2px solid #C4D8E2;
@@ -20,4 +29,15 @@
 
 @mixin glossy {
 
+}
+
+@mixin main_inset
+{
+	background-color: rgba(0,0,0,.1);
+	border-radius: 5px;
+	border-right: 2px solid #C4D8E2;
+	border-bottom: 2px solid #C4D8E2;
+	border-left: 2px solid #003A6C;
+	border-top: 2px solid #003A6C;
+	box-shadow: inset 5px 5px 10px 1px rgba(0,0,0,.5);	
 }

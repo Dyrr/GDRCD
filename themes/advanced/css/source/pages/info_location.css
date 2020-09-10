@@ -1,0 +1,33 @@
+div.info_location
+{
+	
+	.page_title
+	{
+		margin:10px;
+	}
+	
+	.img_wrapper
+	{
+		width:100%;
+		height:150px;
+
+		a:hover
+		{
+			filter: brightness(110%);
+		}
+		
+		img
+		{
+			width:100%;
+			height:100%;
+			margin:auto;
+			display:block;
+			object-fit:contain;
+		}
+	
+	}
+	
+	
+	
+	
+}

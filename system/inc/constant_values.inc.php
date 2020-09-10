@@ -9,12 +9,39 @@ define('MODERATOR', 3);
 define('GAMEMASTER', 2);
 define('GUILDMODERATOR', 1);
 
+
+//categorie log
+define('GENERIC', 0);
+define('SYSTEM', 1);
+define('SECURITY', 2);
+define('PG', 3);
+define('LOGIN', 4);
+define('ONGAME', 5);
+define('SOLDI', 6);
+
+
+
 /*Codici di log*/
-define('BLOCKED', 1);
-define('LOGGEDIN', 2);
-define('ACCOUNTMULTIPLO', 3);
-define('ERRORELOGIN', 4);
-define('BONIFICO', 5);
+define('PG_NOT_EXISTS',10000);
+define('WRONG_PASSWORD',10001);
+define('LOGIN_OK', 10002);
+define('DOPPIO_IP', 10003);
+define('DOPPIO_COOCKIE', 10004);
+define('ALREADY_LOGGED', 10005);
+define('BLOCKED', 10006);
+define('LOGGEDIN', 10007);
+define('ACCOUNTMULTIPLO', 10008);
+define('ERRORELOGIN', 10009);
+
+define('STIPENDIO', 60001);
+define('BONIFICO', 60002);
+define('MERCATO_COMPRA', 60003);
+define('MERCATO_VENDI', 60004);
+
+define('UNAUTHORIZED',20001);
+define('LACK_OF_PERMISSION',20002);
+
+
 define('NUOVOLAVORO', 6);
 define('DIMISSIONE', 7);
 define('CHANGEDROLE', 8);

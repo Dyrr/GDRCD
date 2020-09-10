@@ -3,6 +3,9 @@
 /* HELP:  Modificando i messaggi contenuti in questa pagina è possibile modificare i messaggi visualizzati in tutto il sito. Sono suddivisi in base alla pagina dove compaiono. Se non è specificata la pagina appaiono su più pagine.
 IMPORTANTE! non cancellate alcuna delle righe, ne modificate quanto scritto tra le parentesi quadre, altrimenti il funzionamento del sito potrebbe essere pregiudicato. Limitarsi a modificare o azzerare (='') i messaggi. */
 
+
+require_once 'errors.inc.php';
+
 /********** Homepage **********/
 /*Testo centrale homepage*/
 $MESSAGE['homepage']['main_content']['site_title'] = 'GDRCD 5.6';
@@ -76,9 +79,7 @@ $MESSAGE['register']['welcome']['back'] = 'Torna alla';
 $MESSAGE['register']['welcome']['message'][3] = 'Il tuo username e la tua password ti sono stati inviati per email all\'indirizzo';
 $MESSAGE['register']['welcome']['message'][4] = 'Lo staff è lieto di darti il benvenuto e ti augura buon divertimento! Hai già letto l\ambientazione ed il regolameto? Se non è così ti invitiamo a farlo al più presto!.';
 /* Errori */
-$MESSAGE['register']['error']['name_taken'] = 'Il nome scelto è già in uso.';
-$MESSAGE['register']['error']['email_taken'] = 'Esiste già un account registrato con questa e-mail.';
-$MESSAGE['register']['error']['email_needed'] = 'Specificare un\'email valida.';
+
 
 
 /********** Pagine utente **********/
@@ -262,7 +263,7 @@ $MESSAGE['interface']['forums']['type'][5] = 'Solo moderatori';
 $MESSAGE['interface']['bank']['page_name'] = 'Servizi bancari';
 $MESSAGE['interface']['bank']['back'] = 'Torna all\'elenco servizi...';
 $MESSAGE['interface']['bank']['done'] = 'Transazione effettuata.';
-$MESSAGE['interface']['bank']['error'] = 'Cifra non valida.';
+
 $MESSAGE['interface']['bank']['deposit'] = 'Deposito';
 $MESSAGE['interface']['bank']['deposit_no'] = 'Non hai abbastanza denaro in tasca.';
 $MESSAGE['interface']['bank']['withdraw'] = 'Prelievo';
@@ -654,23 +655,7 @@ $MESSAGE['installer']['install'] = "Esegui l\'installazione automatica";
 
 
 /********** MESSAGGI DI ERRORE **********/
-$MESSAGE['error']['db_not_found'] = 'Impossibile trovare il database, verificare l\'installazione di GDRCD.';
-$MESSAGE['error']['db_empty'] = 'Il database non contiene tabelle, è necessario effettuare l\'installazione';
-$MESSAGE['error']['db_not_updated'] = 'E\' stata rilevata l\'installazione di Mr Fabers GDRCD5, per aggiornare il database e renderlo compatibile proseguire cliccando sul link sottostante';
-$MESSAGE['error']['can_t_load_frame'] = 'Impossibile caricare la pagina.';
-$MESSAGE['error']['can_t_find_any_map'] = 'Nessuna mappa esistente.';
-$MESSAGE['error']['session_expired'] = 'La tua sessione è scaduta o non hai effettuato il login.';
-$MESSAGE['error']['location_doesnt_exist'] = 'Questo luogo non esiste.';
-$MESSAGE['error']['unknown_character_sheet'] = 'Non è stato specificato il none del PG oppure il PG non esiste.';
-$MESSAGE['error']['unknown_operation'] = 'Operazione richiesta sconosciuta.';
-$MESSAGE['error']['access_denied'] = 'Accesso negato';
-$MESSAGE['error']['not_allowed'] = 'L\'utente corrente non dispone dei permessi per accedere a questa pagina.';
-$MESSAGE['error']['existing_name'] = 'Nome già in uso.';
-/* Errori di login*/
-$MESSAGE['error']['unknown_username'] = 'Utente o password non riconosciuti.';
-$MESSAGE['error']['unknown_username_details'] = 'Eseguire di nuovo la procedura di login.';
-$MESSAGE['error']['unknown_username_failure_count'] = 'Fallimento numero:';
-$MESSAGE['error']['unknown_username_warning'] = 'Con 10 fallimenti consecutivi sarà interdetto l\'accessola dalla postazione corrente.';
+
 
 
 /********** INFORMAZIONI E SUGGERIMENTI **********/

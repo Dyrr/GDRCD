@@ -1,0 +1,125 @@
+div.mappa_grafica
+{
+	height:calc(100% - (2 * $(default_page_padding)));
+	display:flex;
+	flex-flow:column wrap;
+	padding:$(default_page_padding);
+	
+	.map_container
+	{
+		flex:10 0 auto;
+		overflow:auto;
+		display:flex;
+		align-items:center;
+		
+		.map
+		{
+			margin:auto;
+			position:relative;
+			background-size:contain;
+			@include main_inset;
+			
+			.linear_grid
+			{
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				background-size: 20px 20px;
+				background-image:
+				linear-gradient(to right, rgba(0,0,0,0.2) 1px, transparent 1px),
+				linear-gradient(to bottom, rgba(0,0,0,0.2) 1px, transparent 1px);				
+			}
+			
+			a
+			{
+				display:block;
+			}
+			
+			.marker_mappa
+			{
+				
+			}
+			
+			.marker_locazione
+			{
+				
+			}
+			
+			.marker
+			{
+				position:absolute;				
+				text-align:center;
+				/* centra il marcatore sulla mappa sulla sua punta */
+				transform:translate(-50%, calc(-100% - 1em));
+				
+				.label
+				{
+					padding:5px;
+					margin-bottom:5px;
+					background-color:rgba(255,255,255,0.5);
+					border:1px solid black;
+				}			
+			
+				.pin
+				{
+					width:2em;
+					height:2em;
+					text-align:center;
+					background-color:#0099ff;
+					line-height:2em;
+					border-radius:50%;
+					position:relative;
+					z-index:1000;
+					margin:auto;
+					color:rgba(255,255,255,0.5);
+					transition-duration: 0.2s;		
+					
+					
+				}
+
+				.pin:before
+				{
+					content:'';
+					width:2em;
+					height:2em;
+					background-color:#0099ff; 
+					transform:
+						scale(60%, 110%) 
+						rotate(45deg);
+					position:absolute;
+					bottom:-0.6em;
+					left:0em;
+					display:block;
+					z-index:-1; 
+					transition-duration: 0.2s;		
+				}			
+			
+				
+				a:hover,
+				a:hover .pin, 
+				a:hover .pin:before		
+				{
+					color:#ffffff;
+
+					filter: brightness(125%) !IMPORTANT;
+				}			
+			
+			}
+			
+		}
+	
+	}
+	
+}
+
+div.mappa_testuale
+{
+	
+}
+
+div.mappa_classica
+{
+	
+}

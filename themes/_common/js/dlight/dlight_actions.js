@@ -14,7 +14,7 @@ dlight.a = (function () {
 			if(options.delay == 'none') {
 				
 				//inserisce subito il contenuto della nuova pagina nel div, mantenendo la posizione della scrollbar
-				$(target).html(data);	
+				//$(target).html(data);	
 			
 			//se è impostato un tempo di attesa
 			} else {
@@ -167,6 +167,21 @@ dlight.a = (function () {
 
 			dialog(event,options);
 		},
+		
+		dialog : function(event) {
+			event.preventDefault();				
+			
+			var options = {};
+			options.width = $(this).data('width') == undefined ? 800 : $(this).data('width');
+			options.height = $(this).data('height') == undefined ? 700 : $(this).data('height');
+			options.name = $(this).data('name') == undefined ? 'gdrcd' : $(this).data('name');
+			options.title = $(this).data('title') == undefined ? 'GDRCD' : $(this).data('title');
+			options.css_class = $(this).data('class') == undefined ? 'default' : $(this).data('class');			
+			options.url = $(this).attr('href');			
+			options.icon = $(this).data('icon') == undefined ? 'far fa-window-maximize' : $(this).data('icon');			
+			
+			dialog(event,options);
+		},		
 		
 		msg : function(event) {
 			event.preventDefault();				

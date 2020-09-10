@@ -3,7 +3,7 @@
 $PARAMETERS['themes']['current_theme'] = 'advanced'; //tema in uso
 
 $PARAMETERS['home']['section']['form']['box']['login']['class'] = 'login';
-$PARAMETERS['home']['section']['form']['box']['login']['page'] = 'login'; //Menu' del gioco.
+$PARAMETERS['home']['section']['form']['box']['login']['page'] = 'login/access'; //Menu' del gioco.
 $PARAMETERS['home']['section']['form']['box']['precupero']['class'] = 'recupero';
 $PARAMETERS['home']['section']['form']['box']['precupero']['page'] = 'recupero_pass'; //Menu' del gioco.
 //$PARAMETERS['home']['section']['stat']['box']['online']['class'] = 'online';

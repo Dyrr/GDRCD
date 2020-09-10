@@ -15,7 +15,9 @@
     require_once ROOT . '/system/inc/required.php';
 
     //definizione della sezione da caricare
-    $page = ( ! empty($_GET['page'])) ? gdrcd_filter('include', $_GET['page']) : 'index';
+    $page = (isset($_GET['page'])) 
+		? gdrcd_filter('include', str_replace('__','/',$_GET['page'])) 
+		: 'index';
 
     //include la parte con la logica della pagina
     require modulo\file('home/' . $page);
@@ -28,4 +30,4 @@
     unset($PARAMETERS);
 
     //stampa a video la pagina
-    \template\render($OUT);
+    \template\render($OUT,$TAG['render']['mode']);

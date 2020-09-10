@@ -3,10 +3,14 @@
 
 /* IMPORTA GLI STILI COMUNI */
 @import 'common.css';
+@import 'form.css';
+@import 'marker.css';
+@import 'report.css';
+
 
 /* IMPORTA I CSS DELLA HOME */
 @import 'home/layout.css';
-/*@import 'homepage.css';*/
+@import 'install/layout.css';
 
 /* importa i css principali */
 @import 'main.css';

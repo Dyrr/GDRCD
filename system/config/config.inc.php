@@ -1,9 +1,10 @@
 <?php
 /**
- * CONFIGURAZIONE DI GDRCD 5.5
+ * CONFIGURAZIONE DI GDRCD 5.6
  * @author MrFaber
  * @author Blancks
  * @author Breaker
+ * @author Davide 'Dyrr' grandi 
  */
 
 /**
@@ -16,16 +17,17 @@ error_reporting(E_ERROR | E_PARSE);
 
     //include la sezione del file di configurazione per il database
     require_once __DIR__ . '/db.inc.php';
+    //include la sezione del file di configurazione per la crittografia
+    require_once __DIR__ . '/crypt.inc.php';
+    //include la sezione del file di configurazione per il layout
+    require_once __DIR__ . '/layout.inc.php';
+    //include la sezione del file di configurazione per il layout
+    require_once __DIR__ . '/gdrcd.inc.php';
+    //include la sezione del file di configurazione per il layout
+    require_once __DIR__ . '/install.inc.php';
 
 
-/* HELP: Sostituire le diciture inserite tra le virgolette con i parametri di connessione al Database del proprio dominio. Essi sono forniti al momento della registrazione. Se non si e' in possesso di tali parametri consultare le FAQ della homepage dell'host che fornisce il dominio. Se non le si trovano li contattare lo staff dell'host. */
-
-
-/* POLITICA DI CRIPTAZIONE
- * E' stata rimossa la possibilita' di scegliere se salvare le password in chiaro.
- * Sono stati rimossi i metodi SHA-1 e MD5 non essendo piu' sicuri. Rimane solo la funzione BCRYPT
- */
-
+$PARAMETERS['game_engine']['engine'] = 'interlock';
 /* INFORMAZIONI SUL SITO */
 $PARAMETERS['info']['site_name'] = 'GDRCD 5.6'; //nome del gioco
 $PARAMETERS['info']['site_url'] = 'http://gdrcd.test/'; //indirizzo URL del gioco
@@ -44,7 +46,7 @@ $PARAMETERS['languages']['set'] = 'IT-it'; //lingua italiana
 
 /* HELP: Per definire un diverso vocabolario creare una copia del file /vocabulary/IT-it.vocabulary.php nella cartella vocabulary. Il nome del file deve essere [nome].vocabulary.php, dove la stringa [nome] può essere scelta e deve essere il valore specificato in $PARAMETER['languages']['set']. */
 
-
+$PARAMETERS['stipendio']['intervallo'] = 'giornaliero';
 
 
 /* Attiva nel frame l'avviso in caso di nuovi messaggi privati e/o bacheche */
@@ -52,8 +54,7 @@ $PARAMETERS['mode']['check_forum'] = 'OFF';
 $PARAMETERS['text']['check_forum']['new'] = '(Nuovo)';
 $PARAMETERS['mode']['check_messages'] = 'ON';
 
-    //include la sezione del file di configurazione per il layout
-    require_once __DIR__ . '/layout.inc.php';
+
 
 
 /* NOMI CHIAVE DEL GIOCO */

@@ -1,0 +1,82 @@
+.marker
+{
+	position:absolute;				
+	text-align:center;
+	/* centra il marcatore sulla mappa sulla sua punta */
+	transform:translate(-50%, calc(-100% - 1em));
+	
+	.label
+	{
+		padding:5px;
+		margin-bottom:5px;
+		background-color:rgba(255,255,255,1);
+		border:1px solid black;
+		border-radius:5px;
+		box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+	}			
+
+	.pin
+	{
+		position:relative;
+		width:2em;
+		margin:auto;
+		
+		.circle
+		{
+			width:2em;
+			height:2em;
+			text-align:center;
+			background-color:#0099ff;
+			line-height:2em;
+			border-radius:50%;
+			position:relative;
+			z-index:1000;
+			margin:auto;
+			color:rgba(255,255,255,0.5);
+			transition-duration: 0.2s;
+		}
+		
+		.triangle
+		{
+			width:2em;
+			height:2em;
+			background-color:#0099ff; 
+			transform:
+				scale(60%, 110%) 
+				rotate(45deg);
+			position:absolute;
+			bottom:-0.6em;
+			left:0em;
+			display:block;
+			z-index:-1; 
+			transition-duration: 0.2s;		
+		}					
+		
+		
+		
+	}
+	
+	.pin.red
+	{
+		
+		.circle, 
+		.triangle
+		{
+			background-color:red;
+		}
+		
+	}
+
+
+
+	
+	a:hover,
+	a:hover .pin, 
+	a:hover .pin:before		
+	{
+		color:#ffffff;
+
+		filter: brightness(125%) !IMPORTANT;
+	}			
+
+}

@@ -1,0 +1,29 @@
+.pagina_gestione_locazioni
+{
+	padding:10px;
+	
+	.pager 
+	{
+		text-align:center;
+	}
+	
+	th
+	{
+		padding:10px;
+	}
+	
+	.img_wrapper_outer
+	{
+		text-align:center;
+		margin:0.5em 0;
+	}
+	
+	.imgwrapper
+	{
+		margin:auto;
+		position:relative;
+		@include main_inset;
+	
+	
+	}
+}

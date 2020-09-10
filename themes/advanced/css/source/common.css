@@ -1,3 +1,13 @@
+/**
+ *  @file       themes/advanced/css/source/common.css
+ *  
+ *  @brief      regole css generiche comuni 
+ *  
+ *  @version    5.6.0
+ *  @date       dyrr/dyrr/dyrr
+ *  
+ *  @author     Davide 'Dyrr' Grandi
+ */
 /* INIZIO STILI COMUNI */
 ::-webkit-scrollbar {
   width: 5px;
@@ -17,6 +27,10 @@
   background: rgba(0,0,0,0.75); 
 }
 
+:disabled
+{
+    color:rgba(0,0,0,0.75);
+}
 
 body,
 html
@@ -62,9 +76,28 @@ a:hover {
 		opacity:1;
 }
 
+
+.button
+{
+	display:inline-flex;
+	flex-flow:row wrap;
+	margin:auto;
+}
+
+.submit
+{
+	display:flex;
+	flex-flow:row wrap;
+	margin:auto;
+	text-align:center;
+	justify-content:center;	
+}
+
+.button a,
 input[type="submit"]
 {
-    background: 
+    display:flex;
+	background: 
         linear-gradient(to bottom, 
             rgba(76,76,76,1) 0%,
             rgba(89,89,89,1) 12%,
@@ -83,7 +116,7 @@ input[type="submit"]
 	border-radius:5px;
 	padding:0.5em;
 	text-transform:uppercase;
-	color:#EBECF0;
+	color:#EBECF0 !IMPORTANT;
 	min-width:100px;
 	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 	cursor:pointer;
@@ -91,15 +124,22 @@ input[type="submit"]
 	font-weight:bolder;
 	letter-spacing:2px;
 	box-sizing: border-box;
-	margin:10px 0;
+	margin:10px auto;
+	text-align:center;
+	justify-content:center;
+	flex:0 1 auto;
+	white-space: nowrap;
+
 }
 
+.button a:hover,
 input[type=submit]:hover
 {
-	color:#007AA5;
+	color:#007AA5 !IMPORTANT;
 	filter: brightness(150%);
 }
 
+.button a:active,
 input[type=submit]:active
 {
 	border-bottom:1px solid white;
@@ -113,7 +153,11 @@ input[type=submit]:active
 
 input[type="text"],
 input[type="password"],
-select
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"], 
+select,
+textarea
 
 {
 	background-color:rgba(255,255,255,0.25);
@@ -127,9 +171,84 @@ select
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus
+input[type="password"]:focus,
+input[type="email"]:focus, 
+textarea:focus
 {
 	background-color:rgba(255,255,255,0.5);	
+}
+
+.switch
+{
+	position: relative;
+	display: inline-block;
+	width: 2em;
+	height: 1em;
+	margin-top:0.5em;
+
+	input
+	{
+	
+		display:none;
+	
+	}
+	
+	.slider
+	{
+		
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+		background-color:red;
+		border-bottom:1px solid white;
+		border-right:1px solid white;
+		border-left:1px solid #000000;
+		border-top:1px solid #000000;
+		box-shadow: inset 2px 2px 5px 0px rgba(0,0,0,0.75);
+		padding:7px;
+		box-sizing: border-box;			
+	}
+
+	.slider:before
+	{
+		position: absolute;
+		content: "";
+		height: calc(1em - 2px);
+		width: calc(1em - 2px);
+		left: 1px;
+		bottom: 1px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	input:checked + .slider {
+	  background-color:green;
+	}
+
+	input:focus + .slider {
+	  box-shadow: 0 0 1px rgba(0,0,0,0);
+	}
+
+	input:checked + .slider:before {
+	  transform: translateX(calc(2em - 1px));
+	}
+
+	/* Rounded sliders */
+	.slider.round {
+	  border-radius: 0.5em;
+	}
+
+	.slider.round:before {
+	  border-radius: 50%;
+	}	
+  
 }
 
 form
@@ -239,33 +358,7 @@ table
 	text-align:center;
 }
 
-div.error
-{
-    background-color: #cf8888;
-    text-align: center;
-    margin: 10px;
-    padding: 5px;
-    border: solid 1px #800;
-    color: #970b0b;	
-	text-align:left;
-	
-	h2
-	{
-		text-align:left !IMPORTANT;
-		color:#970b0b !IMPORTANT;
-	}
-	
-	ol
-	{
-		
-		li
-		{
-			line-height:1.5em;
-		}
-	
-	}
 
-}
 
 
 progress
@@ -306,4 +399,22 @@ div.img img{
 	height:100%;
 	object-fit:contain;
 }
-	
+
+.tc
+{
+	text-align:center;
+}
+
+.ok
+{
+	color:$(color_01);
+}
+.nook
+{
+	color:$(color_05);	
+}	
+
+.break
+{
+	flex:1 0 100%;
+}

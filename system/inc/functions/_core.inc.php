@@ -15,8 +15,17 @@
  * Connettore al database MySql
  */
  
- 
-require 'db.inc.php'; 
+	require 'core/modulo.inc.php';
+	//carica il set di funzioni per l'interrogazione del database
+
+	\functions\load('core/helpers');
+	\functions\load('core/template');
+	\functions\load('core/log');
+
+	\functions\load('core/db/mysqli');
+	\functions\load('core/security/password');
+	\functions\load('core/security/defcon');
+	\functions\load('core/security/crypt');
  
 function gdrcd_connect() {
     static $db_link = false;
@@ -247,44 +256,12 @@ function gdrcd_mysql_error($details = false) {
     return $error_msg;
 }
 
-/**
- * Funzionalità di escape
- * Set di funzioni escape per filtrare i possibili contenuti introdotti da un utente ;-)
- */
 
-/**
- * Funzione di hashing delle password.
- * @param string $str : la password o stringa di cui calcolare l'hash
- * @return l'hash calcolato a partire da $str con l'algoritmo specificato nella configurazione
- */
-function gdrcd_encript($str) {
-    require_once(dirname(__FILE__).'/PasswordHash.php');
-    $hasher = new PasswordHash(8, true);
 
-    return $hasher->HashPassword($str);
-}
 
-function gdrcd_password_check($pass, $stored) {
-    require_once(dirname(__FILE__).'/PasswordHash.php');
-    $hasher = new PasswordHash(8, true);
 
-    return $hasher->CheckPassword($pass, $stored);
-}
 
-/**
- * TODO Controllo della validità della password
- * Funzione work in progress, da implementare.
- * Deve essere disabilitabile da config
- * Funzionalità da ON/OFF:
- * - numero di caratteri minimo scelto dall'utente
- * - non accettazione di password contenenti lettere accentate
- * - non accettazione di password troppo semplici (ad esempio uguali al nickname del personaggio)
- * @param string $str : la password da controllare
- * @return true se la password è valida, false altrimenti
- */
-function gdrcd_check_pass($str) {
-    return true;
-}
+
 
 /**
  * Funzione di filtraggio di codici malevoli negli input utente
@@ -511,19 +488,6 @@ function gdrcd_capital_letter($word) {
 }
 
 /**
- * Genera una password casuale, esclusivamente alfabetica con lettere maiuscole
- * @return una stringa casuale lunga 8 caratteri
- */
-function gdrcd_genera_pass() {
-    $pass = '';
-    for($i = 0; $i < 8; ++$i) {
-        $pass .= chr(mt_rand(0, 24) + ord("A"));
-    }
-
-    return $pass;
-}
-
-/**
  * BBcode nativo di GDRCD
  * Secondo me, questo bbcode presenta non poche vulnerabilità.
  * TODO Andrebbe aggiornata per essere più sicura
@@ -689,7 +653,3 @@ function gdrcd_list($str) {
 }
 
 
-require 'helpers.inc.php';
-require 'template.inc.php';
-require 'modulo.inc.php';
-require 'defcon.inc.php';

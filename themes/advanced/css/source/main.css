@@ -37,10 +37,7 @@ div.form_label {
     margin-top: 5px;
 }
 
-div.form_info {
-    font-size: 12px;
-    margin-bottom: 15px;
-}
+
 
 select.day, select.month, select.year {
     width: 60px;
@@ -94,20 +91,7 @@ div.innertube h2, .output h2, div.page_title h2 {
 	rgba(0,0,0,0.3) -1px -2px;
 }
 
-/** * Stile dei contenitori grigi con i bordini arrotondati
 
-div.pagina_info_location, div.msgs, div.menu, div.presenti, .output {
-    margin: 5px auto;
-    padding: 10px;
-    width: 180px;
-    background-color: #b9b9b9;
-    border: solid 1px #444;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
-}
-*/
 
 .output {
     position: absolute;
@@ -230,57 +214,10 @@ div.link_menu {
 }
 
 
-/** * Mappa cliccabile */
 
-/** * Posizionamento mappa cliccabile 
-*/
-div.mappaclick_map {
-    margin: 0 auto;
-}
 
-/** * Link testuali sulla mappa */
-div.mappaclick_map a {
-    font-size: 13px;
-    font-weight: bolder;
-	color:rgba(0,0,0,0.75);
-}
 
-/** * stile della tooltip di descrizione sulla mappa 
-*/
-div#descriptionLoc {
-    position: absolute;
-    width: 200px;
-    background-color: #cfcfcf;
-    padding: 20px;
-    font-size: 12px;
-    border: solid 1px #666;
-    font-family: Verdana, Sans;
-    text-align: left;
 
-    -moz-border-radius: 5px; /* Bordi arrotondati */
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
-
-    display: none; /*NON TOCCARE* Di configurazione: nasconde la tip in partenza */
-    z-index: 9999; /*NON TOCCARE* Di configurazione: mostra la tooltip sopra gli altri link */
-}
-
-/** * Stili relativi all'elenco delle mappe in basso
-*/
-div.mappaclick_more {
-    padding-top: 10px;
-}
-
-div.mappaclick_more a {
-    background-color: #cfcfcf;
-    padding: 8px;
-    margin-right: 10px;
-    -moz-border-radius: 5px; /* Bordi arrotondati */
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
-}
 
 /** * Messages center
 */
@@ -391,3 +328,7 @@ div.innertube {
     vertical-align: middle;
 }
 
+@import 'pages/info_location.css';
+@import 'pages/mappa.css';
+@import 'pages/gestione_locazioni.css';
+@import 'pages/gestione/manutenzione.css';
